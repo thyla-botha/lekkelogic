@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Contact | Lekke Logic — Tell us about your problem</title>
+<meta name="description" content="Tell us what you're trying to solve. We reply within 24 hours. If we're a fit, we'll book a call. If not, we'll tell you who is." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+</head>
+<body data-page="contact">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="services.html">Services</a>
+      <a href="process.html">Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Writing</a>
+    </nav>
+    <a class="nav-cta" href="contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section" style="border-top:none; padding-bottom: 56px;">
+  <div class="wrap">
+    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
+      <span class="eyebrow"><span class="dot"></span>Contact</span>
+      <span class="eyebrow" style="margin-left:auto;">Reply within 24 hours</span>
+    </div>
+    <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
+      Tell us about<br/>your <span class="italic">problem.</span>
+    </h1>
+    <p class="kicker" style="font-size: 20px; max-width: 58ch; margin-top: 40px;" data-reveal style="--reveal-delay:120ms;">
+      We'll respond within 24 hours. If we're a fit, we'll book a 30-minute call. If we're not, we'll tell you who is. Either way, you'll have an answer the same day.
+    </p>
+  </div>
+</section>
+
+<!-- FORM + SIDEBAR -->
+<section class="section" style="padding-top: 0;">
+  <div class="wrap">
+    <div class="contact-grid">
+
+      <form class="contact-form" id="contactForm" data-reveal>
+        <div class="cf-row">
+          <div class="field">
+            <label for="name">Your name</label>
+            <input type="text" id="name" name="name" required placeholder="Naledi Smith" />
+          </div>
+          <div class="field">
+            <label for="company">Company</label>
+            <input type="text" id="company" name="company" required placeholder="Acme Holdings" />
+          </div>
+        </div>
+        <div class="cf-row">
+          <div class="field">
+            <label for="email">Work email</label>
+            <input type="email" id="email" name="email" required placeholder="you@company.com" />
+          </div>
+          <div class="field">
+            <label for="role">Your role</label>
+            <input type="text" id="role" name="role" placeholder="Head of Operations" />
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="problem">What are you trying to solve?</label>
+          <textarea id="problem" name="problem" required placeholder="The workflow that's bleeding hours. Be specific — &quot;our compliance team reviews 200 KYC packets a week by hand&quot; is more useful than &quot;we want AI.&quot;"></textarea>
+        </div>
+
+        <div class="cf-row">
+          <div class="field">
+            <label for="budget">Budget range (optional)</label>
+            <select id="budget" name="budget">
+              <option value="">— Select a range —</option>
+              <option>Under R250k</option>
+              <option>R250k — R500k</option>
+              <option>R500k — R1M</option>
+              <option>R1M — R2.5M</option>
+              <option>R2.5M+</option>
+              <option>Not sure yet</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="timeline">Timeline (optional)</label>
+            <select id="timeline" name="timeline">
+              <option value="">— Select a timeline —</option>
+              <option>ASAP</option>
+              <option>Next quarter</option>
+              <option>Next 6 months</option>
+              <option>Exploring</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="cf-foot">
+          <p class="cf-fineprint">By submitting you agree to us emailing you back. That's it. No tracking, no list, no drip campaign.</p>
+          <button class="btn btn-primary" type="submit">
+            Send →
+          </button>
+        </div>
+      </form>
+
+      <aside class="contact-side" data-reveal style="--reveal-delay:120ms;">
+
+        <div class="cs-card">
+          <span class="eyebrow"><span class="dot"></span>What happens next</span>
+          <ol class="cs-steps">
+            <li><b>We reply.</b> Same day if it's a working day, next morning if not.</li>
+            <li><b>30-min discovery call.</b> No deck. We listen, ask hard questions, share a rough range.</li>
+            <li><b>Scoped proposal.</b> If we're a fit, you get a paid Discovery sprint quote within a week.</li>
+          </ol>
+        </div>
+
+        <div class="cs-card">
+          <span class="eyebrow">Or skip the form</span>
+          <ul class="cs-alt">
+            <li>
+              <span class="cs-alt-l">Email</span>
+              <a class="ilink" href="mailto:hello@lekkelogic.co" style="border:none; color: var(--ink); font-weight: 500;">hello@lekkelogic.co</a>
+            </li>
+            <li>
+              <span class="cs-alt-l">Calendar</span>
+              <a class="ilink" href="#" style="border:none; color: var(--ink); font-weight: 500;">Pick a slot on Cal →</a>
+            </li>
+            <li>
+              <span class="cs-alt-l">LinkedIn</span>
+              <a class="ilink" href="#" style="border:none; color: var(--ink); font-weight: 500;">/in/lekke-logic</a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="cs-card" style="background: var(--accent); border-color: var(--accent); color: var(--ink);">
+          <span class="eyebrow" style="color: var(--ink);">Honesty clause</span>
+          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.5;">
+            If AI isn't the right answer for your problem, we'll tell you so on the call. We'd rather say no than ship a project we don't believe in.
+          </p>
+        </div>
+
+        <div class="cs-card">
+          <span class="eyebrow">Where</span>
+          <p style="margin: 12px 0 0; font-family: var(--display); font-size: 22px; line-height: 1.2;">
+            Johannesburg, ZA<br/>
+            <span style="font-size: 14px; color: var(--muted); font-family: var(--sans);">Working remote in UTC±5 · Most clients EU / UK / US ET</span>
+          </p>
+        </div>
+
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html#ai">AI &amp; Automation</a></li><li><a href="services.html#data">Data &amp; BI</a></li><li><a href="services.html#design">UI / UX Design</a></li><li><a href="services.html#software">Custom Software</a></li><li><a href="services.html#it">Managed IT</a></li><li><a href="services.html#bd">Business Development</a></li><li><a href="services.html#ads">Advertising</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="blog.html">Writing</a></li><li><a href="contact.html">Book a call</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="#" style="color: var(--muted);">Privacy</a><a href="#" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co" style="color: var(--muted);">hello@lekkelogic.co</a></div>
+    </div>
+  </div>
+</footer>
+
+<style>
+.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
+@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
+
+.contact-form { display: grid; gap: 24px; padding: 32px; background: var(--card); border: 1px solid var(--rule); border-radius: 16px; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media (max-width: 600px) { .cf-row { grid-template-columns: 1fr; } }
+.cf-foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--rule); }
+.cf-fineprint { font-size: 12.5px; color: var(--muted); margin: 0; max-width: 38ch; line-height: 1.5; }
+
+.contact-side { display: grid; gap: 16px; position: sticky; top: 96px; }
+.cs-card { padding: 24px; background: var(--card); border: 1px solid var(--rule); border-radius: 14px; }
+.cs-card .eyebrow { display: block; }
+.cs-steps { list-style: none; counter-reset: step; padding: 0; margin: 12px 0 0; display: grid; gap: 14px; }
+.cs-steps li {
+  counter-increment: step;
+  padding-left: 36px;
+  position: relative;
+  font-size: 14.5px;
+  color: var(--ink-2);
+  line-height: 1.5;
+}
+.cs-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 0; top: 0;
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--mono);
+  font-size: 11px;
+  display: grid;
+  place-items: center;
+}
+.cs-steps b { color: var(--ink); font-weight: 500; }
+
+.cs-alt { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 12px; }
+.cs-alt li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
+.cs-alt li:last-child { border-bottom: none; }
+.cs-alt-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+</style>
+
+<script src="app.js"></script>
+<script>
+// Simple form feedback
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  this.innerHTML = `
+    <div style="text-align:center; padding: 80px 20px;">
+      <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--accent); margin: 0 auto 24px; display:grid; place-items:center; font-size: 36px; line-height: 1;">✓</div>
+      <h2 class="display" style="font-size: clamp(36px, 4.4vw, 56px); margin: 0 0 16px;">Got it.</h2>
+      <p class="body-lg" style="max-width: 38ch; margin: 0 auto;">We'll reply within 24 hours. If it's urgent, mail <a class="ilink" href="mailto:hello@lekkelogic.co" style="border:none; color: var(--accent);">hello@lekkelogic.co</a>.</p>
+    </div>
+  `;
+  this.style.background = 'var(--card)';
+});
+</script>
+</body>
+</html>
