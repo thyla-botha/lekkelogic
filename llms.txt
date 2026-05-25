@@ -1,0 +1,37 @@
+# Lekke Logic
+
+> AI-native agency based in Johannesburg, South Africa. We design, build, and operate AI systems, custom software, data infrastructure, and managed IT for fintech, SaaS, and media teams. Discovery in days. Production in weeks.
+
+Lekke Logic (Pty) Ltd is a multi-disciplinary technology agency offering seven practices: AI & Automation, Data & Business Intelligence, UI/UX Design, Custom Software, Managed IT, Business Development, and Advertising. We work with South African and global clients, with a focus on regulated industries — particularly fintech and financial services compliance (FICA, KYC, AML).
+
+Engagement model: two tiers across every practice — **Lean** (SMEs) and **Premium** (enterprise) — with transparent pricing and no hidden fees. Most projects move from discovery to production in 4–8 weeks.
+
+## Pages
+
+- [Home](https://lekkelogic.co/): Overview, positioning, and featured case study
+- [Services](https://lekkelogic.co/services.html): All 7 practices with Lean vs Premium pricing tiers
+- [Pricing](https://lekkelogic.co/pricing.html): Full price table by practice, FAQ, and engagement explainer
+- [Process](https://lekkelogic.co/process.html): Our 4-phase delivery process with timelines
+- [Work](https://lekkelogic.co/work.html): Case study index across fintech, compliance, and operations
+- [Case Study: Neo Brokers](https://lekkelogic.co/work-neo-brokers.html): How a JSE-listed broker cut KYC review time by 67% with a document agent
+- [About](https://lekkelogic.co/about.html): Team, principles, and operating point of view
+- [Writing](https://lekkelogic.co/blog.html): Articles on AI-in-production, agency operations, and South African fintech
+- [Contact](https://lekkelogic.co/contact.html): Book a 30-minute discovery call
+
+## Key facts
+
+- **Founded:** 2024
+- **HQ:** Johannesburg, South Africa
+- **Specialisation:** AI systems in production, fintech compliance automation, custom software
+- **Booking window:** Currently booking Q3/Q4 2026 engagements
+- **Contact:** hello@lekkelogic.co
+- **Scheduling:** https://calendly.com/nqobile-lekkelogic/30min
+
+## What makes us different
+
+We are an AI-native, full-stack agency: one team handles strategy, design, code, data, and operations. We are not a platform vendor — we build the specific system that does the specific job in your stack, on your data, with the constraints your business actually has.
+
+## Optional
+
+- [Sitemap](https://lekkelogic.co/sitemap.xml)
+- [robots.txt](https://lekkelogic.co/robots.txt)

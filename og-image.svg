@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      .bg { fill: #FFFFFF; }
+      .ink { fill: #0A0A0A; }
+      .accent { fill: #FF5B1F; }
+      .muted { fill: #6E6E6E; }
+      .title { font-family: 'Bricolage Grotesque', 'Helvetica Neue', system-ui, sans-serif; font-weight: 700; letter-spacing: -0.04em; }
+      .mono { font-family: 'JetBrains Mono', ui-monospace, monospace; font-weight: 500; letter-spacing: 0.14em; text-transform: uppercase; }
+      .sans { font-family: 'Geist', 'Helvetica Neue', system-ui, sans-serif; font-weight: 600; letter-spacing: -0.02em; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect class="bg" width="1200" height="630"/>
+
+  <!-- Orange right band -->
+  <rect class="accent" x="900" y="0" width="300" height="630"/>
+
+  <!-- LL monogram (top-left) -->
+  <g transform="translate(72, 64)">
+    <path d="M8 4 L24 4 L24 44 L48 44 L48 60 L8 60 Z" fill="#0A0A0A" transform="scale(1.6)"/>
+    <path d="M64 60 L48 60 L48 20 L24 20 L24 4 L64 4 Z" fill="#FF5B1F" transform="scale(1.6)"/>
+  </g>
+
+  <!-- Brand text next to mark -->
+  <text x="200" y="118" class="sans ink" font-size="32">lekke<tspan class="accent" dx="6">·</tspan> logic</text>
+
+  <!-- Eyebrow -->
+  <text x="72" y="280" class="mono muted" font-size="20">An AI-native agency · Johannesburg</text>
+
+  <!-- Headline -->
+  <text x="72" y="380" class="title ink" font-size="104">AI systems</text>
+  <text x="72" y="490" class="title ink" font-size="104">that <tspan class="accent">ship</tspan>.</text>
+
+  <!-- Footer line -->
+  <text x="72" y="582" class="mono muted" font-size="18">lekkelogic.co · Booking Q3 / Q4 2026</text>
+
+  <!-- Right band detail -->
+  <text x="1050" y="582" class="mono ink" font-size="18" text-anchor="middle">7 PRACTICES</text>
+  <text x="1050" y="120" class="title ink" font-size="180" text-anchor="middle">·</text>
+</svg>
