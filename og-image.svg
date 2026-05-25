@@ -34,7 +34,7 @@
   <text x="72" y="490" class="title ink" font-size="104">that <tspan class="accent">ship</tspan>.</text>
 
   <!-- Footer line -->
-  <text x="72" y="582" class="mono muted" font-size="18">lekkelogic.co · Booking Q3 / Q4 2026</text>
+  <text x="72" y="582" class="mono muted" font-size="18">lekkelogic.co.za · Booking Q3 / Q4 2026</text>
 
   <!-- Right band detail -->
   <text x="1050" y="582" class="mono ink" font-size="18" text-anchor="middle">7 PRACTICES</text>

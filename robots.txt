@@ -61,4 +61,4 @@ Allow: /
 User-agent: Meta-ExternalAgent
 Allow: /
 
-Sitemap: https://lekkelogic.co/sitemap.xml
+Sitemap: https://lekkelogic.co.za/sitemap.xml
