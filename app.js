@@ -66,12 +66,32 @@
     });
   };
 
+  // Shrinking sticky header. Adds .nav-shrunk once the user has scrolled past
+  // 24px; CSS handles the height/padding tweak so there is no layout thrash.
+  const stickyHeader = () => {
+    const nav = document.querySelector('.nav');
+    if (!nav) return;
+    let ticking = false;
+    const update = () => {
+      const y = window.scrollY || window.pageYOffset;
+      nav.classList.toggle('nav-shrunk', y > 24);
+      ticking = false;
+    };
+    update();
+    window.addEventListener('scroll', () => {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(update);
+    }, { passive: true });
+  };
+
   // Init
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { reveal(); counters(); calendly(); });
+    document.addEventListener('DOMContentLoaded', () => { reveal(); counters(); calendly(); stickyHeader(); });
   } else {
     reveal();
     counters();
     calendly();
+    stickyHeader();
   }
 })();
