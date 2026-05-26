@@ -353,7 +353,12 @@
 </section>
 
 <!-- CLOSING CTA (ORANGE) -->
-<section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
+<section class="section closing-cta-orange" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
+  <svg class="shape-register shape-register--ink" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <line x1="32" y1="0" x2="32" y2="64" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="0" y1="32" x2="64" y2="32" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  </svg>
   <div class="wrap closing-cta-grid">
     <div data-reveal>
       <span class="eyebrow" style="color: var(--ink);">Next step</span>
@@ -556,6 +561,19 @@
   grid-template-columns: 1.4fr 1fr;
   gap: 48px;
   align-items: end;
+}
+
+/* Sitewide abstract shape — register mark for sparse visual punctuation */
+.closing-cta-orange { position: relative; overflow: hidden; }
+.shape-register {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+.shape-register--ink { color: var(--ink); top: clamp(28px, 4vw, 56px); right: clamp(24px, 4vw, 56px); }
+@media (max-width: 820px) {
+  .shape-register { transform: scale(0.78); transform-origin: top right; }
 }
 
 /* Mobile */

@@ -171,6 +171,11 @@
 
 <!-- =========================== MANIFESTO (ORANGE) =========================== -->
 <section class="section manifesto">
+  <svg class="shape-register shape-register--ink" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <line x1="32" y1="0" x2="32" y2="64" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="0" y1="32" x2="64" y2="32" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  </svg>
   <div class="wrap">
     <span class="eyebrow" style="color: var(--ink);">01, What we believe</span>
     <h2 class="display manifesto-h" data-reveal>
@@ -266,6 +271,12 @@
 
 <!-- =========================== CLOSING CTA (DARK) =========================== -->
 <section class="section closing-cta-dark" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <svg class="shape-arcs" width="640" height="640" viewBox="0 0 640 640" aria-hidden="true" focusable="false">
+    <circle cx="640" cy="640" r="160" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="640" cy="640" r="280" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="640" cy="640" r="400" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="640" cy="640" r="520" fill="none" stroke="currentColor" stroke-width="1"/>
+  </svg>
   <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div data-reveal>
       <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Let's talk</span>
@@ -340,6 +351,30 @@
 <style>
 /* ===== Home page specific ===== */
 .hero-section { padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(48px, 6vw, 88px); border-top: none; }
+
+/* Sitewide abstract shapes — sparse, on-brand visual punctuation */
+.manifesto, .closing-cta-dark { position: relative; overflow: hidden; }
+.shape-register {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.55;
+}
+.shape-register--ink { color: var(--ink); top: clamp(28px, 4vw, 56px); right: clamp(24px, 4vw, 56px); }
+.shape-arcs {
+  position: absolute;
+  pointer-events: none;
+  color: var(--accent);
+  opacity: 0.22;
+  bottom: -200px;
+  right: -200px;
+  width: 640px;
+  height: 640px;
+}
+@media (max-width: 820px) {
+  .shape-arcs { width: 380px; height: 380px; bottom: -120px; right: -120px; }
+  .shape-register { transform: scale(0.78); transform-origin: top right; }
+}
 
 /* Service card specimen mark */
 .svc-img {
