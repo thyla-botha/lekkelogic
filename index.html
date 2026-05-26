@@ -145,6 +145,10 @@
 
     <figure class="hero-feature" data-reveal style="--reveal-delay:200ms;">
       <img src="assets/img/spot/01-hero-abstract.jpg" alt="Two interlocking L marks in black and orange — Lekke Logic specimen" decoding="async" />
+      <figcaption>
+        <span>The mark — two Ls, sharing edges, never overlapping</span>
+        <span class="bs-tag">01 / 08</span>
+      </figcaption>
     </figure>
 
     <div class="hero-practices" data-reveal style="--reveal-delay:280ms;">
@@ -345,25 +349,48 @@
 /* ===== Home page specific ===== */
 .hero-section { padding-top: clamp(48px, 6vw, 88px); padding-bottom: clamp(48px, 6vw, 88px); border-top: none; }
 
-/* Hero specimen image */
+/* Hero specimen plate */
 .hero-feature {
-  margin: 8px 0 56px;
+  margin: 24px auto 56px;
+  padding: 24px 24px 18px;
+  background: var(--paper-2);
+  border: 1px solid var(--rule);
+  border-radius: 0;
+  max-width: 360px;
   display: flex;
-  justify-content: flex-end;
-  padding: 0;
+  flex-direction: column;
+  gap: 14px;
 }
 .hero-feature img {
   width: 100%;
-  max-width: 360px;
   height: auto;
   aspect-ratio: 1;
   object-fit: contain;
-  border-radius: 14px;
-  background: var(--paper-2);
+  border-radius: 0;
+  background: transparent;
+  display: block;
+  margin: 0;
 }
+.hero-feature figcaption {
+  font-family: var(--mono);
+  font-size: 10.5px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding-top: 12px;
+  border-top: 1px solid var(--rule);
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  line-height: 1.4;
+}
+.hero-feature figcaption .bs-tag { color: var(--ink); white-space: nowrap; }
 @media (max-width: 820px) {
-  .hero-feature { margin: 0 0 40px; justify-content: center; }
-  .hero-feature img { max-width: 260px; }
+  .hero-feature { max-width: 300px; padding: 18px 18px 14px; margin: 8px auto 40px; }
+  .hero-feature figcaption { font-size: 10px; }
+}
+@media (max-width: 480px) {
+  .hero-feature figcaption span:first-child { max-width: 22ch; }
 }
 
 /* Service card specimen mark */
