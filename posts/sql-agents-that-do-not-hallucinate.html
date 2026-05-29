@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>SQL agents that don't hallucinate: patterns for production text-to-SQL | Lekke Logic</title>
+<meta name="description" content="Text-to-SQL looks magical in a demo and falls over on a real warehouse. Here are the schema retrieval, query validation, database role and semantic layer patterns that keep production SQL agents honest." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html" />
+<meta name="last-modified" content="2026-05-29" />
+<meta http-equiv="last-modified" content="2026-05-29" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="SQL agents that don't hallucinate: patterns for production text-to-SQL" />
+<meta property="og:description" content="The schema retrieval, query validation, database role and semantic layer patterns that keep production SQL agents honest." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-29" />
+<meta property="article:modified_time" content="2026-05-29" />
+<meta property="article:section" content="AI Engineering" />
+<meta property="article:tag" content="text-to-SQL" />
+<meta property="article:tag" content="AI agents" />
+<meta property="article:tag" content="data engineering" />
+<meta property="article:tag" content="LLM applications" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="SQL agents that don't hallucinate: patterns for production text-to-SQL" />
+<meta name="twitter:description" content="Schema retrieval, query validation, locked-down database roles and semantic layers: what keeps production SQL agents honest." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "SQL agents that don't hallucinate"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html#article", "url": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html", "headline": "SQL agents that don't hallucinate: patterns for production text-to-SQL", "description": "The schema retrieval, query validation, database role and semantic layer patterns that keep production SQL agents honest.", "datePublished": "2026-05-29", "dateModified": "2026-05-29", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html#webpage"}, "wordCount": 1580, "keywords": "text-to-SQL, AI agents, LLM applications, data engineering, Spider 2.0, BIRD-SQL, dbt semantic layer, PostgreSQL row level security, POPIA, prompt injection"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html#webpage", "url": "https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html", "name": "SQL agents that don't hallucinate: patterns for production text-to-SQL", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-29", "dateModified": "2026-05-29", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>AI Engineering</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      SQL agents that <span class="italic">don't hallucinate</span>: patterns for production text-to-SQL
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      Text-to-SQL looks magical in a demo and falls over on a real warehouse. Here are the schema retrieval, query validation, database role and semantic layer patterns that keep production SQL agents honest.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-29</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> Text-to-SQL · AI Agents · Data Engineering</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>"Just point an LLM at the database and let people ask questions." Every internal data product proposal starts there in 2026, and a depressing number ship before anyone has thought about what happens when the model invents a column, joins tables that should not be joined, or locks production for nine minutes.</p>
+
+      <p>Text-to-SQL is not a hard problem in the demo. It is hard in production, where the schema has 3000 columns, the data is dirty, the dialect is BigQuery for one team and Snowflake for another, and a single confidently wrong answer ends up in a board pack. This post is about the patterns that separate the demos from the systems that survive real users.</p>
+
+      <h2>Why text-to-SQL looks magical in demos and breaks in production</h2>
+
+      <p>The benchmarks tell the story. On Spider 1.0, the academic text-to-SQL benchmark, GPT-4o reaches 86.6% execution accuracy. On Spider 2.0, the enterprise benchmark published as an ICLR 2025 Oral that uses real BigQuery, Snowflake and SQLite warehouses with more than 3000 columns per database, the same model originally scored only 10.1%. That is the difference between a feature that ships and a feature that lies to your CFO.</p>
+
+      <p>The gap is not the model. It is the schema. Academic benchmarks use small, clean, single-dialect databases with descriptive column names. Real warehouses have legacy naming, multiple sources of truth, soft-deleted rows, and join keys nobody has documented in five years. BIRD-SQL, the dirty real-world benchmark, gives the upper bound: human experts hit 92.96% execution accuracy on the test set across 12,751 question-SQL pairs from 95 large databases spanning 37 professional domains. Current LLM agents trail that. A production text-to-SQL agent has to be engineered with the expectation that the model will frequently get the schema wrong. Everything downstream of the LLM call exists to catch those mistakes.</p>
+
+      <h2>Schema retrieval: semantic search over tables, columns and sample rows</h2>
+
+      <p>The first thing that breaks at scale is the prompt. You cannot fit a 3000-column schema into context, and even if you could, the model would not use it well. The pattern that works is retrieval-augmented generation over the schema itself: embed every table description, column name, column comment, and a handful of sample rows into a vector store. At query time, embed the question, retrieve the top-k most relevant tables and columns, and pass only that subset into the prompt. Vanna AI is the canonical open-source reference, a Python framework that uses RAG over DDL, documentation and prior question-SQL pairs stored in a vector store such as Qdrant.</p>
+
+      <p>Two things to bolt on. First, store and retrieve <em>verified</em> question-SQL pairs as part of the corpus. When an analyst writes a query that worked, save it. When a user upvotes an answer, save it. Those become high-signal few-shot examples. Second, index sample values, not just column names. "Customer status" might mean "active, churned, dormant" in one table and "1, 2, 3" in another, and the model needs to see those before it writes a WHERE clause.</p>
+
+      <h2>Query validation: parse, EXPLAIN and dry-run before you ever execute</h2>
+
+      <p>Never run the model's first output. Treat the generated SQL as untrusted input that has to pass three gates before it touches the warehouse.</p>
+
+      <p>Gate one is syntactic. Parse with a dialect-aware parser (sqlglot, or your engine's native parser). If it does not parse, feed the error back and ask the model to fix it. Most one-shot failures are caught here for the price of one extra LLM call.</p>
+
+      <p>Gate two is semantic. Run EXPLAIN. It catches unknown tables, unknown columns, type mismatches and ambiguous joins without executing anything. Feed errors back to the model. This is the single highest-leverage validation step you can add: it costs nothing and catches the failure mode that does the most damage, confidently generated SQL referencing columns the model imagined.</p>
+
+      <p>Gate three is shape. Dry-run with a LIMIT or against a sampled copy. A question like "how many customers signed up last week?" should return one row with one numeric column. If it returns 4000 rows, the agent built the wrong query.</p>
+
+      <h2>Locking the database down: read-only roles, row level security and allow-lists</h2>
+
+      <p>Real safety comes from the database role, not the prompt. No "you must not run DELETE" in a system prompt will save you from a prompt injection that talks the model into doing it. The defence is that the role connected to the agent has no DELETE privilege at all.</p>
+
+      <p>PostgreSQL ships a predefined role <code>pg_read_all_data</code> that grants SELECT on every table, view and sequence plus USAGE on schemas, without bypassing row level security. That is your baseline read-only agent role. Layer on a statement timeout, a connection-level row limit, and an allow-list of schemas.</p>
+
+      <p>For multi-tenant data, row level security is the right primitive. Postgres RLS policies are enforced even for users with broad SELECT privileges, unless the role is explicitly granted BYPASSRLS. You pin every agent query to a tenant_id at the session level, the policy filters every row, and the agent physically cannot see another tenant's data even if it tries.</p>
+
+      <p>This matters more than it sounds. OWASP placed prompt injection at the number one spot in the OWASP Top 10 for LLM Applications 2025, warning that broad database, API and code execution access amplifies the blast radius of a single injected instruction. Keysight's research on database-query-based prompt injection shows attackers manipulating LLM agents into generating staged SQL probes and exfiltration queries, chaining prompt injection with SQL injection. The mitigation is not better prompts. It is a database role with no privileges to abuse.</p>
+
+      <h2>Result sanity checks and observability for silent failures</h2>
+
+      <p>The most dangerous failure mode is the one where everything succeeds: SQL parses, EXPLAIN passes, the query executes, a number comes back, and the number is wrong. Silent failures are how text-to-SQL ends up in incident reviews.</p>
+
+      <p>Build sanity checks into the response. If the user asked for a count, the result should be a scalar integer. If they asked for a trend, you should have a date column, a numeric column, and a sensible number of rows. Is the value within an order of magnitude of yesterday's? Is the row count plausible? Does the time range match what was asked? Flag anomalies before showing them.</p>
+
+      <p>Log every step. Question, retrieved schema, generated SQL, validation results, executed query, result shape, user feedback. Without that trail you cannot debug bad answers, you cannot build the verified question-SQL corpus that improves accuracy over time, and you cannot answer the regulator when they ask what your AI system did on a specific date.</p>
+
+      <h2>Semantic layers and tool-restricted agents as the safer default</h2>
+
+      <p>For a lot of internal data products, the right answer is not free-form text-to-SQL at all. It is a governed semantic layer with an LLM that picks among approved metrics.</p>
+
+      <p>The dbt Semantic Layer is the production-grade version of this. dbt MetricFlow compiles YAML-defined metrics and dimensions into SQL, and dbt Labs explicitly positions it as a safer data interface for LLMs than free-form text-to-SQL, because the model only chooses among governed metrics and entities. If "monthly recurring revenue" is a metric in your semantic layer, the model can ask for it sliced by region, product or cohort. It cannot invent a new way of calculating it.</p>
+
+      <p>The same principle applies to tool-restricted agents that expose a small number of parameterised SQL templates as tools. The model picks the tool, fills in arguments, and never writes raw SQL. For most internal use cases that is the right ceiling. If you do need to build, Defog has open-sourced SQLCoder, a family of fine-tuned LLMs for text-to-SQL with weights released under CC BY-SA 4.0 on Hugging Face for personal and commercial use, useful when you need to keep the model inside your network.</p>
+
+      <h2>When text-to-SQL is the wrong tool, and what to build instead</h2>
+
+      <p>If the question is the same five questions every Monday morning, build five dashboards. If it requires regulatory-grade accuracy (financial reporting, audit outputs, board metrics), do not let an LLM compose the SQL, ever. If the user community is small and technical, give them a notebook with a copilot, not a chat box that pretends to be a data team. Text-to-SQL is at its best as an exploration layer on a governed warehouse, with a user who can sense-check the answer. It is at its worst as a "self-service analytics" replacement for an actual data team, sold to people who have no way to know when it is wrong.</p>
+
+      <div class="post-cta">
+        <h3>Want a SQL agent that survives production?</h3>
+        <p>Our AI Workflow Automation engagement designs the schema retrieval, validation, database role and observability layers for production text-to-SQL agents, against your actual warehouse and your actual regulatory posture. You ship a system you can defend, not a demo.</p>
+        <a class="btn btn-primary" href="../services.html#automation">See the AI Workflow Automation service</a>
+      </div>
+
+      <h2>POPIA, FSCA and what South African teams must control before going live</h2>
+
+      <p>If your agent can read personal information, POPIA reads onto every design decision above. Section 19 of the Protection of Personal Information Act requires responsible parties to take appropriate, reasonable technical and organisational measures to prevent unlawful access to or processing of personal information, and to continually update those safeguards as new risks emerge. A text-to-SQL agent that can SELECT from a customer table is a new risk surface. Administrative fines run up to ZAR 10 million per infringement notice for serious breaches.</p>
+
+      <p>The controls POPIA requires here are the ones already described: a least-privilege read-only role, row level security pinning queries to the right data subjects, statement timeouts, full logging of prompts, SQL and results, and a documented incident response path. For FSCA-regulated entities, layer on retention and access policies that match your existing data governance framework. If you cannot tell the regulator who asked what, when, and what the agent returned, you do not have a production system. You have a liability.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Academic accuracy numbers do not survive contact with real warehouses, so any production text-to-SQL agent has to be engineered around the assumption that the model will frequently get the schema wrong.</li>
+          <li>Schema retrieval, query parsing, EXPLAIN-based dry runs and result sanity checks should be treated as non-negotiable layers, not optional polish.</li>
+          <li>Real safety comes from the database role, not the prompt: read-only users, row level security, statement timeouts and query allow-lists contain the blast radius when prompt injection happens.</li>
+          <li>A governed semantic layer such as dbt MetricFlow is often a stronger default than free-form text-to-SQL because the LLM only picks among approved metrics and dimensions.</li>
+          <li>For South African deployments, POPIA Section 19 and the Information Regulator's enforcement powers make logged, least-privilege agent access a compliance requirement, not a nice-to-have.</li>
+        </ul>
+      </div>
+
+      <p>The pattern is consistent across every production text-to-SQL system that has not embarrassed its team. The LLM is one component, not the system. The system is the retrieval, validation, role, semantic and observability layers that surround it. Build those, and an agent that answers questions about your data is a useful, defensible product. Skip them, and you have shipped a confident liar with a database connection.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="document-agents-real-client-data.html">
+        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>12 min read</span></div>
+        <h3>Document agents on real client data: the patterns that survive production</h3>
+        <p>What it takes to put an agent on a customer's actual documents without it leaking, hallucinating, or melting under load.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="popia-compliance-for-ai-systems.html">
+        <div class="bi-meta"><span class="bi-cat">Compliance</span><span>13 min read</span></div>
+        <h3>POPIA compliance for AI systems: what section 19 actually asks of you</h3>
+        <p>A working POPIA section 19 checklist for AI builders, plus how Information Regulator enforcement is reshaping the standard.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Production AI</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Agents that <span style="color: var(--accent);">ship</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        SQL agents, document agents, decision systems. Engineered with the validation, observability and database controls that survive real users.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html" style="border-color: var(--paper); color: var(--paper);">See Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

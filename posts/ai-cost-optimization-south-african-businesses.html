@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>AI cost optimization for South African businesses: what actually moves the bill | Lekke Logic</title>
+<meta name="description" content="ZAR revenue, USD-priced tokens. Here's how South African businesses cut LLM spend without cutting quality: model tiering, prompt caching, Batch API, semantic caches, and the governance that keeps finance and POPIA both happy." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html" />
+<meta name="last-modified" content="2026-05-29" />
+<meta http-equiv="last-modified" content="2026-05-29" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="AI cost optimization for South African businesses: what actually moves the bill" />
+<meta property="og:description" content="ZAR revenue, USD-priced tokens. How South African businesses cut LLM spend without cutting quality: tiering, caching, batch, semantic caches, and governance." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-29" />
+<meta property="article:modified_time" content="2026-05-29" />
+<meta property="article:section" content="AI Engineering" />
+<meta property="article:tag" content="AI cost optimization" />
+<meta property="article:tag" content="LLM pricing" />
+<meta property="article:tag" content="prompt caching" />
+<meta property="article:tag" content="South Africa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI cost optimization for South African businesses: what actually moves the bill" />
+<meta name="twitter:description" content="Model tiering, prompt caching, Batch API, semantic caches, and governance. What actually cuts an SA AI bill." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "AI cost optimization for South African businesses"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html#article", "url": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html", "headline": "AI cost optimization for South African businesses: what actually moves the bill", "description": "ZAR revenue, USD-priced tokens. How South African businesses cut LLM spend without cutting quality: model tiering, prompt caching, Batch API, semantic caches, and governance.", "datePublished": "2026-05-29", "dateModified": "2026-05-29", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html#webpage"}, "wordCount": 1550, "keywords": "AI cost optimization, LLM pricing, prompt caching, Batch API, semantic cache, model tiering, South Africa, POPIA, OWASP"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html#webpage", "url": "https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html", "name": "AI cost optimization for South African businesses: what actually moves the bill", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-29", "dateModified": "2026-05-29", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>AI Engineering</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      AI cost optimization for South African businesses: what <span class="italic">actually</span> moves the bill
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      ZAR revenue, USD-priced tokens. Here's how South African businesses cut LLM spend without cutting quality: model tiering, prompt caching, the Batch API, semantic caches, and the governance that keeps finance and POPIA both happy.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-29</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> AI Engineering · LLM Pricing · South Africa</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>Most South African AI bills are not big because the work is hard. They are big because nobody mapped the workloads to the right tier, nobody turned on prompt caching, and nobody questioned whether every request needed to be synchronous. This post is the version of the conversation we have with finance teams in Johannesburg and Cape Town every week. No vendor switching, no theatre, just the levers that actually shift the line item.</p>
+
+      <h2>Why ZAR revenue and USD-priced tokens change the maths</h2>
+
+      <p>Every major LLM API prices in US dollars. Your revenue, if you are a South African business, lands in rands. That gap is the part nobody flags until the month-end invoice comes through and the rand has moved a few percent the wrong way. A workload that looked fine at R0.40 to the cent last quarter is suddenly 8 percent more expensive without anyone touching the code.</p>
+
+      <p>This means two things in practice. First, your unit economics need to be modelled in USD at the workload level, then translated, not the other way round. If you only see the ZAR total, you cannot tell whether your spend moved because traffic grew, because token usage per request grew, or because the rand weakened. Second, the cost levers that compound (caching, batching, tiering) matter more in a weak-currency context than they do in San Francisco, because every percent you save is also a percent of FX exposure removed.</p>
+
+      <h2>Token accounting basics every SA finance team should run</h2>
+
+      <p>Before you optimise anything, you need three numbers per workload. Input tokens per request. Output tokens per request. Requests per day. That is it. Multiply those by the model's input and output prices, sum across workloads, and you have a defensible bill projection in USD. Everything else (caching, batching, tiering) is a modifier on top.</p>
+
+      <p>The mistake most teams make is treating the LLM bill as one number. It is not. It is the sum of distinct workloads (customer support chat, document summarisation, internal search, drafting, classification) with very different tolerances. A customer-facing chat needs latency. A nightly bulk classification does not. A weekly compliance review can wait twelve hours. Each of those constraints maps to a different pricing path, and the savings come from refusing to pay synchronous, top-tier prices for asynchronous, simple work.</p>
+
+      <h2>Model tiering: Haiku, Sonnet, Opus, GPT 4o mini, GPT 4o</h2>
+
+      <p>Tiering is the single largest lever. Anthropic publishes Claude Haiku 4.5 at $1 per million input tokens and $5 per million output tokens, Claude Sonnet 4.6 at $3 input and $15 output, and Claude Opus 4.7 at $5 input and $25 output. On the OpenAI side, GPT 4o is listed at $2.50 per million input tokens and $10 per million output tokens, and GPT 4o mini at $0.15 per million input and $0.60 per million output.</p>
+
+      <p>Read those numbers as a hierarchy, not a menu. Haiku 4.5 is roughly five times cheaper than Sonnet 4.6 on input tokens and twenty five times cheaper than Opus 4.7 on output tokens. GPT 4o mini is roughly seventeen times cheaper than GPT 4o on input. The right question is never "which is the best model". It is "what is the cheapest tier that meets the quality bar for this specific workload". Classification, extraction, routing, and templated summarisation usually run cleanly on the small tier. Reasoning, long-form drafting, and edge cases earn the mid tier. Opus and GPT 4o are for the hard 10 percent, not the easy 90.</p>
+
+      <p>There is also a quiet structural win on the high end. Claude Opus 4.7, Opus 4.6, and Sonnet 4.6 include the full 1 million token context window at standard per-token pricing, so a 900k token request is billed at the same rate as a 9k token request. If you have been splitting long documents into chunks to avoid a context-window surcharge that no longer exists, you are paying for plumbing you do not need.</p>
+
+      <h2>Prompt caching and the Batch API: where the real discounts live</h2>
+
+      <p>Once tiering is right, the next two levers are caching and batching. Both are quiet, both are large, and both are widely underused in South African deployments.</p>
+
+      <p>Anthropic prompt caching charges 1.25x base input for a 5 minute cache write, 2x for a 1 hour write, and 0.1x base input for a cache read. That last number is the headline: a 90 percent discount on cached tokens. For a system prompt or retrieval context that stays stable across thousands of requests in a session window, you pay the write once and then read at one tenth of the input price for the duration. The Anthropic Batch API delivers a further 50 percent discount on both input and output tokens for asynchronous workloads that can wait up to 24 hours, and the discount stacks with prompt caching multipliers. A high traffic SA support assistant can plausibly run at a fraction of its uncached synchronous cost simply by combining the two.</p>
+
+      <p>OpenAI applies automatic prompt caching on supported models for prompt prefixes of at least 1,024 tokens, billing cached input at a reduced rate without any code change. The implication for design is direct: put your stable content (instructions, schemas, retrieval context) at the top of the prompt and your variable content (the user message) at the bottom. Teams that rewrite or shuffle their system prompts per request are paying full price for tokens that could be cached for free. On the asynchronous side, the OpenAI Batch API processes requests within 24 hours at 50 percent of standard input and output pricing, with up to 50,000 requests per batch. Anything that does not need to be synchronous should not be.</p>
+
+      <h2>Context window discipline, embeddings, and semantic caching</h2>
+
+      <p>The cheapest token is the one you never send. Context window discipline (retrieving only what you need, summarising long histories, truncating noise) usually outperforms model swaps on the input side of the bill. The fact that the high-end Claude models now offer 1 million tokens at flat rates is not an invitation to stuff the context; it is an invitation to stop fearing the rare long document and tighten the common case.</p>
+
+      <p>Embeddings are rarely where the money goes, but they are the foundation for the lever that follows. OpenAI text embedding 3 small is priced at $0.02 per million input tokens and text embedding 3 large at $0.13 per million, with a further 50 percent discount via the Batch API. At that price, embedding your entire knowledge base, your support tickets, and your FAQ history is a rounding error on most SA bills.</p>
+
+      <p>What you do with those embeddings is the lever. A semantic cache sits in front of the LLM and serves answers from a vector indexed store when a new query is semantically similar to one already answered. Peer reviewed research on GPT Semantic Cache reports up to 68.8 percent reduction in API calls by serving semantically similar queries from a vector indexed cache. In a South African customer support context, where the same questions about delivery, refunds, account access, and product specs repeat constantly, a semantic cache can turn the bottom half of your traffic into near-zero marginal cost.</p>
+
+      <h2>Sample monthly cost scenarios for a Johannesburg SME</h2>
+
+      <p>Consider a Joburg SME running a customer-facing assistant. Every chat turn carries a system prompt and a retrieved context block at the top, then the user's message. If those prefixes are stable and long enough to qualify for caching, the bulk of the input tokens land at the discounted cached rate rather than the full rate. If the same SME also runs a nightly summarisation of the day's tickets, that workload is a clean fit for the Batch API at half price.</p>
+
+      <p>Now add tiering. Route the simple classification step (is this billing, technical, or sales) to Haiku 4.5 or GPT 4o mini. Route the customer-facing reply, where tone matters, to Sonnet 4.6. Reserve Opus 4.7 or GPT 4o for the small slice of escalations that genuinely need it. The same business value gets delivered, but the bill stops looking like every request paid the top tier.</p>
+
+      <p>The point is not the precise rand figure. The point is that three independent levers (tiering, caching, batching) combine multiplicatively. Halving each one of them is not a 50 percent saving; it is a cumulative compound that rewrites the unit economics.</p>
+
+      <h2>POPIA, OWASP, and governing AI spend without breaking the law</h2>
+
+      <p>Cost discipline is also a security and compliance control. The OWASP Top 10 for LLM Applications 2025 lists Unbounded Consumption as a distinct risk category, where attackers or misconfigured clients drive excessive model usage and cost amplification. Rate limits, per-tenant quotas, and circuit breakers are not just engineering hygiene. They are the difference between a normal month and a finance incident triggered by a single misbehaving client or a scripted abuse attempt.</p>
+
+      <p>POPIA pulls in the other direction at the same time. Section 72 of POPIA restricts transfers of personal information outside South Africa unless the recipient is bound by laws or agreements offering protection substantially similar to POPIA, which applies when SA businesses send personal data to overseas hosted LLM APIs. That has cost implications. If your cheapest path is a US-hosted endpoint, you still need the lawful basis and contractual posture to send the data there. Cost optimisation that skips compliance is not cheap. It is a deferred fine.</p>
+
+      <p>The NIST AI Risk Management Framework defines four functions, Govern, Map, Measure, and Manage, which provide a voluntary structure for cost aware AI governance including resource and consumption tracking. The "Measure" function in particular is where the cost story and the risk story meet: if you cannot measure your token consumption per workload, per tenant, and per model, you cannot govern it, and you cannot defend the choice to the board or the Regulator either.</p>
+
+      <div class="post-cta">
+        <h3>Want a defensible AI cost baseline?</h3>
+        <p>Our AI Audit engagement maps every workload to a tier, identifies caching and batching candidates, and gives you a documented baseline you can hand to finance, the board, or your Information Officer. POPIA-aligned, OWASP-aware, ZAR-honest.</p>
+        <a class="btn btn-primary" href="../services.html#audit">See the AI Audit service</a>
+      </div>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>The fastest way for a South African SME to cut an AI bill is not switching vendors, it is matching each workload to the cheapest tier that meets quality, since Haiku 4.5 is roughly five times cheaper than Sonnet 4.6 on input tokens and twenty five times cheaper than Opus 4.7 on output tokens.</li>
+          <li>Prompt caching on Anthropic gives a 90 percent discount on cached reads and stacks with the 50 percent Batch API discount, which means a high traffic SA support assistant can plausibly run at a fraction of its uncached synchronous cost.</li>
+          <li>OpenAI applies prompt caching automatically on supported models for prompts above 1024 tokens, so SA teams should design system prompts and retrieval context to maximise stable prefixes rather than rewriting them per request.</li>
+          <li>Embedding cost is rarely the issue, but a semantic cache layered on top of embeddings can deflect a large share of repeat queries, with published research showing up to around 68 percent fewer LLM calls in repetitive workloads.</li>
+          <li>Cost discipline is also a security and compliance control, since OWASP flags Unbounded Consumption as a real risk and POPIA Section 72 makes uncontrolled cross border calls to overseas LLMs a regulatory exposure as well as a budget one.</li>
+        </ul>
+      </div>
+
+      <p>An AI bill that nobody can explain is an AI bill that nobody can defend, either to finance or to the Regulator. The good news is that the levers that actually move the number (tiering, caching, batching, semantic caching, governance) are all available to any South African business without a vendor change. They just have to be wired into the build on purpose, not bolted on after the invoice lands.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="ai-workflow-automation-south-african-smes.html">
+        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>11 min read</span></div>
+        <h3>AI workflow automation for South African SMEs</h3>
+        <p>Where automation actually pays back for SA SMEs, and where the spend quietly outruns the saving.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Defensible AI</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Cheaper, <span style="color: var(--accent);">on purpose</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Tiered, cached, batched, governed. A defensible AI cost baseline in ZAR, modelled in USD, designed for POPIA.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html" style="border-color: var(--paper); color: var(--paper);">See Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

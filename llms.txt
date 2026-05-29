@@ -37,8 +37,13 @@ Engagement model: most engagements begin with a paid AI Audit (1 to 2 weeks, fix
 4. **Advanced Persistent Threat Simulation**. Focused red team or full APT scenario simulating a sophisticated adversary against your stack. 2 to 12 weeks depending on scope.
 5. **Vibe-Coded Whitebox Review**. Security review of AI-generated codebases, with optional remediation. For teams that shipped fast and need to make sure customer data is safe.
 
-## Writing (10 in-depth posts)
+## Writing (15 in-depth posts)
 
+- [Prompt injection defenses for production LLM apps: what actually works](https://lekkelogic.co.za/posts/prompt-injection-defenses-production-llm.html): Layered input handling, tool sandboxing, output filtering, and the architectural choices that close the most dangerous prompt injection paths in production.
+- [AI cost optimization for South African businesses: what actually moves the bill](https://lekkelogic.co.za/posts/ai-cost-optimization-south-african-businesses.html): Where the spend actually goes in production AI, and the model and prompt choices that cut bills by 60 to 80 percent without losing quality.
+- [Threat modelling AI systems: STRIDE for LLMs, agents, and RAG](https://lekkelogic.co.za/posts/threat-modelling-ai-systems.html): How we adapt STRIDE for LLM apps, agent tool use, and RAG pipelines, with the attack surfaces most teams forget to enumerate before they ship.
+- [SQL agents that don't hallucinate: patterns for production text-to-SQL](https://lekkelogic.co.za/posts/sql-agents-that-do-not-hallucinate.html): The schema design, retrieval, and validation patterns that make a SQL agent answer real business questions without inventing tables or columns.
+- [From LLM prototype to production: evaluations, observability, and shipping safely](https://lekkelogic.co.za/posts/llm-prototypes-to-production.html): Evaluation harnesses that catch real regressions, observability that survives a 2 a.m. incident, and the release process that lets you iterate without breaking customers.
 - [Why vibe-coded apps need a security review before they go anywhere near customer data](https://lekkelogic.co.za/posts/vibe-coded-app-security.html): Five failure modes we find in nearly every AI-generated codebase, and the cheap fixes that close most of them.
 - [Why every fintech needs an AI audit before they buy a platform](https://lekkelogic.co.za/posts/ai-audit-before-platform-purchase.html): A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.
 - [Penetration testing for South African fintech: what FSCA and FICA actually expect](https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html): What an actual fintech-grade pentest covers and what the SA regulator does when you can't produce one.

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>From LLM prototype to production: evaluations, observability, and shipping safely | Lekke Logic</title>
+<meta name="description" content="The work that turns a notebook LLM demo into a production system: golden eval sets, LLM-as-judge calibration, OpenTelemetry traces, cost-per-task accounting, and shadow-to-canary rollouts that respect POPIA, FSCA expectations and the OWASP LLM Top 10." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/llm-prototypes-to-production.html" />
+<meta name="last-modified" content="2026-05-29" />
+<meta http-equiv="last-modified" content="2026-05-29" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="From LLM prototype to production: evaluations, observability, and shipping safely" />
+<meta property="og:description" content="The discipline that turns an LLM notebook demo into a reliable production system: golden evals, observability, progressive rollout, and the South African regulatory layer." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/llm-prototypes-to-production.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-29" />
+<meta property="article:modified_time" content="2026-05-29" />
+<meta property="article:section" content="AI Engineering" />
+<meta property="article:tag" content="LLM evaluation" />
+<meta property="article:tag" content="LLM observability" />
+<meta property="article:tag" content="production AI" />
+<meta property="article:tag" content="South Africa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="From LLM prototype to production: evaluations, observability, and shipping safely" />
+<meta name="twitter:description" content="Golden evals, OpenTelemetry traces, cost-per-task, and shadow-to-canary rollouts: what closes the notebook-to-production gap on LLM systems." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "From LLM prototype to production"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html#article", "url": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html", "headline": "From LLM prototype to production: evaluations, observability, and shipping safely", "description": "The discipline that turns an LLM notebook demo into a reliable production system: golden evals, observability, progressive rollout, and the South African regulatory layer.", "datePublished": "2026-05-29", "dateModified": "2026-05-29", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html#webpage"}, "wordCount": 1580, "keywords": "LLM evaluation, LLM observability, golden eval set, LLM-as-judge, OpenTelemetry GenAI, OWASP LLM Top 10, POPIA, FSCA, South Africa, production AI"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html#webpage", "url": "https://lekkelogic.co.za/posts/llm-prototypes-to-production.html", "name": "From LLM prototype to production: evaluations, observability, and shipping safely", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-29", "dateModified": "2026-05-29", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>AI Engineering</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      From LLM prototype to <span class="italic">production</span>: evaluations, observability, and shipping safely
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      The work that turns a working notebook into a system you can run, monitor, defend, and bill for. Golden eval sets, OpenTelemetry traces, cost-per-task accounting, shadow-to-canary rollouts, and the South African regulatory layer baked in from day one.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-29</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> LLM Evaluation · Observability · Production AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>A notebook demo proves the model can do the task once. Production proves it can do the task reliably, observably, and within latency and cost budgets. The gap between those two things is where most LLM projects quietly die, and it is mostly evaluation and observability work, not modelling work. This post is about the discipline that closes the gap.</p>
+
+      <h2>Why the notebook-to-production gap is where LLM projects die</h2>
+
+      <p>The pattern is familiar. A team ships an impressive demo. Stakeholders sign off. The build moves from a Jupyter notebook to a service behind an API, and a different set of problems shows up. The model sometimes hallucinates customer-specific facts. P99 latency spikes the moment a user uploads a long document. Token bills are double what the proposal said. A weekend regression silently breaks a feature that worked on Monday. None of these are modelling failures. They are infrastructure failures that the notebook never had to handle.</p>
+
+      <p>The teams that ship cleanly treat the move to production as its own project with its own deliverables: an evaluation harness, an observability layer, a deployment strategy, and a documented compliance posture. Skip any one of those and you ship a product you cannot defend when something goes wrong.</p>
+
+      <h2>Golden eval sets and regression suites that actually catch regressions</h2>
+
+      <p>Start small and hand-curated. Hamel Husain's evaluation guide recommends a golden set in the order of 100 examples, covering core features, prior bug regressions, and known edge cases, with deterministic assertions on the hot path wherever possible. Binary pass/fail scoring is preferred over Likert scales because it forces clearer thinking, more consistent labels, and aligns with the binary nature of the decision in front of you: ship or fix.</p>
+
+      <p>Counter-intuitively, a 100% pass rate is usually bad news. Husain points out that a perfect score often means the test suite is too easy and the harness is not actually stressing the system. Something closer to 70% is a healthier signal that the cases on the edge of capability are being measured. Aim for a harness that hurts.</p>
+
+      <p>OpenAI's official evaluation guidance pushes the same idea further into production. Continuously evaluate. Log production traces. Sample real user interactions for human review. Grow the eval set over time rather than freezing it at launch. Every escaped defect is a new test case. The set is a living artefact, not a sign-off document.</p>
+
+      <h2>Where LLM-as-judge helps, and where it quietly lies to you</h2>
+
+      <p>LLM-as-judge is useful when prompt engineering has stopped yielding gains and you need a way to grade open-ended outputs at volume. It is dangerous when treated as ground truth. Peer-reviewed work on judge models shows systematic position bias: in pairwise evaluations, simply swapping the order of two candidate answers can flip the verdict, demonstrated across 15 judge models and over 150,000 evaluation instances on MTBench and DevBench. Judges also exhibit self-preference (rating their own family of models higher) and drift over time.</p>
+
+      <p>The practical rule. Reach for LLM-as-judge only after binary assertions and prompt fixes have run out, and only after you have calibrated the judge against a human-labelled subset. Log every disagreement between the judge and your humans, monitor that disagreement rate over time, and never let the judge be the only signal in front of a release gate. A judge can be a helpful instrument. It cannot be the referee.</p>
+
+      <h2>Observability: traces, token accounting, latency P95 and P99, cost per call</h2>
+
+      <p>Production observability for LLMs is its own discipline. Trace every call. The OpenTelemetry GenAI semantic conventions standardise attributes such as gen_ai.request.model, gen_ai.usage.input_tokens, gen_ai.usage.output_tokens, and gen_ai.response.finish_reasons, so traces, token accounting, and finish reasons can be captured consistently across vendors. Adopt those names from day one and your dashboards survive a model swap.</p>
+
+      <p>Track P95 and P99 latency separately, not just averages, and instrument time-to-first-token as its own metric (a streamed reply that takes eight seconds to start feels broken even if the total response time is fine). Account for input, output, and cached tokens distinctly because their pricing differs by an order of magnitude. Anthropic's prompt caching, for example, prices cache reads at 0.1x the base input token rate (a 90% discount) and 5-minute cache writes at 1.25x, which is the documented mechanism teams use to bring production cost-per-call down on long, repeated context.</p>
+
+      <p>And compute cost per successful task, not cost per call. A retry that fixes a bad answer is not free. An agent that consumes more tokens to get the right result is doing useful work. Anthropic's writeup on their multi-agent research system is blunt about this: their Opus 4 lead with Sonnet 4 subagents outperformed a single-agent Opus 4 by 90.2% on their internal research evaluation, but consumed roughly 15x more tokens per task. That trade is only legible if you have the accounting in place to see it.</p>
+
+      <h2>Choosing a stack: LangSmith, Langfuse, Arize Phoenix and Weights and Biases</h2>
+
+      <p>You do not need a bespoke platform. Four mature options cover most teams. LangSmith pairs naturally with LangChain and LangGraph but is hosted-only. Arize Phoenix is the well-regarded open-source tracing and evaluation library, lightweight to self-host, with strong notebook ergonomics. Weights and Biases extends its ML experiment-tracking heritage into LLM observability via Weave. Langfuse is the open-source contender that closed most of its feature gap in June 2025 by open-sourcing its previously commercial LLM-as-a-judge evaluations, annotation queues, prompt experiments, and Playground under MIT.</p>
+
+      <p>The right pick depends on data residency rules, team size, and whether you want self-host or SaaS. For South African builds where customer data cannot leave the country, self-hosted Langfuse or Phoenix tends to win. For a small team optimising for speed-to-dashboards, hosted LangSmith or Langfuse Cloud is faster to stand up. Whatever you pick, the OpenTelemetry GenAI conventions above make migration far less painful when you outgrow the first choice.</p>
+
+      <div class="post-cta">
+        <h3>Want an LLM system you can actually run in production?</h3>
+        <p>Our AI Workflow Automation builds ship with the eval harness, observability stack, and rollout plan in the same delivery. You get a system you can monitor, defend to the Information Regulator, and operate without surprise token bills.</p>
+        <a class="btn btn-primary" href="../services.html#automation">See AI Workflow Automation</a>
+      </div>
+
+      <h2>Progressive rollout: shadow mode, canary, A/B against a golden set</h2>
+
+      <p>Do not flip the switch. Ship in three stages. First, shadow mode: the new system runs alongside the old (or alongside no system at all) and writes its outputs to logs without showing them to users. You harvest disagreement, mistakes, and latency outliers without any user impact. Second, a small canary: a fraction of real traffic gets the new system. Define the kill switch and the rollback criteria before you turn it on. Third, an A/B against the golden eval set in CI on every change, so a quiet regression in week six gets caught the same day it lands.</p>
+
+      <p>Anthropic's engineering writeup on their multi-agent research system reports that adding full production tracing was the change that unlocked diagnosing agent failures, and that they use rainbow deployments to shift traffic gradually so long-running agents are not disrupted mid-task. The lesson is the same for smaller systems. Long-running LLM calls do not survive blue-green flips cleanly. Gradual is correct.</p>
+
+      <h2>Shipping safely in South Africa: POPIA, FSCA expectations and OWASP LLM Top 10</h2>
+
+      <p>The regulatory layer is not optional and not retro-fittable. Three pieces matter most for SA builds.</p>
+
+      <p><strong>POPIA section 71.</strong> Decisions based solely on automated processing (including profiling) that have legal or material effects on a data subject are restricted. The Act requires mechanisms for the person to make representations or get human review. If your LLM system declines a loan, prices a policy, or rejects a claim, section 71 applies directly, and "the model said no" is not a defensible answer on its own.</p>
+
+      <p><strong>The FSCA and Prudential Authority joint AI report</strong> (November 2025) found 52% of South African banks and 50% of payment providers were actively using AI, drawing on more than 2,100 survey responses. It called for stronger model risk management, board-level oversight, and explainability techniques such as SHAP and LIME. If you sell into financial services here, your buyers will be asking for this evidence inside the next twelve months.</p>
+
+      <p><strong>OWASP Top 10 for LLM Applications 2025.</strong> Prompt Injection remains LLM01. Sensitive Information Disclosure moved up to LLM02. Two new categories landed: System Prompt Leakage and Vector and Embedding Weaknesses (the latter is directly relevant to anyone running RAG). Treat the list as the minimum security review for any LLM feature, not as nice-to-have reading.</p>
+
+      <p>For broader risk framing, the NIST Generative AI Profile (NIST AI 600-1), released 26 July 2024, defines 12 GenAI-specific risk areas including Confabulation, Data Privacy, Information Integrity, and Information Security, mapped onto the AI RMF Govern, Map, Measure, Manage functions. It is the cleanest free framework to anchor a board-level AI risk policy against.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>The notebook-to-production gap is mostly evaluation and observability work, not modelling work. A demo proves the task is possible once. Production proves it works reliably, within latency and cost budgets, and with the audit trail to defend.</li>
+          <li>Start with a small, hand-curated golden set of around 100 examples. Prefer binary pass/fail assertions. Reach for LLM-as-judge only after prompt fixes stop helping, and calibrate the judge against human labels before trusting it.</li>
+          <li>Treat LLM-as-judge as a flawed instrument. Position bias, self-preference, and scoring drift are documented across 15 judge models and 150,000+ evaluation instances. Log disagreements with humans, monitor drift, and never let the judge be the only signal in front of a release gate.</li>
+          <li>Production observability is its own discipline. Adopt the OpenTelemetry GenAI conventions, track P95 and P99 latency and time-to-first-token, account for input, output, and cached tokens separately, and compute cost per successful task, not cost per call.</li>
+          <li>Ship with shadow mode first, then a small canary, then a CI A/B against the golden set. Bake in the South African regulatory layer (POPIA section 71, the FSCA and PA AI report, OWASP LLM Top 10 2025) from day one rather than retro-fitting it after launch.</li>
+        </ul>
+      </div>
+
+      <p>An LLM build that lacks the eval harness, the trace dashboard, and the rollout plan is a demo wearing a service uniform. Putting those pieces in is not glamorous work, but it is the difference between a system you operate with confidence and a system you hope no one looks at too closely.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="decision-systems-route-to-humans.html">
+        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>11 min read</span></div>
+        <h3>Decision systems that know when to route to a human</h3>
+        <p>POPIA section 71, confidence thresholds, and the design pattern that keeps automated decisioning defensible.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Production-grade AI</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Shippable <span style="color: var(--accent);">by design</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Eval harness, observability stack, rollout plan, compliance posture. Built in the same delivery, not bolted on later.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html" style="border-color: var(--paper); color: var(--paper);">See Services</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>
