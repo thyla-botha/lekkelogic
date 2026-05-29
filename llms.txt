@@ -1,45 +1,67 @@
 # Lekke Logic
 
-> AI-native agency based in Johannesburg, South Africa. We design, build, and operate AI systems, custom software, and decision systems for fintech, SaaS, and media teams. Discovery in days. Production in weeks.
+> AI-native agency based in Johannesburg, South Africa. We design, build, and operate AI systems, custom software, decision systems, and cybersecurity engagements for fintech, SaaS, and media teams. Discovery in days. Production in weeks.
 
-Lekke Logic (Pty) Ltd is an AI-native technology agency offering seven productised services: AI Audit & Roadmap, AI Workflow Automation, Document & Knowledge Agents, Decision Systems, Custom AI Software & Tools, UI/UX Design, and Marketing Sites. We work with South African and global clients, with a focus on regulated industries, particularly fintech and financial services compliance (FICA, KYC, AML).
+Lekke Logic (Pty) Ltd is an AI-native technology agency offering seven productised AI services plus a dedicated cybersecurity practice. Services: AI Audit & Roadmap, AI Workflow Automation, Document & Knowledge Agents, Decision Systems, Custom AI Software & Tools, UI/UX Design, and Marketing Sites. Cybersecurity practice: Penetration Testing, Vulnerability Assessment, Disaster Recovery Planning, Advanced Persistent Threat Simulation, and Vibe-Coded Whitebox Review. We work with South African and global clients, with a focus on regulated industries, particularly fintech and financial services compliance (FICA, KYC, AML, POPIA, FSCA conduct standards).
 
-Engagement model: two tiers across most services, **Lean** (SMEs) and **Premium** (enterprise), with transparent pricing in ZAR (excludes VAT) and no hidden fees. Most engagements start with our productised AI Audit (R15k to R30k, 1 to 2 weeks).
+Engagement model: most engagements begin with a paid AI Audit (1 to 2 weeks, fixed scope), followed by a scoped build with a written quote. We do not publish rate-card pricing. Every quote is written against a specific scope and discovery output.
 
 ## Pages
 
 - [Home](https://lekkelogic.co.za/): Overview, positioning, and the seven services
-- [Services](https://lekkelogic.co.za/services.html): All 7 services with Lean vs Premium pricing tiers
-- [Capabilities](https://lekkelogic.co.za/capabilities.html): Other capabilities (Managed IT, Business Development, Advertising, E-Commerce, generic CMS) for existing clients and bundled engagements
-- [Pricing](https://lekkelogic.co.za/pricing.html): Full price table for the seven services, FAQ, and engagement explainer
-- [Process](https://lekkelogic.co.za/process.html): Our 4-phase delivery process with timelines
-- [Work](https://lekkelogic.co.za/work.html): Case study index (new case studies in progress)
+- [Services](https://lekkelogic.co.za/services.html): All 7 AI services, scoped engagement labels
+- [Security](https://lekkelogic.co.za/security.html): Cybersecurity practice (pentest, vulnerability assessment, DR, APT simulation, vibe-code review)
+- [Capabilities](https://lekkelogic.co.za/capabilities.html): Other capabilities for existing clients and bundled engagements
+- [Engagement](https://lekkelogic.co.za/pricing.html): How we engage (audit, scoped build, retainer), FAQ
+- [Process](https://lekkelogic.co.za/process.html): 4-phase delivery process with timelines
+- [Work](https://lekkelogic.co.za/work.html): Case study index
 - [About](https://lekkelogic.co.za/about.html): Team, principles, and operating point of view
-- [Writing](https://lekkelogic.co.za/blog.html): Articles on AI-in-production, agency operations, and South African fintech
+- [Writing](https://lekkelogic.co.za/blog.html): Articles on AI-in-production, security, and South African fintech
 - [Contact](https://lekkelogic.co.za/contact.html): Book a 30-minute discovery call
 
-## The seven services (with price ranges in ZAR, excludes VAT)
+## The seven AI services
 
-1. **AI Audit & Roadmap**, R15k to R30k flat fee. Productised 1 to 2 week engagement. Front door for most builds.
-2. **AI Workflow Automation**, R5k to R75k (Lean) / R60k to R350k (Premium) per workflow. Make, Zapier, n8n, custom integrations.
-3. **Document & Knowledge Agents**, R40k to R250k per build. RAG, classification, routing, compliance-ready audit logs.
-4. **Decision Systems**, R20k to R150k (Lean) / R80k to R600k+ (Premium). Pipelines, dashboards, agentic anomaly detection. (Renamed from Data & BI.)
-5. **Custom AI Software & Tools**, R50k to R300k per project. Next.js apps with Claude agents baked in.
-6. **UI/UX Design**, R10k to R60k (Lean) / R50k to R250k (Premium). Web, mobile, internal tools, build-ready handoff.
-7. **Marketing Sites**, R40k to R120k per project. Production-quality Next.js sites in 2 to 3 weeks.
+1. **AI Audit & Roadmap**. Paid 1 to 2 week productised engagement. Inventory of where the time goes, ranked opportunity list, build-ready scope for the top three. Front door for most builds.
+2. **AI Workflow Automation**. Make, Zapier, n8n, custom integrations. Scoped per workflow.
+3. **Document & Knowledge Agents**. Production RAG, hybrid retrieval, contradiction handling, traceable citations. Scoped per workflow.
+4. **Decision Systems**. Three patterns (auto-decide with audit, recommend and route, surface and stop) chosen to fit reversibility, error cost, and regulatory constraint. Scoped per pipeline.
+5. **Custom AI Software & Tools**. Next.js apps with Claude agents baked in. Scoped per build.
+6. **UI/UX Design**. Web, mobile, internal tools, build-ready handoff. Scoped per design pack.
+7. **Marketing Sites**. Production-quality Next.js sites in 2 to 3 weeks. Scoped per project.
+
+## The five cybersecurity services
+
+1. **Penetration Testing**. External infra, web/mobile apps, APIs, identity, cloud config, optional social. 1 to 3 weeks with retest included.
+2. **Vulnerability Assessment**. Point-in-time scan with prioritised remediation, or continuous retainer.
+3. **Disaster Recovery Planning**. Documented runbooks, RTO/RPO assessment, tabletop exercise. 2 to 6 weeks.
+4. **Advanced Persistent Threat Simulation**. Focused red team or full APT scenario simulating a sophisticated adversary against your stack. 2 to 12 weeks depending on scope.
+5. **Vibe-Coded Whitebox Review**. Security review of AI-generated codebases, with optional remediation. For teams that shipped fast and need to make sure customer data is safe.
+
+## Writing (10 in-depth posts)
+
+- [Why vibe-coded apps need a security review before they go anywhere near customer data](https://lekkelogic.co.za/posts/vibe-coded-app-security.html): Five failure modes we find in nearly every AI-generated codebase, and the cheap fixes that close most of them.
+- [Why every fintech needs an AI audit before they buy a platform](https://lekkelogic.co.za/posts/ai-audit-before-platform-purchase.html): A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.
+- [Penetration testing for South African fintech: what FSCA and FICA actually expect](https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html): What an actual fintech-grade pentest covers and what the SA regulator does when you can't produce one.
+- [Document agents on real client data: what nobody tells you about RAG in production](https://lekkelogic.co.za/posts/document-agents-real-client-data.html): Six things you will hit shipping a production RAG system, and how to handle each one.
+- [Decision systems that route to humans (and when they shouldn't)](https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html): Three patterns for human-in-the-loop AI, when each one breaks, and how we choose.
+- [AI workflow automation for South African SMEs: what actually works (and what wastes money)](https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html): Five automation patterns that pay back, what to never automate, and how to pick between Zapier, Make, n8n, and custom code.
+- [Vulnerability assessment vs penetration testing: which one do you actually need?](https://lekkelogic.co.za/posts/vulnerability-assessment-vs-penetration-testing.html): Both produce a security report. They are very different products. Which one fits depends on whether you are checking a box, hardening a system, or proving control to a regulator.
+- [POPIA compliance for AI systems: what section 19 actually asks of you](https://lekkelogic.co.za/posts/popia-compliance-for-ai-systems.html): A working POPIA section 19 checklist for AI builders, plus how the Information Regulator's enforcement notices are reshaping what "appropriate, reasonable" means.
+- [Disaster recovery planning for South African fintech: from RTO/RPO to the call you actually have to make at 2 a.m.](https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html): Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist.
+- [What a real APT simulation finds in a South African fintech (and why scanners don't)](https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html): The gap between "this port is open" and "I am in your finance director's mailbox" is what determines whether you survive an actual attack.
 
 ## Key facts
 
 - **Founded:** 2024
 - **HQ:** Johannesburg, South Africa
-- **Specialisation:** AI systems in production, fintech compliance automation, custom software
+- **Specialisation:** AI systems in production, fintech compliance automation, cybersecurity for fintech, custom software
 - **Booking window:** Currently booking Q3/Q4 2026 engagements
 - **Contact:** hello@lekkelogic.co.za
 - **Scheduling:** https://calendly.com/nqobile-lekkelogic/30min
 
 ## What makes us different
 
-We are an AI-native, full-stack agency: one team handles strategy, design, code, data, and operations. We are not a platform vendor, we build the specific system that does the specific job in your stack, on your data, with the constraints your business actually has.
+We are an AI-native, full-stack agency: one team handles strategy, design, code, data, security, and operations. We are not a platform vendor. We build the specific system that does the specific job in your stack, on your data, with the constraints your business actually has.
 
 ## Optional
 

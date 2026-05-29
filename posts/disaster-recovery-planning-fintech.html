@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Disaster recovery planning for South African fintech: from RTO/RPO to the 2 a.m. call | Lekke Logic</title>
+<meta name="description" content="Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist. Here's how we write them, what to actually test, and where most SA fintechs are exposed." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Disaster recovery planning for South African fintech: from RTO/RPO to the call at 2 a.m." />
+<meta property="og:description" content="Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. Both have to exist." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-28" />
+<meta property="article:modified_time" content="2026-05-28" />
+<meta property="article:section" content="Security" />
+<meta property="article:tag" content="disaster recovery" />
+<meta property="article:tag" content="business continuity" />
+<meta property="article:tag" content="fintech" />
+<meta property="article:tag" content="cyber resilience" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Disaster recovery planning for South African fintech" />
+<meta name="twitter:description" content="From RTO/RPO to the call you actually have to make at 2 a.m." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "Disaster recovery planning for fintech"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html#article", "url": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html", "headline": "Disaster recovery planning for South African fintech: from RTO/RPO to the call you actually have to make at 2 a.m.", "description": "Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist.", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html#webpage"}, "wordCount": 1540, "keywords": "disaster recovery, business continuity, fintech, RTO, RPO, cyber resilience, South Africa"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html#webpage", "url": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html", "name": "Disaster recovery planning for South African fintech", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-28", "dateModified": "2026-05-28", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Security</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      <span class="italic">Disaster recovery</span> planning for fintech: from RTO/RPO to the call you actually have to make at 2 a.m.
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist. Here's how we write them, what to actually test, and where most SA fintechs are exposed.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-28</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> Security · DR · Fintech · Cyber Resilience</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>The first time a fintech actually needs its disaster recovery plan is usually the first time anyone reads it past page two. By that point the database is corrupt, the on-call engineer is improvising, and the executive on the call is asking questions that should have had answers six months ago. This post is about how to avoid being that team.</p>
+
+      <h2>Two documents, two audiences</h2>
+
+      <p>A working DR programme has two artefacts that often get confused. The first is the <strong>DR plan</strong>: a board-facing document that describes scope, objectives (RTO and RPO), governance, roles, and the testing schedule. It's what your auditor and the FSCA Joint Standard 2 of 2024 want to see. The second is the <strong>runbook</strong>: an operational document with step-by-step instructions, contact lists, command snippets, and decision trees. It's what the engineer reads at 2 a.m. while the production database is on fire.</p>
+
+      <p>Most SA fintechs we audit have the first document. Many of those documents have not been updated in over a year. Few have the second, and the ones that exist are usually a Confluence page that documents the system as it was at the time of the last reorganisation.</p>
+
+      <h2>RTO and RPO: the numbers everyone agrees to and forgets</h2>
+
+      <p>RTO (Recovery Time Objective) is the maximum acceptable time the system can be down. RPO (Recovery Point Objective) is the maximum acceptable amount of data loss measured in time. RTO 4 hours means "we must be back up within 4 hours of the incident starting." RPO 15 minutes means "we can tolerate losing up to 15 minutes of data."</p>
+
+      <p>For each critical system, you need a defensible RTO and RPO that the business has actually signed off on. "ASAP" is not an RTO. "Zero" is not an RPO unless you have synchronous multi-region replication and an entire budget conversation behind it.</p>
+
+      <p>For a typical SA fintech, sensible targets might be: customer-facing transaction systems RTO 1 hour, RPO 5 minutes. Internal admin systems RTO 8 hours, RPO 1 hour. Reporting and analytics RTO 24 hours, RPO 24 hours. Don't apply the strictest target to everything; you'll spend a fortune backing up data that doesn't need it.</p>
+
+      <p>The numbers drive everything else: how often you snapshot, how you architect backups, what your hot-standby looks like, what you put on retainer with vendors. Get the numbers wrong and you build the wrong system.</p>
+
+      <h2>Backup architecture that actually survives</h2>
+
+      <p>Three rules that resolve 80% of the design conversations:</p>
+
+      <p><strong>3-2-1.</strong> At least three copies of important data, on at least two different storage media, with at least one off-site. Still the correct baseline 40 years after IBM wrote it down.</p>
+
+      <p><strong>Immutability.</strong> At least one backup must be write-once-read-many for your retention period. If ransomware reaches your live system, it cannot reach your immutable backup. AWS S3 Object Lock and equivalent features at Azure and GCP are the production-grade way to achieve this.</p>
+
+      <p><strong>Test restore, not just backup.</strong> A backup you have never restored is a backup that probably does not work. Restore drills, on a defined cadence, into a clean environment, with verification that the restored data is queryable and complete.</p>
+
+      <p>The most common failure pattern in fintech DR audits: backups are running, snapshots are accumulating, the dashboards are green, and the team has never restored a full system end-to-end. When the day comes, they discover the backup excluded the WAL files, or the encryption key rotation broke the older snapshots, or the restore takes 14 hours and the RTO is 4.</p>
+
+      <h2>The runbook nobody wants to write</h2>
+
+      <p>This is the document that turns a DR plan from a compliance exercise into an operational capability. A good runbook has, for each defined incident scenario:</p>
+
+      <p>Detection (how does someone know this is happening?). Triage (what's the first thing the on-call does to confirm and bound the problem?). Escalation (who do they call, in what order, with what authority?). Decision points (the explicit moments where someone has to choose between options, and who gets to make the call). Recovery steps (the specific commands, in order). Verification (how do you know the recovery worked?). Communication (what do customers, regulators, the press get told, when?).</p>
+
+      <p>The runbook is opinionated and specific. "Restore the database" is not a runbook step. "Trigger the most recent RDS snapshot via this AWS console URL, wait for status=available, run this SQL script to reindex the orders table, validate the row count matches the value in incident-bot Slack channel #ops-restore" is a runbook step.</p>
+
+      <h2>Tabletop exercises and why they matter</h2>
+
+      <p>A tabletop exercise is a structured walkthrough of an incident scenario with the team that would actually respond. Two to three hours, a facilitator, a written scenario that unfolds as the exercise progresses, no real systems touched. Each team member describes what they would do, who they would call, what they would say.</p>
+
+      <p>The tabletop surfaces three things that no document can. Gaps in the runbook (steps that turn out to be ambiguous, decisions that have no owner, contact details that are out of date). Coordination failures (the security lead thinks legal is calling the Regulator, legal thinks the CEO is, the CEO is on a flight). Authority gaps (the system that requires the CTO to approve a restore, when the CTO is the one whose laptop just got encrypted).</p>
+
+      <p>Twice a year minimum. The FSCA Joint Standard 2 of 2024 expects evidence of testing and rehearsal; "we have a plan" is not enough.</p>
+
+      <div class="post-cta">
+        <h3>Need a DR programme that holds up?</h3>
+        <p>Our DR engagements deliver a board-facing plan, an engineer-facing runbook, a backup architecture review, and a facilitated tabletop. Typically 2 to 6 weeks depending on scope. You walk away with documents your auditor will accept and capabilities your team will actually use.</p>
+        <a class="btn btn-primary" href="../security.html#dr">See the DR service</a>
+      </div>
+
+      <h2>The SA-specific exposures</h2>
+
+      <p>Two failure modes we see disproportionately in South African fintechs:</p>
+
+      <p><strong>Single-AZ deployments.</strong> Cost pressure pushes teams to run production in a single availability zone, with the assumption that "AWS Cape Town will be fine." It usually is. When it isn't, the cost saved on multi-AZ replication is dwarfed by the cost of being down for hours. For any system with RTO under 4 hours, multi-AZ is the floor, not the upgrade path.</p>
+
+      <p><strong>Single-cloud-region with no out-of-region escape.</strong> Multi-AZ within Cape Town protects against AZ failure. It does not protect against a region-wide failure, a regulatory action, or a billing dispute that locks your account. For a fintech holding regulated data, an out-of-region cold standby (Frankfurt or Dublin are common) is the right level of paranoia.</p>
+
+      <p>The other recurring failure: assuming the cloud provider's SLA is your DR plan. The SLA gives you credits. Credits do not restore a corrupted production database. Your DR plan is yours, not your vendor's.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>A working DR programme has two artefacts: a plan (for the auditor) and a runbook (for the engineer at 2 a.m.). You need both.</li>
+          <li>RTO and RPO are business decisions that drive architecture. "ASAP" and "zero" are not RTOs.</li>
+          <li>3-2-1, immutability, and tested restores. Most DR failures are restore failures, not backup failures.</li>
+          <li>The runbook has to be specific enough that the on-call engineer can execute it cold. "Restore the database" is not a runbook step.</li>
+          <li>Tabletop exercises surface the gaps no document catches. Twice a year minimum; FSCA Joint Standard 2 of 2024 expects evidence of testing.</li>
+          <li>For SA fintechs: single-AZ is not DR. Single-region without an out-of-region cold standby is not DR for regulated data.</li>
+        </ul>
+      </div>
+
+      <p>The teams that recover well from incidents are not the teams with the prettiest plans. They are the teams that have rehearsed the response, kept the runbook current, and tested the restores. Everything else is paperwork.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="penetration-testing-south-african-fintech.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>13 min read</span></div>
+        <h3>Penetration testing for South African fintech: what FSCA and FICA actually expect</h3>
+        <p>What an actual fintech-grade pentest covers and what the regulator does when you can't produce one.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="vulnerability-assessment-vs-penetration-testing.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>12 min read</span></div>
+        <h3>Vulnerability assessment vs penetration testing: which one do you actually need?</h3>
+        <p>Both produce a security report. They are very different products. Which one you need depends on the question you're trying to answer.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>For the 2 a.m. call</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Rehearsed, not <span style="color: var(--accent);">filed</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Plan plus runbook plus facilitated tabletop. So when it happens, the team knows what to do.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a scoping call</a>
+        <a class="btn btn-ghost" href="../security.html#dr" style="border-color: var(--paper); color: var(--paper);">See the service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

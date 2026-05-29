@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Penetration testing for South African fintech: what FSCA and FICA actually expect | Lekke Logic</title>
+<meta name="description" content="POPIA fines are real. So is the line in your FSCA conduct standard that says you need 'appropriate technical security.' What an actual fintech-grade pentest covers, what the SA regulator does when you can't produce one, and how to scope one properly." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html" />
+<meta name="last-modified" content="2026-05-27" />
+<meta http-equiv="last-modified" content="2026-05-27" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Penetration testing for South African fintech: what FSCA and FICA actually expect" />
+<meta property="og:description" content="What an actual fintech-grade pentest covers (POPIA section 19, FSCA Joint Standards, SARB NPS Directive 1 of 2024) and how to scope one properly." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-27" />
+<meta property="article:modified_time" content="2026-05-27" />
+<meta property="article:section" content="Security" />
+<meta property="article:tag" content="penetration testing" />
+<meta property="article:tag" content="fintech" />
+<meta property="article:tag" content="FSCA" />
+<meta property="article:tag" content="POPIA" />
+<meta property="article:tag" content="South Africa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Penetration testing for South African fintech: what FSCA and FICA actually expect" />
+<meta name="twitter:description" content="What an actual fintech-grade pentest covers, what the SA regulator does when you can't produce one, and how to scope one properly." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "Penetration testing for South African fintech"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html#article", "url": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html", "headline": "Penetration testing for South African fintech: what FSCA and FICA actually expect", "description": "What an actual fintech-grade pentest covers, what the SA regulator does when you can't produce one, and how to scope one properly.", "datePublished": "2026-05-27", "dateModified": "2026-05-27", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html#webpage"}, "wordCount": 1620, "keywords": "penetration testing, fintech security, FSCA, POPIA, FICA, cybersecurity, South Africa"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html#webpage", "url": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html", "name": "Penetration testing for South African fintech: what FSCA and FICA actually expect", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-27", "dateModified": "2026-05-27", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Security</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      Penetration testing for <span class="italic">South African fintech</span>: what FSCA and FICA actually expect
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      POPIA fines are real. So are the Joint Standards from the FSCA and Prudential Authority that put cyber risk explicitly on the board. What an actual fintech-grade pentest covers, what the regulator does when you can't produce one, and how to scope one properly.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-27</span>
+      <span><strong>Read</strong> 13 minutes</span>
+      <span><strong>Tags</strong> Security · Fintech · FSCA · POPIA</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>A common artefact in a South African fintech's compliance folder is a one-page certificate from a generic IT vendor that says "vulnerability scan completed" with a date from over a year ago. That document does not, on its own, satisfy POPIA's security requirements. It does not satisfy what the FSCA expects of designated institutions on cyber resilience. It does not satisfy most enterprise insurance brokers. And it is the first thing the Information Regulator will ask to see after an incident.</p>
+
+      <p>This piece walks through what a real fintech-grade penetration test covers, what the South African regulatory environment actually requires (versus what people assume it requires), and how to scope a pentest that produces an artefact you can defend.</p>
+
+      <h2>What the regulators actually say</h2>
+
+      <p>You will not find a South African statute that says "you must run a penetration test every six months." That is not how our financial regulation is written. What you will find is a stack of obligations that, taken together, only have one defensible answer.</p>
+
+      <p>POPIA section 19 requires "appropriate, reasonable technical and organisational measures" to secure personal information. The Information Regulator has been active in issuing enforcement notices (Department of Justice, Department of Basic Education, Lancet Laboratories, and others), and "appropriate" is judged against the sensitivity of the data and the size of the responsible party. For a fintech holding ID numbers, account balances, source-of-funds documents, and transaction histories, the bar is high. A scanner-only check is not appropriate.</p>
+
+      <p>If your business is a licensed financial institution (FSP, bank, insurer, retirement fund, collective investment scheme manager) two recent instruments raise the bar further. Joint Standard 1 of 2023 (IT governance and risk management, jointly issued by the FSCA and Prudential Authority, commenced November 2024) makes the governing body explicitly accountable for IT and cyber risk. Joint Standard 2 of 2024 (cybersecurity and cyber resilience, published May 2024, compliance from June 2025) adds specific cyber resilience requirements across financial institutions. Both require evidence. Evidence is a tested report from someone qualified to produce it.</p>
+
+      <p>FICA, as amended by the General Laws (Anti-Money Laundering and Combating Terrorism Financing) Amendment Act 22 of 2022, raises the bar for accountable institutions on risk-based customer due diligence and record keeping. If your KYC pipeline can be subverted, your AML programme is compromised by definition. That is squarely in pentest territory.</p>
+
+      <p>If you operate inside the National Payment System (PSP, clearing house, settlement participant), SARB Directive 1 of 2024 on cybersecurity and cyber resilience in the NPS is the prescriptive instrument: regular, independent technical testing of critical systems, with board reporting. For card payments and payment infrastructure, this is not optional.</p>
+
+      <p>What this means in practice: nobody is going to send you a letter saying "you must pentest." But after an incident, every regulator listed above will ask the same question, and the right answer is a current, scoped, independent test report.</p>
+
+      <h2>What a real fintech pentest covers</h2>
+
+      <p>A generic "pentest" sold to small business is usually an external network scan plus a quick web app probe. That is not what a fintech needs. The surface to cover, at minimum:</p>
+
+      <h3>External infrastructure</h3>
+
+      <p>Your public IPs, DNS, mail records, exposed admin panels, VPN endpoints, cloud storage buckets. The first thing an attacker maps. Misconfigured S3 buckets, exposed RDP, outdated VPN appliances, and DNS takeovers are still the boring root causes of most fintech breaches we investigate.</p>
+
+      <h3>Web and mobile applications</h3>
+
+      <p>The customer portal, advisor portal, admin console, internal tools, and the mobile app if you have one. We test against the OWASP Top 10 (2025 edition) and the OWASP Top 10 for LLM Applications as a baseline, then add the fintech-specific cases: business-logic abuse on transfers, race conditions on balance updates, IDOR on customer records, JWT confusion, broken multi-tenancy. The boring OWASP items still find things, but the money is in business logic.</p>
+
+      <h3>API surface</h3>
+
+      <p>If you have a banking-as-a-service product, a partner API, or open banking endpoints, this gets its own track. API pentests find authentication bypasses, scope confusion, rate-limit failures, and the classic "the mobile app has admin endpoints the marketing team forgot about."</p>
+
+      <h3>Identity and access</h3>
+
+      <p>How accounts get created, reset, escalated, deprovisioned. Magic-link weaknesses, MFA bypass via SMS porting, OAuth misconfigurations, stale staff accounts with production access. This is where insider-threat and supply-chain risk live.</p>
+
+      <h3>Cloud configuration review</h3>
+
+      <p>IAM policies, network segmentation, secret management, logging coverage. Not strictly a "pentest" but you cannot defend a finding without it. A vulnerability in an EC2 instance that has no outbound network and no IAM role is different from one with full admin on your account.</p>
+
+      <h3>Phishing and social</h3>
+
+      <p>Optional but recommended for any fintech with more than 30 staff. Most breaches start with a phish. Testing the human layer once a year, with a debrief instead of a shaming exercise, is the most cost-effective control most fintechs are missing.</p>
+
+      <h2>What you should get back</h2>
+
+      <p>A real pentest report has three layers and you should ask for all three before you sign:</p>
+
+      <ol>
+        <li><strong>An executive summary.</strong> One page, written for the board. Risk rating, scope, top three findings, and a plain-language statement of the residual risk. This is what your insurer, your regulator's enquiry letter, and your auditor will read.</li>
+        <li><strong>A technical findings register.</strong> Every finding ranked (CVSS or equivalent), with evidence, reproduction steps, and a specific remediation. Not "patch the system." Specific. "Upgrade nginx to 1.25.3 on these three hosts. Then re-deploy. Estimated effort four hours."</li>
+        <li><strong>A retest commitment.</strong> A second visit after you've remediated, narrowly scoped to the original findings, with a clean-bill report you can hand to anyone who asks. A pentest without retest is a problem statement without a sign-off.</li>
+      </ol>
+
+      <div class="post-cta">
+        <h3>Need a pentest scoped for SA fintech?</h3>
+        <p>Our penetration testing engagements are scoped to your real attack surface and produce an artefact your auditors, insurers, and the Information Regulator can read. One to three weeks, depending on scope, with a retest included.</p>
+        <a class="btn btn-primary" href="../security.html#pentest">See the Penetration Testing service</a>
+      </div>
+
+      <h2>How to scope the engagement</h2>
+
+      <p>The single most common scoping mistake is testing the wrong thing. We see fintechs pay R80k for a pentest of their corporate website while the actual customer portal, where the money lives, is excluded because it sits on a different domain. Three things to nail down before the engagement starts:</p>
+
+      <p><strong>What is in scope.</strong> Every host, every domain, every app. Write it down. The pentest team will use this as their rules of engagement. Anything not on this list will not be tested. If your most valuable system is on a forgotten subdomain, put the subdomain on the list.</p>
+
+      <p><strong>What is out of scope and why.</strong> Often you exclude prod for safety. That is fine if and only if your prod and staging genuinely have parity. We have seen "tested staging" reports where staging had different auth, different DB, and different network controls. The report was technically true and substantively useless.</p>
+
+      <p><strong>What the engagement style is.</strong> Black box (the tester knows what the public knows), grey box (the tester gets credentials and an architecture diagram), or white box (the tester gets source code and admin access). Black box is the most realistic. Grey box finds more, faster. White box is best for hardening a system you're about to launch. For a fintech compliance pentest you probably want grey box on the external surface and white box on a single high-value internal system.</p>
+
+      <h2>When to run it and how often</h2>
+
+      <p>Annually at minimum for any fintech holding customer data. Twice a year if you ship a lot of code, hold a banking licence, or run payment infrastructure. Always after a significant architectural change, a new partner integration, or a major hire/fire in the engineering or admin team. Always before a Series B raise, because diligence will ask.</p>
+
+      <p>The "every two years because that's what the certificate looks like" cycle is what you are running because nobody enforced anything in 2019. The Information Regulator and the FSCA are both ramping up technical enforcement. The baseline is moving up.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>POPIA, FICA, the FSCA/PA Joint Standards (1 of 2023 and 2 of 2024), and the SARB NPS Directive 1 of 2024 don't name pentesting explicitly, but together they require independent, evidence-based security testing for any licensed fintech.</li>
+          <li>A scanner certificate is not a pentest. The regulator will know the difference after an incident.</li>
+          <li>A real fintech pentest covers external infra, web/mobile apps, APIs, identity, cloud config, and optionally social engineering.</li>
+          <li>You should get back an executive summary, a technical findings register, and a retest commitment.</li>
+          <li>Scope is the single highest-leverage decision. Test the systems where the money and the data actually live.</li>
+          <li>Annual at minimum. Twice a year if you hold a banking licence or ship a lot of code.</li>
+        </ul>
+      </div>
+
+      <p>If you have not run a real pentest in the last twelve months, your residual risk is higher than the board thinks. The cost of a properly scoped engagement is small compared to a POPIA section 109 administrative fine (capped at R10 million per infringement notice) and trivial compared to the reputational cost of an unreported breach landing in the news first.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="vibe-coded-app-security.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>11 min read</span></div>
+        <h3>Why vibe-coded apps need a security review before they go anywhere near customer data</h3>
+        <p>Five failure modes we find in nearly every AI-generated codebase, and the cheap fixes that close most of them.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Find it before they do</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Test it <span style="color: var(--accent);">properly</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Scoped to your real attack surface. Report your auditors and the Information Regulator can read.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a scoping call</a>
+        <a class="btn btn-ghost" href="../security.html#pentest" style="border-color: var(--paper); color: var(--paper);">See the Pentest service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

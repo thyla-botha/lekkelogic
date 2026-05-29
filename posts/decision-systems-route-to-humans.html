@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Decision systems that route to humans (and when they shouldn't) | Lekke Logic</title>
+<meta name="description" content="Most production AI decisions aren't fully automated and shouldn't be. Three patterns we use for human-in-the-loop AI, when each one breaks, and how we choose between them on real fintech and ops builds." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html" />
+<meta name="last-modified" content="2026-05-27" />
+<meta http-equiv="last-modified" content="2026-05-27" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Decision systems that route to humans (and when they shouldn't)" />
+<meta property="og:description" content="Three patterns for human-in-the-loop AI decisions, when each one breaks, and how we choose between them." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-27" />
+<meta property="article:modified_time" content="2026-05-27" />
+<meta property="article:section" content="Decision Systems" />
+<meta property="article:tag" content="decision systems" />
+<meta property="article:tag" content="human in the loop" />
+<meta property="article:tag" content="AI workflow" />
+<meta property="article:tag" content="LLM" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Decision systems that route to humans (and when they shouldn't)" />
+<meta name="twitter:description" content="Three patterns for human-in-the-loop AI decisions, and how we choose between them." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "Decision systems that route to humans"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html#article", "url": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html", "headline": "Decision systems that route to humans (and when they shouldn't)", "description": "Three patterns for human-in-the-loop AI decisions, when each one breaks, and how we choose between them.", "datePublished": "2026-05-27", "dateModified": "2026-05-27", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html#webpage"}, "wordCount": 1540, "keywords": "decision systems, human in the loop, AI workflow, LLM, AI decision support, fintech AI"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html#webpage", "url": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html", "name": "Decision systems that route to humans (and when they shouldn't)", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-27", "dateModified": "2026-05-27", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Decision Systems</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      <span class="italic">Decision systems</span> that route to humans (and when they shouldn't)
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      Most production AI decisions aren't fully automated and shouldn't be. Three patterns we use for human-in-the-loop AI, when each one breaks, and how we choose between them on real fintech and ops builds.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-27</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> Decision Systems · Human-in-the-loop · Production AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>The hardest decision in building a production AI decision system is not which model to use or how to prompt it. It is where in the workflow the human goes. Get that wrong and you ship one of two failure modes: an automated system that the team has lost confidence in and routes around, or a "decision support" tool the team uses as a fancy autocomplete while still doing the work the old way.</p>
+
+      <p>This is a working post about the three patterns we ship most often. We'll cover what each one looks like, when each one breaks, and the three questions we ask before choosing.</p>
+
+      <h2>Pattern 1: Auto-decide with audit (the green path)</h2>
+
+      <p>The AI makes the decision. The decision is logged with the inputs, the model's reasoning, and the outcome. A human reviews a sample of decisions periodically (daily for high-risk flows, weekly for low-risk).</p>
+
+      <p>This is the right pattern when three conditions hold. The decision is reversible, the volume is high enough that human review of every case is prohibitive, and the error cost is bounded. Examples: routing inbound support tickets to the right queue, categorising transactions for a personal-finance app, flagging duplicate invoices for review, auto-responding to FAQ-shaped queries.</p>
+
+      <p>It breaks when one of those conditions stops being true. A model that handled ticket routing well at 1,000 a day starts mis-routing as your product range grows and the team doesn't notice for three weeks because nobody is reviewing the queue. Or the "low risk" categorisation turns out to feed into a regulatory report and now the auditor wants to know who signed off on every decision.</p>
+
+      <p>The fix is in the audit layer, not the model. The audit has to be active, not passive. A weekly digest the team actually opens. Drift detection on the model's confidence distribution. An on-call who looks at flagged cases within 24 hours. Without those, "auto-decide with audit" becomes "auto-decide" and you find out about the failure mode from a customer complaint.</p>
+
+      <h2>Pattern 2: Recommend and route (the yellow path)</h2>
+
+      <p>The AI proposes a decision with reasoning. The human reviews and confirms, edits, or rejects. The system records the human's verdict and (if you're disciplined about it) feeds that back as training signal.</p>
+
+      <p>This is the workhorse pattern for regulated workflows. KYC adjudication, underwriting reviews, claims triage, compliance escalations. The model does the reading, the lookup, the cross-reference. It produces a draft decision and a justification. The human reviews and decides.</p>
+
+      <p>When it works it delivers genuine productivity gains. A well-designed recommend-and-route system can collapse the time per case substantially, because most analyst time goes on gathering inputs and writing justifications, not on deciding.</p>
+
+      <p>It breaks in two ways. The first is automation bias. If the model is right 90% of the time, humans learn to confirm without reading. The 10% of wrong decisions go through with a human's name on them. You can detect this in the data (review time drops below the time it physically takes to read the draft) but only if you instrument for it.</p>
+
+      <p>The second is the opposite: the human ignores the recommendation entirely and re-does the work. Usually because the recommendation is unreliable, the UI doesn't surface the reasoning well, or the team didn't trust the system after a bad rollout. Either way you've spent on building a tool nobody uses.</p>
+
+      <p>The mitigations: build the review UI for skimming the reasoning, not just the verdict. Track override rates per reviewer and per decision type. A very low override rate is a signal of automation bias rather than perfect accuracy. A very high override rate means the model isn't earning its keep and needs retraining, scope narrowing, or removal.</p>
+
+      <h2>Pattern 3: Surface and stop (the red path)</h2>
+
+      <p>The AI does not propose a decision at all. It surfaces the relevant information, the relevant precedents, the conflicting policies, and stops. The human decides cold.</p>
+
+      <p>This is the right pattern for decisions where the cost of a wrong decision is very high, where the law or the regulator requires explicit human accountability, or where the inputs are too varied for the model to be reliably better than chance. Examples in fintech: regulated advice under the FAIS Act (where a licensed FSP must remain accountable for the recommendation), declining a loan application, suspicious-activity reporting decisions, anything that ends in a customer-facing letter signed by a person.</p>
+
+      <p>The mistake here is treating it as "just a search tool." A good surface-and-stop system is genuinely useful: it pulls together five things the human would have pulled together themselves in 15 minutes. It tells the human what's missing. It flags inconsistencies in the inputs. It does the boring work and leaves the judgement.</p>
+
+      <p>It breaks when the team treats the AI's selection of "relevant information" as the decision. You see this when a surface-and-stop tool starts being used as an "auto-decide" tool by tired analysts on busy days. The fix is process and design: make the human's reasoning a required field, make the surfaced information clearly labelled as "inputs to your decision" rather than "the answer," and audit the reasoning fields, not just the decisions.</p>
+
+      <div class="post-cta">
+        <h3>Need help designing the human/AI boundary?</h3>
+        <p>Our Decision Systems engagements design the workflow, the model, the UI, and the audit layer together. Scoped per workflow, typically four to ten weeks to a production decision system with a defensible human-in-the-loop design.</p>
+        <a class="btn btn-primary" href="../services.html#decisions">See Decision Systems</a>
+      </div>
+
+      <h2>How we choose between them</h2>
+
+      <p>Three questions, asked in order.</p>
+
+      <p><strong>1. Is the decision reversible?</strong> A wrong ticket routing is reversible in minutes. A wrong underwriting decision can take months. A wrong FAIS advice decision can land you in front of the FSCA. The less reversible, the more human the loop needs to be.</p>
+
+      <p><strong>2. What is the cost of a wrong decision, and to whom?</strong> Customer cost, regulatory cost, financial cost, reputational cost. Sum them up. Compare to the cost of human review at the relevant volume. If wrong-decision cost is high and volume is moderate, pattern 2 or 3. If wrong-decision cost is low and volume is huge, pattern 1.</p>
+
+      <p><strong>3. Does the law or the regulator require human accountability?</strong> For FAIS-regulated advice, yes (a licensed FSP carries the regulatory liability for the advice, regardless of how it was produced). For credit decisions, the National Credit Act's affordability assessment requirements apply whether the decision is human-made or automated, and regulators are increasingly scrutinising AI explainability in credit. For internal ops decisions, usually no. Don't try to engineer around this question. It is a constraint, not a preference.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Three patterns: auto-decide with audit, recommend and route, surface and stop. Each works in a specific zone.</li>
+          <li>Auto-decide breaks when the audit becomes passive. The audit has to be a real, instrumented part of the system.</li>
+          <li>Recommend-and-route breaks via automation bias (humans rubber-stamp) or under-trust (humans re-do the work). Track override rates to detect both.</li>
+          <li>Surface-and-stop is the right pattern for high-stakes, low-volume, regulator-facing decisions. Design it so the reasoning is the artefact.</li>
+          <li>Choose based on reversibility, error cost, and regulatory constraint, in that order.</li>
+          <li>Most production decision systems are pattern 2. Pattern 1 is rarer than vendors imply. Pattern 3 is what keeps you out of trouble.</li>
+        </ul>
+      </div>
+
+      <p>The interesting question in production AI is rarely "can we automate this?" It is "where, in this workflow, does a human's judgement add value the model can't, and how do we build the system so the human can actually exercise that judgement instead of rubber-stamping or being bypassed?" Get that right and you ship something the team uses for years. Get it wrong and you ship a tool the team works around within months.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="document-agents-real-client-data.html">
+        <div class="bi-meta"><span class="bi-cat">Document Agents</span><span>13 min read</span></div>
+        <h3>Document agents on real client data: what nobody tells you about RAG in production</h3>
+        <p>Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes and contradictory contracts.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Design the boundary</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Human <span style="color: var(--accent);">on purpose</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        We design the workflow, the model, the UI, and the audit layer together. So the human-in-the-loop is real.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html#decisions" style="border-color: var(--paper); color: var(--paper);">See the service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

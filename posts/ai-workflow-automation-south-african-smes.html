@@ -1,0 +1,257 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>AI workflow automation for South African SMEs: what actually works | Lekke Logic</title>
+<meta name="description" content="Make, Zapier, n8n, and LLM-augmented workflows are everywhere. Here's how to pick patterns that actually save time in an SA SME context, what to never automate, and how to keep the system maintainable past month three." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="AI workflow automation for South African SMEs: what actually works (and what wastes money)" />
+<meta property="og:description" content="How to pick AI workflow patterns that actually save time, what to never automate, and how to keep automations maintainable past month three." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-28" />
+<meta property="article:modified_time" content="2026-05-28" />
+<meta property="article:section" content="Workflow Automation" />
+<meta property="article:tag" content="workflow automation" />
+<meta property="article:tag" content="n8n" />
+<meta property="article:tag" content="Make" />
+<meta property="article:tag" content="Zapier" />
+<meta property="article:tag" content="South Africa" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="AI workflow automation for South African SMEs: what actually works" />
+<meta name="twitter:description" content="How to pick patterns that save time, what not to automate, and how to keep automations alive past month three." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "AI workflow automation for South African SMEs"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html#article", "url": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html", "headline": "AI workflow automation for South African SMEs: what actually works (and what wastes money)", "description": "How to pick AI workflow patterns that actually save time, what to never automate, and how to keep automations maintainable past month three.", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html#webpage"}, "wordCount": 1520, "keywords": "workflow automation, n8n, Make, Zapier, AI automation, South Africa, SME"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html#webpage", "url": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html", "name": "AI workflow automation for South African SMEs: what actually works", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-28", "dateModified": "2026-05-28", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Workflow Automation</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      AI workflow automation for <span class="italic">South African SMEs</span>: what actually works (and what wastes money)
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      Make, Zapier, n8n, and LLM-augmented workflows are everywhere. Here's how to pick patterns that actually save time in an SA SME context, what to never automate, and how to keep the system maintainable past month three.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-28</span>
+      <span><strong>Read</strong> 12 minutes</span>
+      <span><strong>Tags</strong> Workflow Automation · SMEs · n8n · Make</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>If you run a 5 to 50 person business in South Africa, the cost-effective way to free up your team's time right now is rarely a custom-built AI product. It is a handful of well-designed workflow automations that take the boring 30% off everyone's plate and put the saved hours where they actually matter.</p>
+
+      <p>This is a practical guide to picking those automations well. What patterns are worth building, what tools fit which scale, what to never automate, and the operational hygiene that decides whether your automations are still working in six months or quietly broken in a Slack channel nobody reads.</p>
+
+      <h2>Where AI workflow automation actually fits</h2>
+
+      <p>An automation is worth building when three conditions hold. The work is repetitive and rule-shaped enough that you can describe it in a paragraph. The volume is high enough that the time saved is meaningful (one case a month is not it). The cost of an occasional mistake is bounded and recoverable, not catastrophic.</p>
+
+      <p>For most SMEs the highest-leverage candidates are: inbound triage (email, WhatsApp, web forms), document processing (quotes, invoices, ID documents, simple contracts), CRM enrichment (adding context to new leads, syncing across tools), finance reconciliation (matching bank entries to invoices, flagging exceptions), and outbound sequencing (follow-up emails, status updates, recurring reports). These five categories cover most of what an automation engagement should look at first.</p>
+
+      <h2>Five patterns we ship repeatedly</h2>
+
+      <h3>1. Inbound triage and routing</h3>
+
+      <p>An inbound message hits a shared inbox or a WhatsApp number. An LLM reads it, classifies it (sales, support, billing, complaint, recruitment), extracts the obvious fields (name, company, urgency), routes it to the right channel, and drafts a first-pass response for the responsible human to review and send. The human stays in the loop for the actual reply but is no longer doing the sorting. Right pattern for businesses receiving more than ten substantive messages a day.</p>
+
+      <h3>2. Document extraction with verification</h3>
+
+      <p>Customer or supplier sends a document. The system pulls the relevant fields, populates them into your CRM or accounting system, and flags anything that looks anomalous. The human verifies the extraction before it commits. For invoices, this is invoice OCR plus matching against POs. For quotes, it is line-item extraction. For onboarding, it is ID and address extraction. Good document tooling (Azure Document Intelligence, AWS Textract) has been production-ready for years.</p>
+
+      <h3>3. CRM enrichment and dedup</h3>
+
+      <p>A new contact lands in the CRM. The system enriches it with publicly available context, normalises the company name, checks for duplicate records, and assigns it to the correct owner based on rules. Stops your sales team from chasing the same lead three times.</p>
+
+      <h3>4. Recurring reports and dashboards</h3>
+
+      <p>Pull data from three tools, transform it, render it as a one-page summary with a short LLM-written commentary, deliver to a Slack channel or an email distribution list on a schedule. Reliable because the work is mostly deterministic; the LLM's only job is the commentary, which is bounded.</p>
+
+      <h3>5. Follow-up sequencing with human checkpoints</h3>
+
+      <p>The system tracks state for an opportunity, a candidate, a customer in onboarding. When a checkpoint fires (no reply in 5 days, missing document, anniversary), it drafts the appropriate next message, queues it for a human to review and send. The model writes the draft; the human owns the relationship.</p>
+
+      <h2>What you should never automate</h2>
+
+      <p>Three categories where the cost of automation outweighs the time saved.</p>
+
+      <p><strong>Customer-facing decisions in regulated contexts.</strong> Declining credit, recommending a financial product, rejecting an insurance claim. The FAIS Act requires a licensed FSP to remain accountable for advice. The National Credit Act requires affordability assessment regardless of whether the decision is automated. Don't automate the decision; automate the inputs to the decision so the human can decide faster.</p>
+
+      <p><strong>Anything that fires the customer.</strong> Account closures, payment cancellations, refund denials, dispute resolutions. The blast radius of a wrong decision is the relationship. Always a human.</p>
+
+      <p><strong>One-off, low-volume judgement work.</strong> Building an automation to handle the three weird cases per month that come in is a four-week build that saves four hours a year. Just have a human do it.</p>
+
+      <h2>Picking the right tool</h2>
+
+      <p>The tool decision matters less than people think, but the wrong one will hurt you eventually. Rough heuristics that hold for most SA SMEs:</p>
+
+      <p><strong>Zapier</strong> is the easiest to start with, the most expensive at scale, and the most limited when you need branching logic or complex data transformation. Great for under five active automations and teams with no engineering support.</p>
+
+      <p><strong>Make (formerly Integromat)</strong> is more powerful and cheaper than Zapier per operation, with proper branching, iteration, and error handling. Better choice if you have someone willing to learn it and you're past five automations.</p>
+
+      <p><strong>n8n</strong> is the most flexible, can be self-hosted (which matters for POPIA-sensitive data residency), and integrates with custom code natively. Best choice once you have an engineer involved or need to keep data in your own environment. Steeper learning curve.</p>
+
+      <p><strong>Custom code (Next.js, Python services, Cloudflare Workers)</strong> is right when the automation is complex enough that visual builders become a liability, when you need testable code, or when the workflow is core enough to your business that you don't want to be hostage to a vendor's pricing changes.</p>
+
+      <p>Don't pick the tool first and find the problem. Pick the problem, build a rough prototype, then choose the tool that fits the maintenance shape you want.</p>
+
+      <div class="post-cta">
+        <h3>Need help picking the right automations?</h3>
+        <p>Our AI Workflow Automation engagements scope per workflow. We design the flow, build it on the right tool for your scale, and hand back a system you can maintain or that we run on a retainer. Most projects ship the first workflow in 2 to 4 weeks.</p>
+        <a class="btn btn-primary" href="../services.html#automation">See the Automation service</a>
+      </div>
+
+      <h2>The hygiene that keeps automations alive</h2>
+
+      <p>An automation that works for six weeks and then quietly breaks is worse than no automation, because nobody notices and the work doesn't get done. The hygiene practices that actually matter:</p>
+
+      <p><strong>Every automation has an owner.</strong> Named person, in the doc. If they leave, ownership transfers explicitly before they go.</p>
+
+      <p><strong>Every automation has alerting.</strong> When a step fails or the flow stops, someone is paged or DM'd. "I'll check the logs occasionally" is not alerting.</p>
+
+      <p><strong>Every automation has a rollback.</strong> A documented way to revert to the previous version if a change breaks things. Make, Zapier, and n8n all support this; you just have to use it.</p>
+
+      <p><strong>Every automation has a quarterly review.</strong> Is it still earning its keep? Is the rule still correct? Has the underlying tool API changed? Most decay happens because nobody checks, not because the work suddenly got harder.</p>
+
+      <p><strong>Every automation that touches customer data has an audit log.</strong> Who triggered it, what data flowed where, what the model output was. Required under POPIA if the data is personal information; useful for debugging in every other case.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Automation works when the task is repetitive, the volume is meaningful, and the error cost is bounded.</li>
+          <li>The five highest-leverage patterns for SA SMEs: inbound triage, document extraction, CRM enrichment, recurring reports, follow-up sequencing.</li>
+          <li>Don't automate regulated customer-facing decisions, anything that fires the customer, or rare one-off judgement work.</li>
+          <li>Pick the tool to fit the maintenance shape you want: Zapier for starters, Make for scale, n8n for flexibility and data residency, custom code for the core systems.</li>
+          <li>Owner, alerting, rollback, quarterly review, audit log. Without these you are renting decay.</li>
+        </ul>
+      </div>
+
+      <p>Most SMEs underestimate how much time is going to repetitive shaped-like-a-rule work and overestimate how complex the right automation is. A well-scoped two-week automation engagement usually pays back inside a quarter. The mistake is building 17 automations because they're easy to build and then maintaining none of them properly.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="document-agents-real-client-data.html">
+        <div class="bi-meta"><span class="bi-cat">Document Agents</span><span>13 min read</span></div>
+        <h3>Document agents on real client data: what nobody tells you about RAG in production</h3>
+        <p>Tutorials show RAG against Wikipedia. Real client data has scanned faxes and contradictory contracts.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Automate the right things</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Built to <span style="color: var(--accent);">stay shipped</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Scoped per workflow, built on the right tool for your scale, with the hygiene that keeps it alive.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html#automation" style="border-color: var(--paper); color: var(--paper);">See the service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

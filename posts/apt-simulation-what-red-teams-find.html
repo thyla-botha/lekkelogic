@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>What a real APT simulation finds in a South African fintech (and why scanners don't) | Lekke Logic</title>
+<meta name="description" content="A scanner finds 'this port is open.' A red team finds 'I am inside your finance director's mailbox forwarding wire-transfer instructions.' The gap between the two is what determines whether you survive an actual attack." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="What a real APT simulation finds in a South African fintech (and why scanners don't)" />
+<meta property="og:description" content="The gap between 'this port is open' and 'I am in your finance director's mailbox' is what determines whether you survive an actual attack." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-28" />
+<meta property="article:modified_time" content="2026-05-28" />
+<meta property="article:section" content="Security" />
+<meta property="article:tag" content="APT simulation" />
+<meta property="article:tag" content="red team" />
+<meta property="article:tag" content="adversary simulation" />
+<meta property="article:tag" content="fintech security" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="What a real APT simulation finds in a South African fintech" />
+<meta name="twitter:description" content="A scanner finds 'this port is open.' A red team finds 'I am in your finance director's mailbox.'" />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "APT simulation: what red teams find"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html#article", "url": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html", "headline": "What a real APT simulation finds in a South African fintech (and why scanners don't)", "description": "The gap between 'this port is open' and 'I am in your finance director's mailbox' is what determines whether you survive an actual attack.", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html#webpage"}, "wordCount": 1560, "keywords": "APT simulation, red team, adversary simulation, fintech security, MITRE ATT&CK, cyber resilience"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html#webpage", "url": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html", "name": "What a real APT simulation finds in a South African fintech", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-28", "dateModified": "2026-05-28", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Security</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      What a real <span class="italic">APT simulation</span> finds in a South African fintech (and why scanners don't)
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      A scanner finds "this port is open." A red team finds "I am inside your finance director's mailbox forwarding wire-transfer instructions." The gap between the two is what determines whether you survive an actual attack.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-28</span>
+      <span><strong>Read</strong> 13 minutes</span>
+      <span><strong>Tags</strong> Security · Red Team · Adversary Simulation</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>A vulnerability scanner tells you which doors and windows look unlocked. A penetration test demonstrates that one of them actually is. An Advanced Persistent Threat simulation does something different: it asks "if a motivated, well-resourced adversary spent four weeks trying to compromise this business, what would they actually achieve?" The output is not a list of vulnerabilities. It is a story of how the business gets breached, end to end, with evidence at each stage.</p>
+
+      <p>This post explains how an APT simulation differs from a pentest, what the engagement actually looks like, what kind of findings emerge, and when it's the right product to buy.</p>
+
+      <h2>What "APT" actually means in this context</h2>
+
+      <p>An Advanced Persistent Threat is shorthand for a category of attacker: well-resourced, goal-driven, patient. Real APT groups (nation-states, organised crime syndicates, ransomware operators) plan campaigns over weeks or months, blend in with normal traffic, and move slowly enough to avoid detection. The compromise of a typical fintech rarely looks like the noisy scanning patterns a pentest emulates.</p>
+
+      <p>An APT simulation engagement uses the techniques those actors actually use, mapped to a recognised framework (MITRE ATT&amp;CK is the standard reference) and scoped to a specific objective (steal customer PII, initiate a fraudulent payment, exfiltrate the source code repository, ransomware the production database). It is not "more aggressive pentesting." It is a different product with a different purpose.</p>
+
+      <h2>How the engagement runs</h2>
+
+      <p>A representative engagement structure:</p>
+
+      <p><strong>Reconnaissance (week 1).</strong> Public-source intelligence on the target. Employee names from LinkedIn. Email patterns from leaked breach data. Open job postings revealing the tech stack. Code in public GitHub repositories. Pictures from the office on Instagram. The attacker spends days building a picture of the organisation before they touch a single system.</p>
+
+      <p><strong>Initial access (week 2).</strong> Most modern compromises start with a phish. A spear-phishing email tailored to a specific employee, designed to look like a vendor invoice, a recruiter, a regulatory notice. The simulation usually targets a small cohort of pre-agreed users with the awareness that some will click. The objective is to obtain working credentials or a session token. Alternative initial-access paths: a vulnerable internet-exposed service (often a VPN appliance or admin panel), a malicious package added to a project dependency, or a third-party software supply chain.</p>
+
+      <p><strong>Persistence (week 3).</strong> Once inside, the attacker establishes ways to come back: a stolen OAuth refresh token, a scheduled task, a new service account, a malicious browser extension on a developer workstation. The objective is to survive a password reset or a session timeout.</p>
+
+      <p><strong>Lateral movement and privilege escalation (week 3 to 4).</strong> From the initial foothold, the attacker enumerates the environment, finds higher-value accounts, and escalates. This is where misconfigured cloud IAM, over-permissioned service accounts, stale admin credentials in environment variables, and unfederated SaaS apps with weak SSO become the attack chain.</p>
+
+      <p><strong>Objective and exfiltration (week 4).</strong> The pre-agreed objective is achieved. Customer database queried. Wire-transfer email sent from the CFO's account. Source code repository cloned to attacker infrastructure. Evidence captured at each step. Then the team writes it up.</p>
+
+      <h2>What APT simulations find that pentests don't</h2>
+
+      <h3>Detection gaps</h3>
+
+      <p>A pentest tells you what is exploitable. An APT simulation tells you whether you would notice. Most organisations have alerting on the wrong things (firewall logs, AV alerts) and no alerting on the right things (anomalous OAuth grants, unusual cloud API patterns, lateral SSH from non-admin accounts). The simulation surfaces this because the team intentionally tries to operate quietly and tracks which actions did or did not generate alerts.</p>
+
+      <h3>Response gaps</h3>
+
+      <p>An alert that fires at 3 a.m. and routes to a Slack channel nobody reads is the same as no alert. Simulations expose the response chain: who got the alert, what did they do, did they escalate, did the on-call analyst correctly identify it as malicious or dismiss it as noise. Most fintechs we engage have credible detection technology and a broken response process.</p>
+
+      <h3>Human-layer failures</h3>
+
+      <p>The CFO's executive assistant approves a wire transfer based on an email that "looked legitimate." A junior developer commits a credential to a public repository under pressure to ship. An ops manager grants temporary admin to a vendor and forgets to revoke. The simulation tests these paths because real attackers exploit them.</p>
+
+      <h3>Chained findings</h3>
+
+      <p>A pentest reports findings as a list. A simulation reports them as a chain. "The exposed staging environment was misconfigured to share IAM with production. A developer's leaked GitHub token had access to staging. We pivoted from staging into production via the shared IAM role. From production we accessed the customer database." Each link in the chain might be low or medium severity individually; the chain is critical.</p>
+
+      <h2>Scope and rules of engagement</h2>
+
+      <p>Without clear rules of engagement, simulations get dangerous. The pre-engagement document needs to specify: the objective (what counts as "success"), what systems are in scope and out of scope, time-of-day restrictions (no testing during market open for trading platforms), what the team is authorised to do (clone the database, yes; actually exfiltrate it to attacker-controlled infrastructure, no), and the abort conditions (a "stop the test" command path with named authorisers).</p>
+
+      <p>The other critical document is the deconfliction protocol: a way for the blue team or the SOC to verify, during the engagement, that suspicious activity they're seeing is the simulation and not a real attacker. Without this, your incident response team will (correctly) escalate and you will (incorrectly) wake up your CEO at 4 a.m.</p>
+
+      <div class="post-cta">
+        <h3>Considering an APT simulation?</h3>
+        <p>Our APT simulation engagements run from focused 2 to 4 week scenarios up to full 6 to 12 week red-team campaigns. Scoped to a pre-agreed objective, with explicit rules of engagement and a debrief that helps the defenders learn, not just feel ambushed.</p>
+        <a class="btn btn-primary" href="../security.html#apt">See the APT Simulation service</a>
+      </div>
+
+      <h2>When this is the right product</h2>
+
+      <p>An APT simulation is a high-investment engagement. It is the right product when:</p>
+
+      <p>You already have a mature security programme (a pentest is the right starting point if you don't). You have an internal blue team or SOC and want to test their detection and response. You hold genuinely high-value data and need to know how it actually gets stolen. You are subject to regulatory requirements (Joint Standard 2 of 2024, SARB Directive 1 of 2024 in the NPS) that require evidence of resilience testing, not just vulnerability management. You have a board-level conversation pending that needs a credible answer to "how bad would it actually be?"</p>
+
+      <p>If you have not run a pentest in the last year, do that first. If you have, and the findings are remediated, and the team wants to know what's left, the APT simulation is what's left.</p>
+
+      <h2>What you do with the report</h2>
+
+      <p>An APT simulation report is structurally different from a pentest report. The narrative matters as much as the findings. A good report includes: the attack timeline (what was done, when, with what), the detection timeline (what was alerted on, when, by whom), the response timeline (what the defenders did, what they missed), a gap analysis mapping each undetected step to the control that should have caught it, and prioritised remediation focused on detection-and-response improvements as much as on patching vulnerabilities.</p>
+
+      <p>The debrief is the most valuable part. A facilitated session with the blue team, walking through the attack chain step by step, explaining the techniques used, what defenders saw, what they could have seen. This is where the organisation actually learns.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>APT simulation answers "what would a real attacker achieve in four weeks?" It is not more aggressive pentesting.</li>
+          <li>Engagement structure: reconnaissance, initial access, persistence, lateral movement, objective, exfiltration. Maps to MITRE ATT&amp;CK.</li>
+          <li>Findings types pentests don't surface: detection gaps, response gaps, human-layer failures, chained low-severity issues that combine into critical risk.</li>
+          <li>Rules of engagement and deconfliction protocols are non-negotiable. The simulation must not turn into a real incident response.</li>
+          <li>Right product for mature programmes with an existing blue team and high-value data. Pentest first if you haven't already.</li>
+          <li>The debrief is the most valuable artefact. The point is to make the defenders better, not to humiliate them.</li>
+        </ul>
+      </div>
+
+      <p>A serious adversary will not stop at the first locked door. They will try every door, walk the perimeter, befriend the security guard, social-engineer the cleaner, and come back next week. An APT simulation tells you, before any of that happens to you for real, what they would have found.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="penetration-testing-south-african-fintech.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>13 min read</span></div>
+        <h3>Penetration testing for South African fintech: what FSCA and FICA actually expect</h3>
+        <p>What an actual fintech-grade pentest covers and what the regulator does when you can't produce one.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="vulnerability-assessment-vs-penetration-testing.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>12 min read</span></div>
+        <h3>Vulnerability assessment vs penetration testing: which one do you actually need?</h3>
+        <p>Both produce a security report. Which one you need depends on the question you're trying to answer.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Test the whole chain</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Find out <span style="color: var(--accent);">first</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Adversary simulation against a real objective. Scope, rules of engagement, deconfliction, debrief.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a scoping call</a>
+        <a class="btn btn-ghost" href="../security.html#apt" style="border-color: var(--paper); color: var(--paper);">See the service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>

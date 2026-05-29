@@ -3,8 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Writing | Lekke Logic</title>
-<meta name="description" content="Field notes from building AI systems in production. New posts coming soon." />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Writing | Lekke Logic: Field notes from AI &amp; security work</title>
+<meta name="description" content="Teardowns and opinions from building AI systems and securing them in production. Penetration testing, AI audits, document agents, decision systems, and the security review every vibe-coded app needs." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
@@ -13,14 +17,14 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
 <link rel="canonical" href="https://lekkelogic.co.za/blog.html" />
-<meta name="last-modified" content="2026-05-26" />
-<meta http-equiv="last-modified" content="2026-05-26" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lekke Logic" />
 <meta property="og:locale" content="en_ZA" />
 <meta property="og:title" content="Writing | Lekke Logic" />
-<meta property="og:description" content="Field notes from building AI systems in production. New posts coming soon." />
+<meta property="og:description" content="Teardowns and opinions from building AI systems and securing them. Penetration testing, AI audits, document agents, decision systems, vibe-coded app security." />
 <meta property="og:url" content="https://lekkelogic.co.za/blog.html" />
 <meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
 <meta property="og:image:width" content="1200" />
@@ -29,16 +33,28 @@
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Writing | Lekke Logic" />
-<meta name="twitter:description" content="Field notes from building AI systems in production. New posts coming soon." />
+<meta name="twitter:description" content="Teardowns and opinions from building AI systems and securing them. Penetration testing, AI audits, document agents, decision systems, vibe-coded app security." />
 <meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
 <!-- JSON-LD structured data -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
-    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/og-image.svg", "email": "hello@lekkelogic.co.za", "description": "AI-native agency in Johannesburg.", "foundingDate": "2024", "address": {"@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "ZA"}},
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za", "description": "AI-native agency in Johannesburg with a cybersecurity practice.", "foundingDate": "2024", "address": {"@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "ZA"}},
     {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
-    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/blog.html#webpage", "url": "https://lekkelogic.co.za/blog.html", "name": "Writing | Lekke Logic", "description": "Field notes from building AI systems in production. New posts coming soon.", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-22", "dateModified": "2026-05-26", "inLanguage": "en-ZA"}
+    {"@type": "Blog", "@id": "https://lekkelogic.co.za/blog.html#blog", "url": "https://lekkelogic.co.za/blog.html", "name": "Lekke Logic Writing", "description": "Teardowns and opinions from building AI systems and securing them in production.", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA", "blogPost": [
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/vibe-coded-app-security.html#article", "url": "https://lekkelogic.co.za/posts/vibe-coded-app-security.html", "headline": "Your vibe-coded app is a security liability. Here's how we fix it.", "datePublished": "2026-05-27", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/ai-audit-before-platform-purchase.html#article", "url": "https://lekkelogic.co.za/posts/ai-audit-before-platform-purchase.html", "headline": "Why every fintech needs an AI audit before they buy a platform", "datePublished": "2026-05-27", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html#article", "url": "https://lekkelogic.co.za/posts/penetration-testing-south-african-fintech.html", "headline": "Penetration testing for South African fintech: what FSCA and FICA actually expect", "datePublished": "2026-05-27", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html#article", "url": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html", "headline": "Document agents on real client data: what nobody tells you about RAG in production", "datePublished": "2026-05-27", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html#article", "url": "https://lekkelogic.co.za/posts/decision-systems-route-to-humans.html", "headline": "Decision systems that route to humans (and when they shouldn't)", "datePublished": "2026-05-27", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html#article", "url": "https://lekkelogic.co.za/posts/ai-workflow-automation-south-african-smes.html", "headline": "AI workflow automation for South African SMEs: what actually works (and what wastes money)", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/vulnerability-assessment-vs-penetration-testing.html#article", "url": "https://lekkelogic.co.za/posts/vulnerability-assessment-vs-penetration-testing.html", "headline": "Vulnerability assessment vs penetration testing: which one do you actually need?", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/popia-compliance-for-ai-systems.html#article", "url": "https://lekkelogic.co.za/posts/popia-compliance-for-ai-systems.html", "headline": "POPIA compliance for AI systems: what section 19 actually asks of you", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html#article", "url": "https://lekkelogic.co.za/posts/disaster-recovery-planning-fintech.html", "headline": "Disaster recovery planning for South African fintech: from RTO/RPO to the call you actually have to make at 2 a.m.", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"},
+      {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html#article", "url": "https://lekkelogic.co.za/posts/apt-simulation-what-red-teams-find.html", "headline": "What a real APT simulation finds in a South African fintech (and why scanners don't)", "datePublished": "2026-05-28", "dateModified": "2026-05-28", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg"}
+    ]},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/blog.html#webpage", "url": "https://lekkelogic.co.za/blog.html", "name": "Writing | Lekke Logic", "description": "Teardowns and opinions from building AI systems and securing them in production.", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-22", "dateModified": "2026-05-28", "inLanguage": "en-ZA"}
   ]
 }
 </script>
@@ -50,9 +66,10 @@
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
     <nav class="nav-links">
       <a href="services.html">Services</a>
+      <a href="security.html">Security</a>
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
-      <a href="pricing.html">Pricing</a>
+      <a href="pricing.html">Engagement</a>
       <a href="about.html">About</a>
       <a href="blog.html" class="current">Writing</a>
     </nav>
@@ -67,50 +84,94 @@
   <div class="wrap">
     <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
       <span class="eyebrow"><span class="dot"></span>Writing</span>
-      <span class="eyebrow" style="margin-left:auto;">Coming soon</span>
+      <span class="eyebrow" style="margin-left:auto;">10 posts · Updated 2026-05-28</span>
     </div>
     <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
       Field notes<br/>from <span class="italic">production.</span>
     </h1>
     <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px;" data-reveal style="--reveal-delay:120ms;">
-      Teardowns of systems we've built. Opinions on where the AI consulting space is wrong. The occasional rant. We publish when we have something worth saying.
+      Teardowns of AI and security systems we've built. Opinions on where the consulting space is wrong. No fluff, no listicles, no AI-generated mush.
     </p>
   </div>
 </section>
 
-<!-- COMING SOON BLOCK -->
-<section class="section" style="background: var(--paper-2);">
+<!-- INDEX -->
+<section class="section" style="background: var(--paper-2); padding-top: 56px;">
   <div class="wrap">
-    <div class="cs-grid" data-reveal>
-      <div>
-        <span class="eyebrow"><span class="dot"></span>What's on deck</span>
-        <h2 class="display" style="font-size: clamp(32px, 4.5vw, 56px); margin: 16px 0 24px;">
-          First posts <span class="italic">soon.</span>
-        </h2>
-        <p class="body-lg" style="max-width: 56ch;">
-          We're writing up the systems we've shipped. Each post will be a real teardown from a real engagement: the constraints we hit, the trade-offs we made, the evals we ran, and the bits we'd do differently a second time.
-        </p>
-        <p class="body-lg" style="max-width: 56ch; margin-top: 16px;">
-          If you want to be notified when the first one lands, drop us a line.
-        </p>
-        <div style="display:flex; gap: 12px; flex-wrap:wrap; margin-top: 28px;">
-          <a class="btn btn-primary" href="mailto:hello@lekkelogic.co.za?subject=Notify%20me%20about%20Lekke%20Logic%20Writing">Notify me</a>
-          <a class="btn btn-ghost" href="contact.html">Book a call instead</a>
-        </div>
-      </div>
-      <div class="cs-side">
-        <div class="cs-card">
-          <span class="eyebrow">Topics we'll cover</span>
-          <ul class="cs-list">
-            <li>Evals in production: how we keep AI behaviour honest</li>
-            <li>Building document &amp; knowledge agents on real client data</li>
-            <li>South African fintech compliance (<a href="https://www.fic.gov.za/" rel="noopener external" class="ext-cite">FICA</a>, KYC, AML) and where AI fits</li>
-            <li>What goes wrong when teams adopt platforms instead of systems</li>
-            <li>Decision systems that route to humans (and when they shouldn't)</li>
-            <li>The unsexy 60% of agent work: queues, retries, audit trails</li>
-          </ul>
-        </div>
-      </div>
+    <div class="section-head"><div class="row"><span class="num">Latest</span><span class="num" style="color:var(--muted);">10 posts</span></div></div>
+
+    <div class="blog-index" data-reveal>
+
+      <a class="bi-card" href="posts/popia-compliance-for-ai-systems.html">
+        <div class="bi-meta"><span class="bi-cat">Compliance</span><span>2026-05-28</span><span>13 min read</span></div>
+        <h3>POPIA compliance for AI systems: what section 19 actually asks of you</h3>
+        <p>Building AI that touches South African customer data? A working POPIA section 19 checklist for AI builders, plus how the Information Regulator's enforcement notices are reshaping what "appropriate, reasonable" actually means.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/apt-simulation-what-red-teams-find.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>13 min read</span></div>
+        <h3>What a real APT simulation finds in a South African fintech (and why scanners don't)</h3>
+        <p>A scanner finds "this port is open." A red team finds "I am inside your finance director's mailbox forwarding wire-transfer instructions." The gap is what determines whether you survive an actual attack.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/vulnerability-assessment-vs-penetration-testing.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>12 min read</span></div>
+        <h3>Vulnerability assessment vs penetration testing: which one do you actually need?</h3>
+        <p>Both produce a security report. They are very different products. Which one you need depends on whether you're checking a box, hardening a system, or proving control to a regulator.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/disaster-recovery-planning-fintech.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>12 min read</span></div>
+        <h3>Disaster recovery planning for South African fintech: from RTO/RPO to the call at 2 a.m.</h3>
+        <p>Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist. Here's how we write them, what to actually test, and where most SA fintechs are exposed.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/ai-workflow-automation-south-african-smes.html">
+        <div class="bi-meta"><span class="bi-cat">Workflow Automation</span><span>2026-05-28</span><span>12 min read</span></div>
+        <h3>AI workflow automation for South African SMEs: what actually works (and what wastes money)</h3>
+        <p>Make, Zapier, n8n, and LLM-augmented workflows are everywhere. How to pick patterns that actually save time in an SA SME context, what to never automate, and how to keep the system maintainable past month three.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/vibe-coded-app-security.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>14 min read</span></div>
+        <h3>Your vibe-coded app is a security liability. Here's how we fix it.</h3>
+        <p>Apps shipped by a non-engineer with the help of Claude or Cursor are everywhere. Most of them ship secrets in repos, run on root-owned servers, and trust user input the model said was fine. A field guide to whitebox security review for the vibe-coded stack.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>2026-05-28</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>The "AI platform" you're about to sign for will automate less of your operation than the demo implied and break things the demo did not show. A paid two-week audit, run honestly, will tell you that for less than the first month's licence fee. Here's how we run them.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/penetration-testing-south-african-fintech.html">
+        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>13 min read</span></div>
+        <h3>Penetration testing for South African fintech: what FSCA and FICA actually expect</h3>
+        <p>POPIA fines are real. So are the FSCA/PA Joint Standards that put cyber risk on the board, and the SARB NPS Directive 1 of 2024. What an actual fintech-grade pentest covers, and what the regulator does when you can't produce one.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/document-agents-real-client-data.html">
+        <div class="bi-meta"><span class="bi-cat">Document Agents</span><span>2026-05-28</span><span>13 min read</span></div>
+        <h3>Document agents on real client data: what nobody tells you about RAG in production</h3>
+        <p>Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes, mid-2010s Word docs, contradictory contracts, and a board memo that contradicts the contract. How we ship document agents that survive contact with reality.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
+      <a class="bi-card" href="posts/decision-systems-route-to-humans.html">
+        <div class="bi-meta"><span class="bi-cat">Decision Systems</span><span>2026-05-28</span><span>12 min read</span></div>
+        <h3>Decision systems that route to humans (and when they shouldn't)</h3>
+        <p>The point of an AI decision system is not to remove humans. It's to put humans on the cases where they matter and free them from the cases where they don't. Three patterns we use, when each one breaks, and how we choose.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+
     </div>
   </div>
 </section>
@@ -141,8 +202,8 @@
   <div class="wrap">
     <div class="foot-grid">
       <div><a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
-      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="services.html#automation">AI Workflow Automation</a></li><li><a href="services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="services.html#decisions">Decision Systems</a></li><li><a href="services.html#software">Custom AI Software</a></li><li><a href="services.html#design">UI/UX Design</a></li><li><a href="services.html#marketing-sites">Marketing Sites</a></li><li><a href="capabilities.html">Other capabilities</a></li></ul></div>
-      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="services.html#automation">AI Workflow Automation</a></li><li><a href="services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="services.html#decisions">Decision Systems</a></li><li><a href="services.html#software">Custom AI Software</a></li><li><a href="services.html#design">UI/UX Design</a></li><li><a href="services.html#marketing-sites">Marketing Sites</a></li><li><a href="security.html">Cybersecurity</a></li><li><a href="capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="about.html">About</a></li><li><a href="process.html">Process</a></li><li><a href="work.html">Work</a></li><li><a href="pricing.html">Engagement</a></li><li><a href="contact.html">Contact</a></li></ul></div>
       <div class="foot-col"><h5>Resources</h5><ul><li><a href="blog.html">Writing</a></li><li><a href="contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
     </div>
     <div class="foot-bottom">
@@ -151,41 +212,6 @@
     </div>
   </div>
 </footer>
-
-<style>
-.cs-grid {
-  display: grid;
-  grid-template-columns: 1.3fr 1fr;
-  gap: 56px;
-  align-items: start;
-}
-@media (max-width: 900px) { .cs-grid { grid-template-columns: 1fr; gap: 32px; } }
-
-.cs-card {
-  border: 1px solid var(--rule);
-  background: var(--paper);
-  border-radius: 16px;
-  padding: 28px 28px 32px;
-  display: grid;
-  gap: 16px;
-}
-.cs-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
-.cs-list li {
-  font-size: 15px;
-  line-height: 1.5;
-  color: var(--ink-2);
-  position: relative;
-  padding-left: 18px;
-}
-.cs-list li::before {
-  content: "";
-  position: absolute;
-  left: 0; top: 9px;
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: var(--accent);
-}
-</style>
 
 <script src="app.js"></script>
 </body>

@@ -1,0 +1,508 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Cybersecurity | Lekke Logic: Security for the AI-native stack</title>
+<meta name="description" content="Penetration testing, vulnerability assessment, disaster recovery planning, advanced persistent threat simulation, and whitebox security review for vibe-coded apps. Johannesburg-based, ZA compliance-aware." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css" />
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
+<link rel="canonical" href="https://lekkelogic.co.za/security.html" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Cybersecurity | Lekke Logic" />
+<meta property="og:description" content="Pentest, vulnerability assessment, disaster recovery, APT simulation, and security review for vibe-coded apps. SA fintech and SaaS." />
+<meta property="og:url" content="https://lekkelogic.co.za/security.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Lekke Logic: Security for the AI-native stack" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Cybersecurity | Lekke Logic" />
+<meta name="twitter:description" content="Pentest, vulnerability assessment, disaster recovery, APT simulation, and whitebox security review for vibe-coded apps." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za", "description": "AI-native agency in Johannesburg with a cybersecurity practice.", "foundingDate": "2024", "address": {"@type": "PostalAddress", "addressLocality": "Johannesburg", "addressCountry": "ZA"}},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/security.html#webpage", "url": "https://lekkelogic.co.za/security.html", "name": "Cybersecurity | Lekke Logic", "description": "Pentest, vulnerability assessment, disaster recovery, APT simulation, and whitebox security review for vibe-coded apps.", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-28", "dateModified": "2026-05-28", "inLanguage": "en-ZA"},
+    {"@type": "Service", "name": "Penetration Testing", "description": "Black-box, grey-box, and white-box penetration tests against web apps, mobile apps, APIs, and cloud infrastructure. Findings prioritised by exploitability and business impact.", "provider": {"@id": "https://lekkelogic.co.za/#organization"}, "areaServed": "ZA"},
+    {"@type": "Service", "name": "Vulnerability Assessment", "description": "Authenticated and unauthenticated vulnerability scanning across your infrastructure, applications, and cloud workloads, with manual triage to cut false positives.", "provider": {"@id": "https://lekkelogic.co.za/#organization"}, "areaServed": "ZA"},
+    {"@type": "Service", "name": "Disaster Recovery Planning", "description": "RTO and RPO targets, backup architecture, runbooks, and tabletop exercises so your team has actually rehearsed the failure modes.", "provider": {"@id": "https://lekkelogic.co.za/#organization"}, "areaServed": "ZA"},
+    {"@type": "Service", "name": "Advanced Persistent Threat Simulation", "description": "Red-team engagements that emulate real adversary playbooks (initial access, persistence, lateral movement, exfiltration) to test detection and response.", "provider": {"@id": "https://lekkelogic.co.za/#organization"}, "areaServed": "ZA"},
+    {"@type": "Service", "name": "Vibe-Coded Whitebox Security Review", "description": "Security review and remediation for AI-generated and rapidly prototyped applications. Authentication, authorisation, secrets, injection, RCE, and prompt-injection paths.", "provider": {"@id": "https://lekkelogic.co.za/#organization"}, "areaServed": "ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="security">
+
+<!-- NAV -->
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="index.html" aria-label="Lekke Logic home"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="services.html">Services</a>
+      <a href="security.html" class="current">Security</a>
+      <a href="process.html">Process</a>
+      <a href="work.html">Work</a>
+      <a href="pricing.html">Engagement</a>
+      <a href="about.html">About</a>
+      <a href="blog.html">Writing</a>
+    </nav>
+    <a class="nav-cta" href="contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="section sec-hero" style="border-top:none; padding-bottom: 32px;">
+  <svg class="shape-ring" width="520" height="520" viewBox="0 0 520 520" aria-hidden="true" focusable="false">
+    <circle cx="260" cy="260" r="259" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="260" cy="260" r="180" fill="none" stroke="currentColor" stroke-width="1"/>
+    <circle cx="260" cy="260" r="100" fill="none" stroke="currentColor" stroke-width="1"/>
+  </svg>
+  <div class="wrap">
+    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
+      <span class="eyebrow"><span class="dot"></span>Cybersecurity</span>
+      <span class="eyebrow" style="margin-left:auto;">5 services · One team</span>
+    </div>
+    <h1 class="display" style="font-size: clamp(48px, 9vw, 144px);" data-reveal>
+      Find it before<br/>they <span class="italic">do</span>.
+    </h1>
+    <p class="kicker" style="margin-top: 40px; max-width: 60ch;" data-reveal style="--reveal-delay:120ms;">
+      Penetration testing, vulnerability assessment, disaster recovery planning, advanced persistent threat simulation, and whitebox security review for the AI-native and vibe-coded stack. SA-based, compliance-aware, no offshore handoffs.
+    </p>
+  </div>
+</section>
+
+<!-- JUMP-TO STRIP -->
+<section style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper-2);">
+  <div class="wrap" style="padding: 16px 0; display:flex; gap: 8px; flex-wrap: wrap; align-items:center;">
+    <span class="eyebrow" style="margin-right: 8px;">Jump to</span>
+    <a href="#pentest" class="chip">01 Pen Testing</a>
+    <a href="#vuln" class="chip">02 Vulnerability Assessment</a>
+    <a href="#dr" class="chip">03 Disaster Recovery</a>
+    <a href="#apt" class="chip">04 APT Simulation</a>
+    <a href="#vibe-code" class="chip">05 Vibe-Code Whitebox</a>
+  </div>
+</section>
+
+<!-- 01 PENETRATION TESTING -->
+<section class="section practice" id="pentest">
+  <div class="wrap">
+    <div class="practice-head" data-reveal>
+      <span class="practice-num">01</span>
+      <div>
+        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Black-box, grey-box, or white-box</span>
+        <h2 class="display practice-h">Penetration Testing.</h2>
+      </div>
+      <img class="practice-img" src="assets/img/spot/07-compliance-fica-kyc.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="practice-body">
+      <p class="lead">A structured attempt to break in. We pick the same paths a real attacker would: exposed endpoints, weak auth, leaked secrets, misconfigured cloud. You get a report ranked by exploitability and business impact, plus working proofs-of-concept for every finding above informational.</p>
+      <div class="tier-grid tier-grid-single">
+        <div class="tier tier-flat">
+          <span class="tier-label">Per engagement</span>
+          <div class="tier-price">Scoped per scope, 1 to 3 weeks</div>
+          <ul class="tier-list">
+            <li>Web app, mobile app, API, or cloud-infra scope</li>
+            <li>OWASP Top 10 + business-logic abuse cases</li>
+            <li>Manual exploitation, not just a Nessus dump</li>
+            <li>Findings ranked by exploitability and impact</li>
+            <li>Working PoCs for every High and Critical</li>
+            <li>Remediation guidance + free retest within 30 days</li>
+          </ul>
+          <a class="btn btn-primary tier-cta" href="contact.html">Scope a pentest</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 VULNERABILITY ASSESSMENT -->
+<section class="section practice" id="vuln" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="practice-head" data-reveal>
+      <span class="practice-num">02</span>
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Continuous or point-in-time</span>
+        <h2 class="display practice-h">Vulnerability Assessment.</h2>
+      </div>
+      <img class="practice-img" src="assets/img/spot/04-data-pipelines.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="practice-body">
+      <p class="lead">Less surgical than a pentest, much broader. Authenticated and unauthenticated scanning across your infrastructure, applications, and cloud workloads. We tune scanners to your stack, triage findings by hand to cut the false positives, and tell you what to fix first.</p>
+      <div class="tier-grid">
+        <div class="tier tier-lean">
+          <span class="tier-label">Point in time</span>
+          <div class="tier-price">Scoped per environment, 3 to 5 days</div>
+          <ul class="tier-list">
+            <li>Network, external attack surface, and cloud-config scan</li>
+            <li>Manual triage on every High and Critical</li>
+            <li>Prioritised remediation list</li>
+            <li>Executive summary for the board pack</li>
+          </ul>
+        </div>
+        <div class="tier tier-prem">
+          <span class="tier-label">Continuous</span>
+          <div class="tier-price">Monthly retainer</div>
+          <ul class="tier-list">
+            <li>Weekly scans across all assets</li>
+            <li>Authenticated scanning with credentials we manage</li>
+            <li>SLA-driven triage and ticket creation in your tracker</li>
+            <li>Monthly trend report: are you closing faster than you open</li>
+            <li>Quarterly review with engineering and risk</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 DISASTER RECOVERY -->
+<section class="section practice" id="dr">
+  <div class="wrap">
+    <div class="practice-head" data-reveal>
+      <span class="practice-num">03</span>
+      <div>
+        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Plan, document, rehearse</span>
+        <h2 class="display practice-h">Disaster Recovery Planning.</h2>
+      </div>
+      <img class="practice-img" src="assets/img/spot/03-ai-systems.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="practice-body">
+      <p class="lead">Most companies have a backup. Almost none have ever restored from it under pressure. We define your RTO and RPO targets, design backup and failover architecture against those targets, write the runbooks, and then run tabletop exercises with the team that would actually push the buttons at 02:00.</p>
+      <div class="tier-grid tier-grid-single">
+        <div class="tier tier-flat">
+          <span class="tier-label">Per build</span>
+          <div class="tier-price">Scoped per environment, 2 to 6 weeks</div>
+          <ul class="tier-list">
+            <li>Business impact analysis (what costs us money when it's down)</li>
+            <li>RTO and RPO targets per system, signed off by stakeholders</li>
+            <li>Backup architecture: immutable, geo-redundant, tested</li>
+            <li>Failover runbooks written in plain English</li>
+            <li>Tabletop exercise with the on-call team</li>
+            <li>Live failover rehearsal where the architecture supports it</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 04 APT SIMULATION -->
+<section class="section practice" id="apt" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="practice-head" data-reveal>
+      <span class="practice-num">04</span>
+      <div>
+        <span class="eyebrow"><span class="dot"></span>Red team · Real adversary playbooks</span>
+        <h2 class="display practice-h">Advanced Persistent Threat Simulation.</h2>
+      </div>
+      <img class="practice-img" src="assets/img/spot/02-strategy-discovery.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="practice-body">
+      <p class="lead">A pentest tests whether you can be broken into. An APT simulation tests whether anyone would notice. We emulate the playbooks of real adversary groups (initial access, persistence, lateral movement, exfiltration), live alongside your environment for weeks, and report on what your detection and response actually caught versus what walked past untouched.</p>
+      <div class="tier-grid">
+        <div class="tier tier-lean">
+          <span class="tier-label">Focused engagement</span>
+          <div class="tier-price">Scoped per goal, 2 to 4 weeks</div>
+          <ul class="tier-list">
+            <li>Single objective: e.g. exfiltrate customer PII</li>
+            <li>Realistic initial-access path (phishing, exposed cred, supply chain)</li>
+            <li>Persistence, lateral movement, privilege escalation</li>
+            <li>Post-engagement debrief with SOC and engineering</li>
+          </ul>
+        </div>
+        <div class="tier tier-prem">
+          <span class="tier-label">Full red team</span>
+          <div class="tier-price">Scoped per environment, 6 to 12 weeks</div>
+          <ul class="tier-list">
+            <li>Multi-objective campaign across the org</li>
+            <li>Emulation of specific threat actors (e.g. FIN7, APT29)</li>
+            <li>Purple-team handoff: every TTP mapped to MITRE ATT&amp;CK</li>
+            <li>Detection and response gap report</li>
+            <li>Rebuild engagement after defenders patch the gaps</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 VIBE-CODE WHITEBOX -->
+<section class="section practice" id="vibe-code">
+  <div class="wrap">
+    <div class="practice-head" data-reveal>
+      <span class="practice-num">05</span>
+      <div>
+        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>For AI-generated and prototyped apps</span>
+        <h2 class="display practice-h">Vibe-Coded Whitebox Review.</h2>
+      </div>
+      <img class="practice-img" src="assets/img/spot/06-engineering-shipping.jpg" alt="" loading="lazy" decoding="async" />
+    </div>
+    <div class="practice-body">
+      <p class="lead">If your app was built mostly by an LLM, in a weekend, or by someone who "didn't think about auth yet," this is for you. We do a full whitebox review of the codebase, the deployed environment, and the AI-specific failure modes: prompt injection, secrets in prompts, agentic action sprawl, unscoped tool use. We don't just tell you what's wrong, we fix it.</p>
+      <div class="tier-grid">
+        <div class="tier tier-lean">
+          <span class="tier-label">Review only</span>
+          <div class="tier-price">Scoped per codebase, 1 to 2 weeks</div>
+          <ul class="tier-list">
+            <li>Auth, authz, session handling, password and key storage</li>
+            <li>Injection paths (SQL, command, prompt, template)</li>
+            <li>Secret management, API keys, env handling</li>
+            <li>Cloud configuration: buckets, IAM, network exposure</li>
+            <li>AI-specific: prompt injection, tool sprawl, jailbreak surface</li>
+            <li>Findings report with severity, exploitability, and fixes</li>
+          </ul>
+        </div>
+        <div class="tier tier-prem">
+          <span class="tier-label">Review + remediate</span>
+          <div class="tier-price">Scoped per codebase, 2 to 6 weeks</div>
+          <ul class="tier-list">
+            <li>Everything in Review only</li>
+            <li>We write the patches, you ship them</li>
+            <li>Hardening of CI/CD, dependency hygiene, SBOM</li>
+            <li>Add or fix the eval harness for AI components</li>
+            <li>30-day rebuild check after remediation lands</li>
+            <li>Hand-off doc so your team can run this themselves next time</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ADJACENT WORK NOTE -->
+<section class="section" style="background: var(--ink); color: var(--paper);">
+  <div class="wrap">
+    <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="caps-row">
+      <div>
+        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Adjacent work</span>
+        <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 5vw, 64px); margin-top: 12px;">Need compliance, KYC, or audit-grade logging built in?</h2>
+      </div>
+      <div>
+        <p class="body-lg" style="color: rgba(255,255,255,0.8); max-width: 44ch;">Our AI services practice ships document agents and decision systems for FICA, KYC, and AML workflows. If security and compliance are the same project, we'll scope them together.</p>
+        <a class="btn btn-accent" href="services.html#docs" style="margin-top: 16px;">See document &amp; knowledge agents</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA (ORANGE) -->
+<section class="section closing-cta-orange" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
+  <svg class="shape-register shape-register--ink" width="56" height="56" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+    <line x1="32" y1="0" x2="32" y2="64" stroke="currentColor" stroke-width="1.4"/>
+    <line x1="0" y1="32" x2="64" y2="32" stroke="currentColor" stroke-width="1.4"/>
+    <circle cx="32" cy="32" r="10" fill="none" stroke="currentColor" stroke-width="1.4"/>
+  </svg>
+  <div class="wrap closing-cta-grid">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--ink);">Next step</span>
+      <h2 class="display" style="font-size: clamp(40px, 6vw, 96px); margin-top: 16px; color: var(--ink);">Find it before <span style="background: var(--ink); color: var(--paper); padding: 0 0.12em;">they do.</span></h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: var(--ink); max-width: 36ch;">Most engagements start with a 30-minute scoping call. We'll tell you which of the five services actually applies and which would just be theatre.</p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-primary" href="contact.html">Book a security call</a>
+        <a class="btn btn-ghost" href="pricing.html" style="border-color: var(--ink);">How we engage</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+        <p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p>
+      </div>
+      <div class="foot-col">
+        <h5>Services</h5>
+        <ul>
+          <li><a href="services.html#audit">AI Audit &amp; Roadmap</a></li>
+          <li><a href="services.html#automation">AI Workflow Automation</a></li>
+          <li><a href="services.html#docs">Document &amp; Knowledge Agents</a></li>
+          <li><a href="services.html#decisions">Decision Systems</a></li>
+          <li><a href="services.html#software">Custom AI Software</a></li>
+          <li><a href="services.html#design">UI/UX Design</a></li>
+          <li><a href="services.html#marketing-sites">Marketing Sites</a></li>
+          <li><a href="security.html">Cybersecurity</a></li>
+          <li><a href="capabilities.html">Other capabilities</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="process.html">Process</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="pricing.html">Engagement</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h5>Resources</h5>
+        <ul>
+          <li><a href="blog.html">Writing</a></li>
+          <li><a href="contact.html">Book a call</a></li>
+          <li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;">
+        <a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a>
+        <a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a>
+        <a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<style>
+/* Security page reuses services.html practice/tier classes from its inline styles.
+   Those are scoped per-page, so duplicate the minimum we need here. */
+.chip {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all .15s;
+  text-decoration: none;
+}
+.chip:hover { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+.practice .practice-head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  gap: 24px;
+  align-items: start;
+  margin-bottom: 32px;
+}
+.practice-img {
+  width: 140px;
+  height: 140px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 1px solid var(--rule);
+  background: var(--paper-2);
+  justify-self: end;
+}
+.practice-num {
+  font-family: var(--mono);
+  font-size: 56px;
+  color: var(--accent);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+.practice-h {
+  font-size: clamp(36px, 5.4vw, 80px);
+  margin: 6px 0 0;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+.practice-body { max-width: 1080px; }
+.practice .lead { margin-bottom: 40px; max-width: 56ch; }
+
+.tier-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.tier-grid-single { grid-template-columns: minmax(0, 540px); }
+
+.tier {
+  background: var(--paper);
+  border: 1px solid var(--rule);
+  border-radius: 14px;
+  padding: 32px;
+  display: grid;
+  gap: 16px;
+  align-content: start;
+}
+.tier-lean { background: var(--paper); border-color: var(--rule); }
+.tier-prem {
+  background: var(--ink);
+  color: var(--paper);
+  border-color: var(--ink);
+}
+.tier-prem .tier-label { color: var(--accent); }
+.tier-prem .tier-price { color: var(--paper); }
+.tier-prem .tier-list li { color: rgba(255,255,255,0.78); }
+.tier-prem .tier-list li::before { background: var(--accent); }
+.tier-flat { background: var(--paper); border: 1px solid var(--ink); }
+.tier-label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 500;
+}
+.tier-price {
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: clamp(18px, 1.8vw, 22px);
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.tier-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14.5px; }
+.tier-list li { padding-left: 18px; position: relative; line-height: 1.5; color: var(--ink-2); }
+.tier-list li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 10px; height: 1px; background: var(--accent); }
+.tier-cta { margin-top: 8px; justify-self: start; }
+
+/* Hero ring decoration */
+.sec-hero { position: relative; overflow: hidden; }
+.sec-hero .shape-ring {
+  position: absolute;
+  right: -160px;
+  top: -120px;
+  color: var(--rule);
+  pointer-events: none;
+  z-index: 0;
+}
+.sec-hero .wrap { position: relative; z-index: 1; }
+
+/* Closing CTA mobile */
+@media (max-width: 820px) {
+  .closing-cta-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
+  .caps-row { grid-template-columns: 1fr !important; }
+  .practice .practice-head { grid-template-columns: auto 1fr; }
+  .practice-img { display: none; }
+  .tier-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 480px) {
+  .tier { padding: 24px; }
+}
+</style>
+
+<script src="app.js"></script>
+</body>
+</html>

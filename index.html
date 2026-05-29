@@ -3,6 +3,10 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
 <title>Lekke Logic: AI systems that ship</title>
 <meta name="description" content="Custom AI systems for fintech, SaaS, and media teams. Discovery in days. Production in weeks." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -13,8 +17,8 @@
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
 <link rel="canonical" href="https://lekkelogic.co.za/" />
-<meta name="last-modified" content="2026-05-26" />
-<meta http-equiv="last-modified" content="2026-05-26" />
+<meta name="last-modified" content="2026-05-28" />
+<meta http-equiv="last-modified" content="2026-05-28" />
 <!-- Open Graph -->
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lekke Logic" />
@@ -42,7 +46,7 @@
       "name": "Lekke Logic",
       "legalName": "Lekke Logic (Pty) Ltd",
       "url": "https://lekkelogic.co.za/",
-      "logo": "https://lekkelogic.co.za/og-image.svg",
+      "logo": "https://lekkelogic.co.za/logo.png",
       "email": "hello@lekkelogic.co.za",
       "description": "AI-native agency in Johannesburg. Strategy, design, code, data, and growth across seven practices for fintech, SaaS, and media teams.",
       "foundingDate": "2024",
@@ -87,7 +91,7 @@
         "@id": "https://lekkelogic.co.za/#organization"
       },
       "datePublished": "2026-05-22",
-      "dateModified": "2026-05-26",
+      "dateModified": "2026-05-28",
       "inLanguage": "en-ZA"
     }
   ]
@@ -105,9 +109,10 @@
     </a>
     <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
+      <a href="security.html">Security</a>
       <a href="process.html">Process</a>
       <a href="work.html">Work</a>
-      <a href="pricing.html">Pricing</a>
+      <a href="pricing.html">Engagement</a>
       <a href="about.html">About</a>
       <a href="blog.html">Writing</a>
     </nav>
@@ -151,6 +156,18 @@
       <a href="services.html#software" class="hp-chip"><span>05</span>Custom AI Software</a>
       <a href="services.html#design" class="hp-chip"><span>06</span>UI/UX</a>
       <a href="services.html#marketing-sites" class="hp-chip"><span>07</span>Marketing Sites</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== LOGO BAR =========================== -->
+<section style="padding: 0; border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule);">
+  <div class="wrap" style="padding-top: 24px; padding-bottom: 24px; display:flex; justify-content:space-between; align-items: center; gap: 32px; flex-wrap: wrap;">
+    <span class="eyebrow">Trusted by teams shipping in production</span>
+    <div class="logo-strip">
+      <a href="https://ash-leemotors.co.za/" rel="noopener external">Ash-Lee Motors</a>
+      <span class="dot-sep" aria-hidden="true"></span>
+      <a href="https://pritchard-solutions.com/" rel="noopener external">Pritchard Solutions</a>
     </div>
   </div>
 </section>
@@ -303,7 +320,7 @@
           <li><a href="services.html#software">Custom AI Software</a></li>
           <li><a href="services.html#design">UI/UX Design</a></li>
           <li><a href="services.html#marketing-sites">Marketing Sites</a></li>
-          <li><a href="capabilities.html">Other capabilities</a></li>
+          <li><a href="security.html">Cybersecurity</a></li><li><a href="capabilities.html">Other capabilities</a></li>
         </ul>
       </div>
       <div class="foot-col">
@@ -312,7 +329,7 @@
           <li><a href="about.html">About</a></li>
           <li><a href="process.html">Process</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="pricing.html">Pricing</a></li>
+          <li><a href="pricing.html">Engagement</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
@@ -445,6 +462,26 @@
 }
 .hp-chip:hover { background: var(--accent); color: var(--ink); border-color: var(--accent); transform: translateY(-1px); }
 .hp-chip:hover span { color: var(--ink); }
+
+/* logo strip */
+.logo-strip {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-family: var(--display);
+  font-weight: 600;
+  font-size: 22px;
+  letter-spacing: -0.025em;
+  color: var(--ink-2);
+}
+.logo-strip a {
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color .15s;
+}
+.logo-strip a:hover { color: var(--ink); }
+.dot-sep { width: 4px; height: 4px; border-radius: 50%; background: var(--rule-strong); }
 
 /* MANIFESTO orange block */
 .manifesto {

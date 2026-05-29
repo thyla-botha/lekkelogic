@@ -1,0 +1,243 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="icon" type="image/png" href="/logo.png" />
+<link rel="alternate icon" href="/logo.png" />
+<link rel="apple-touch-icon" href="/logo.png" />
+<meta name="theme-color" content="#0A0A0A" />
+<title>Document agents on real client data: what nobody tells you about RAG in production | Lekke Logic</title>
+<meta name="description" content="Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes, contradictory contracts, and policies that were rewritten three times by three different lawyers. Here's what actually ships." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="../styles.css" />
+<link rel="canonical" href="https://lekkelogic.co.za/posts/document-agents-real-client-data.html" />
+<meta name="last-modified" content="2026-05-27" />
+<meta http-equiv="last-modified" content="2026-05-27" />
+<meta property="og:type" content="article" />
+<meta property="og:site_name" content="Lekke Logic" />
+<meta property="og:locale" content="en_ZA" />
+<meta property="og:title" content="Document agents on real client data: what nobody tells you about RAG in production" />
+<meta property="og:description" content="Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes and contradictory contracts. Here's what actually ships." />
+<meta property="og:url" content="https://lekkelogic.co.za/posts/document-agents-real-client-data.html" />
+<meta property="og:image" content="https://lekkelogic.co.za/og-image.svg" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="article:published_time" content="2026-05-27" />
+<meta property="article:modified_time" content="2026-05-27" />
+<meta property="article:section" content="Document Agents" />
+<meta property="article:tag" content="RAG" />
+<meta property="article:tag" content="document AI" />
+<meta property="article:tag" content="LLM" />
+<meta property="article:tag" content="production AI" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Document agents on real client data: what nobody tells you about RAG in production" />
+<meta name="twitter:description" content="Tutorials show you RAG against Wikipedia. Real client data is messier. Here's what actually ships." />
+<meta name="twitter:image" content="https://lekkelogic.co.za/og-image.svg" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Organization", "@id": "https://lekkelogic.co.za/#organization", "name": "Lekke Logic", "legalName": "Lekke Logic (Pty) Ltd", "url": "https://lekkelogic.co.za/", "logo": "https://lekkelogic.co.za/logo.png", "email": "hello@lekkelogic.co.za"},
+    {"@type": "WebSite", "@id": "https://lekkelogic.co.za/#website", "url": "https://lekkelogic.co.za/", "name": "Lekke Logic", "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "inLanguage": "en-ZA"},
+    {"@type": "BreadcrumbList", "@id": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html#breadcrumb", "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://lekkelogic.co.za/"},
+      {"@type": "ListItem", "position": 2, "name": "Writing", "item": "https://lekkelogic.co.za/blog.html"},
+      {"@type": "ListItem", "position": 3, "name": "Document agents on real client data"}
+    ]},
+    {"@type": "BlogPosting", "@id": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html#article", "url": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html", "headline": "Document agents on real client data: what nobody tells you about RAG in production", "description": "Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes and contradictory contracts. Here's what actually ships.", "datePublished": "2026-05-27", "dateModified": "2026-05-27", "author": {"@id": "https://lekkelogic.co.za/#organization"}, "publisher": {"@id": "https://lekkelogic.co.za/#organization"}, "image": "https://lekkelogic.co.za/og-image.svg", "inLanguage": "en-ZA", "mainEntityOfPage": {"@id": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html#webpage"}, "wordCount": 1580, "keywords": "RAG, document agents, document AI, LLM, production AI, retrieval augmented generation"},
+    {"@type": "WebPage", "@id": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html#webpage", "url": "https://lekkelogic.co.za/posts/document-agents-real-client-data.html", "name": "Document agents on real client data: what nobody tells you about RAG in production", "isPartOf": {"@id": "https://lekkelogic.co.za/#website"}, "datePublished": "2026-05-27", "dateModified": "2026-05-27", "inLanguage": "en-ZA"}
+  ]
+}
+</script>
+</head>
+<body data-page="post">
+
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
+    <nav class="nav-links">
+      <a href="../services.html">Services</a>
+      <a href="../security.html">Security</a>
+      <a href="../process.html">Process</a>
+      <a href="../work.html">Work</a>
+      <a href="../pricing.html">Engagement</a>
+      <a href="../about.html">About</a>
+      <a href="../blog.html" class="current">Writing</a>
+    </nav>
+    <a class="nav-cta" href="../contact.html">Book a call
+      <svg class="arrow" width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2.5 9.5 9.5 2.5M9.5 2.5H4M9.5 2.5V8" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- POST HERO -->
+<section class="section post-hero">
+  <div class="wrap">
+    <div class="post-eyebrows">
+      <span class="eyebrow"><span class="dot"></span>Document Agents</span>
+      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
+    </div>
+    <h1 class="display" data-reveal>
+      Document agents on <span class="italic">real client data</span>: what nobody tells you about RAG in production
+    </h1>
+    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
+      Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes, contradictory contracts, and policies that were rewritten three times by three different lawyers. Here's what actually ships.
+    </p>
+    <div class="post-meta">
+      <span><strong>By</strong> Lekke Logic</span>
+      <span><strong>Published</strong> 2026-05-27</span>
+      <span><strong>Read</strong> 13 minutes</span>
+      <span><strong>Tags</strong> Document Agents · RAG · Production AI</span>
+    </div>
+  </div>
+</section>
+
+<!-- POST BODY -->
+<section class="section" style="padding-top: 24px;">
+  <div class="wrap">
+    <article class="post-body">
+
+      <p>Build a document agent in a Friday afternoon tutorial and it works. You point LangChain at five PDFs, drop the chunks into Chroma, wrap it in a chat UI, and your demo answers questions about your sample data with confidence. The CTO is impressed. The board is impressed. Two weeks later you point it at the production document store and the wheels come off.</p>
+
+      <p>This is the post we wish someone had handed us before our first production RAG build. Six things you will hit, in roughly the order you will hit them, and what to do about each one.</p>
+
+      <h2>1. Your documents are not documents</h2>
+
+      <p>The first surprise. The "document store" you've been told is the source of truth is rarely a set of clean PDFs. In production it is, in roughly equal measure: PDFs from the actual policy team, Word docs that have been saved as PDF, Word docs that were never saved as PDF, scanned faxes from 2017, photos of printouts taken on a phone, screenshots of WhatsApp messages, and email threads where the actual content is in an attachment that is itself an image.</p>
+
+      <p>Before you chunk anything you need a pipeline that classifies what each file actually is and routes it. Native-text PDF goes to extraction. Scanned PDF goes to OCR (we use Azure Document Intelligence or AWS Textract; the open-source OCR options are a year behind on real-world quality). Image attachments get the same OCR path. Word docs go through their own path because the conversion-to-PDF loses formatting that often contains the actual structure of the document.</p>
+
+      <p>This sounds boring. It is boring. It is also where most production RAG systems fail before they start, because the team built the retrieval layer first and tried to backfill the ingestion layer when the demo broke.</p>
+
+      <h2>2. Chunking strategy is the whole game</h2>
+
+      <p>Tutorials tell you to chunk at 512 tokens with 50-token overlap. That is fine for Wikipedia. It is wrong for client data.</p>
+
+      <p>A typical fintech policy document has structure: a table of contents, numbered sections, sub-clauses, defined terms. The semantic unit of "what's the procedure for adverse media review?" is a labelled sub-clause that might be 80 tokens or 1,200 tokens. Cutting it at 512 splits the answer.</p>
+
+      <p>What works in production: structure-aware chunking. Use a parser that respects headings, lists, and tables. Chunk at the smallest unit that's semantically complete (often a sub-clause). Include the full breadcrumb of parent headings in the chunk's metadata so the retriever sees "Section 4.3.2: Source of Funds Verification" attached to the body. Re-rank with that breadcrumb in the query.</p>
+
+      <p>For tables: extract them separately, store them as JSON, and let the retrieval layer fetch a whole table when the question is about a number or a threshold. The worst answers we see in production are from systems that chunked a regulatory table mid-row.</p>
+
+      <h2>3. Embeddings are not magic</h2>
+
+      <p>"Just use OpenAI text-embedding-3-large" is the default, and for English-language general content it works. For specialised domains it under-performs in specific, predictable ways.</p>
+
+      <p>Legal and regulatory text uses defined terms ("the Account Holder," "the Responsible Person," "Eligible Customer") that are semantically identical across documents but lexically scattered. Pure embedding retrieval will miss these. So will pure keyword search.</p>
+
+      <p>The fix is hybrid retrieval. Run BM25 (or equivalent lexical) and embedding similarity in parallel. Merge with a re-ranker. Cohere Rerank is the obvious commercial option; cross-encoders from sentence-transformers are the open-source path. Either way, the re-ranker is what saves you from confident-but-wrong retrieval.</p>
+
+      <p>For Afrikaans, isiZulu, or mixed-language content (common in SA fintech), test embedding quality before you commit. Multilingual-specific embedding models from providers like Cohere typically outperform a generic English-first embedder on non-English content. Always benchmark on a sample of your own data.</p>
+
+      <h2>4. Contradictions are the rule, not the exception</h2>
+
+      <p>This is the one nobody warns you about. When you index the real client document store, you will find that the same question has different answers in different documents. The 2019 policy says one thing. The 2022 amendment says another. The internal procedure document says a third thing. The training deck the team uses says a fourth.</p>
+
+      <p>Your retriever will dutifully return chunks from all four. Your LLM will, depending on the day, pick one and confidently report it. Production users will notice within a week.</p>
+
+      <p>The fix is in the index, not the model. Tag every chunk with its source document's metadata: effective date, document type, version, status (current/superseded/draft). At query time, filter or rank by these. A simple heuristic that works: prefer current over superseded, prefer most-recent effective date, prefer policy over procedure over training material, and surface conflicts to the user when they exist instead of resolving silently.</p>
+
+      <div class="post-cta">
+        <h3>Need a document agent that handles your real data?</h3>
+        <p>We build document and knowledge agents scoped to your actual content, with hybrid retrieval, contradiction handling, and traceable citations. Scoped per workflow, typically four to eight weeks to a production system.</p>
+        <a class="btn btn-primary" href="../services.html#docs">See Document &amp; Knowledge Agents</a>
+      </div>
+
+      <h2>5. Citations are not optional</h2>
+
+      <p>A document agent without citations is a hallucination machine with a search bar. Every answer the agent gives must come back with the source chunks it used, the document name, and the page or section reference. Click-through to the highlighted source in the original document is the production-grade bar.</p>
+
+      <p>This matters for three reasons. Users learn to trust the system by spot-checking citations. Compliance teams can audit decisions after the fact. When the agent is wrong (and it will be), the citation tells you whether the retrieval failed or the generation failed, which determines what you fix.</p>
+
+      <p>Build citations into the system from day one. Retrofitting them is painful because it touches both the retriever (you need source metadata on every chunk) and the generator (you need a prompt that forces structured output with cited spans).</p>
+
+      <h2>6. Evaluation is what makes it production-ready</h2>
+
+      <p>"It works on the demo questions" is not a production bar. Real evaluation in production document AI looks like this: a golden set of 50 to 200 questions, each labelled with the correct answer and the correct source. The questions are written by domain experts (your compliance team, your customer-ops lead), not the engineering team. They include adversarial cases, ambiguous cases, and the boring 80% of routine questions.</p>
+
+      <p>Every change to the system (new chunking strategy, new embedding model, new prompt, new re-ranker, new LLM version) gets evaluated against this set before it ships. You measure retrieval recall ("did we get the right chunks?"), answer accuracy ("did the LLM say the right thing given the chunks?"), and citation correctness ("are the cited sources actually the ones it used?").</p>
+
+      <p>Without this, you are flying blind. Every time the LLM vendor changes a model in the background (which they do, without warning), you find out from production users instead of from a regression test. That is not a place you want to be at month four.</p>
+
+      <div class="key-takeaways">
+        <h3>Key takeaways</h3>
+        <ul>
+          <li>Ingestion is the hardest part. Real document stores are heterogeneous and need routing, OCR, and format-aware extraction before chunking.</li>
+          <li>Chunk on document structure, not token count. Keep section breadcrumbs in metadata.</li>
+          <li>Hybrid retrieval (BM25 plus embeddings) plus a re-ranker is the production baseline.</li>
+          <li>Production data contains contradictions. Solve this in the index with date and status metadata, not in the prompt.</li>
+          <li>Citations are non-negotiable. Build them in from day one.</li>
+          <li>A golden eval set written by domain experts is what separates a demo from a production system.</li>
+        </ul>
+      </div>
+
+      <p>Document agents are one of the highest-ROI AI builds available right now. Done well they collapse hours of analyst reading into minutes of review. Done badly they create new compliance liabilities and a chatbot the team learns not to trust. The difference is six layers of engineering most tutorials skip.</p>
+
+    </article>
+  </div>
+</section>
+
+<!-- RELATED POSTS -->
+<section class="section" style="background: var(--paper-2);">
+  <div class="wrap">
+    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
+    <div class="post-related">
+      <a class="bi-card" href="decision-systems-route-to-humans.html">
+        <div class="bi-meta"><span class="bi-cat">Decision Systems</span><span>12 min read</span></div>
+        <h3>Decision systems that route to humans (and when they shouldn't)</h3>
+        <p>Three patterns we use for human-in-the-loop AI decisions, when each one breaks, and how we choose.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
+        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
+        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
+        <p>A paid two-week audit costs less than the first month's licence and tells you whether the platform actually fits.</p>
+        <span class="bi-read">Read post →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING CTA -->
+<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
+  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
+    <div data-reveal>
+      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Build it on real data</span>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+        Ship it <span style="color: var(--accent);">to production</span>.
+      </h2>
+    </div>
+    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
+      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
+        Document agents scoped to your actual content. Hybrid retrieval, contradiction handling, traceable citations.
+      </p>
+      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+        <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="../services.html#docs" style="border-color: var(--paper); color: var(--paper);">See the service</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="foot">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div><a class="brand" href="../index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a><p class="foot-tag">AI systems<br/>that <span style="color: var(--accent);">ship.</span></p></div>
+      <div class="foot-col"><h5>Services</h5><ul><li><a href="../services.html#audit">AI Audit &amp; Roadmap</a></li><li><a href="../services.html#automation">AI Workflow Automation</a></li><li><a href="../services.html#docs">Document &amp; Knowledge Agents</a></li><li><a href="../services.html#decisions">Decision Systems</a></li><li><a href="../services.html#software">Custom AI Software</a></li><li><a href="../services.html#design">UI/UX Design</a></li><li><a href="../services.html#marketing-sites">Marketing Sites</a></li><li><a href="../security.html">Cybersecurity</a></li><li><a href="../capabilities.html">Other capabilities</a></li></ul></div>
+      <div class="foot-col"><h5>Company</h5><ul><li><a href="../about.html">About</a></li><li><a href="../process.html">Process</a></li><li><a href="../work.html">Work</a></li><li><a href="../pricing.html">Engagement</a></li><li><a href="../contact.html">Contact</a></li></ul></div>
+      <div class="foot-col"><h5>Resources</h5><ul><li><a href="../blog.html">Writing</a></li><li><a href="../contact.html">Book a call</a></li><li><a href="https://github.com/thyla-botha/lekkelogic" rel="noopener external">GitHub</a></li></ul></div>
+    </div>
+    <div class="foot-bottom">
+      <div>© 2026 Lekke Logic (Pty) Ltd. Built in Johannesburg.</div>
+      <div style="display:flex; gap: 20px;"><a href="mailto:hello@lekkelogic.co.za?subject=Privacy%20policy%20request" style="color: var(--muted);">Privacy</a><a href="mailto:hello@lekkelogic.co.za?subject=Terms%20request" style="color: var(--muted);">Terms</a><a href="mailto:hello@lekkelogic.co.za" style="color: var(--muted);">hello@lekkelogic.co.za</a></div>
+    </div>
+  </div>
+</footer>
+
+<script src="../app.js"></script>
+</body>
+</html>
