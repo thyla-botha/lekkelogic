@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=202610201410" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
@@ -87,152 +87,123 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="section" style="border-top:none;">
-  <div class="wrap hero-split">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow hero-meta">15 posts · Updated 2026-05-29</span>
-    <h1 class="display" data-reveal>
-      Field notes<br/>from <span class="italic">production.</span>
-    </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
-      Teardowns of AI and security systems we've built. Opinions on where the consulting space is wrong. No fluff, no listicles, no AI-generated mush.
-    </p>
+      <h1 id="hero-h" class="display page-h1" data-intro>Field notes from <span class="accent-c">production.</span></h1>
+      <p class="kicker hero-kicker" data-intro>Teardowns of AI and security systems we've built. Opinions on where the consulting space is wrong. No fluff, no listicles, no AI-generated mush.</p>
+      <div class="hero-cta" data-intro>
+        <a class="btn btn-accent" href="#all-posts">Browse every post <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a class="btn btn-ghost" href="posts/prompt-injection-defenses-production-llm.html">Read the latest</a>
+      </div>
     </div>
-    <figure class="page-art draft" data-reveal><img src="assets/img/spot/14-writing-pages.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+    <figure class="page-art page-art--hero draft"><img src="assets/img/spot/14-writing-pages.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
-</section>
-
-<!-- INDEX -->
-<section class="section" style="background: var(--paper-2); padding-top: 56px;">
   <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">Latest</span><span class="num" style="color:var(--muted);">15 posts</span></div></div>
+    <dl class="rail">
+      <div><dt>Posts</dt><dd>15</dd></div>
+      <div><dt>Updated</dt><dd>2026-05-29</dd></div>
+      <div><dt>Topics</dt><dd>AI engineering, security, compliance</dd></div>
+      <div><dt>Read time</dt><dd>12 to 14 minutes</dd></div>
+    </dl>
+  </div>
+</section>
 
-    <div class="blog-index" data-reveal>
-
-      <a class="bi-card" href="posts/prompt-injection-defenses-production-llm.html">
-        <div class="bi-meta"><span class="bi-cat">AI Security</span><span>2026-05-29</span><span>13 min read</span></div>
-        <h3>Prompt injection defenses for production LLM apps: what actually works</h3>
-        <p>Prompt injection is the SQL injection of the LLM era, and most "defenses" you read about on Twitter do not survive a serious attempt. What we actually deploy in production: layered input handling, tool sandboxing, output filtering, and the architectural choices that close the most dangerous paths.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/ai-cost-optimization-south-african-businesses.html">
-        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>2026-05-29</span><span>12 min read</span></div>
-        <h3>AI cost optimization for South African businesses: what actually moves the bill</h3>
-        <p>The rand-dollar exchange rate makes every token expensive. Where the spend actually goes in production AI systems, the model and prompt choices that cut bills by 60 to 80 percent without losing quality, and the cheap optimisations most teams skip.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/threat-modelling-ai-systems.html">
-        <div class="bi-meta"><span class="bi-cat">AI Security</span><span>2026-05-29</span><span>13 min read</span></div>
-        <h3>Threat modelling AI systems: STRIDE for LLMs, agents, and RAG</h3>
-        <p>Classic STRIDE was written for systems that did what their code said. LLMs do not. How we adapt threat modelling for LLM apps, agent tool use, and RAG pipelines, with the attack surfaces most teams forget to enumerate before they ship.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/sql-agents-that-do-not-hallucinate.html">
-        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>2026-05-29</span><span>12 min read</span></div>
-        <h3>SQL agents that don't hallucinate: patterns for production text-to-SQL</h3>
-        <p>Most text-to-SQL demos work on a clean schema with five tables. Real warehouses have hundreds of tables, dirty joins, and columns whose names lie. The schema design, retrieval, and validation patterns that make a SQL agent answer real business questions without inventing tables.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/llm-prototypes-to-production.html">
-        <div class="bi-meta"><span class="bi-cat">AI Engineering</span><span>2026-05-29</span><span>13 min read</span></div>
-        <h3>From LLM prototype to production: evaluations, observability, and shipping safely</h3>
-        <p>The notebook that wowed the demo is not a system. What we put in between to ship safely: evaluation harnesses that catch real regressions, observability that survives a 2 a.m. incident, and the release process that lets you iterate without breaking customers.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/popia-compliance-for-ai-systems.html">
-        <div class="bi-meta"><span class="bi-cat">Compliance</span><span>2026-05-28</span><span>13 min read</span></div>
-        <h3>POPIA compliance for AI systems: what section 19 actually asks of you</h3>
-        <p>Building AI that touches South African customer data? A working POPIA section 19 checklist for AI builders, plus how the Information Regulator's enforcement notices are reshaping what "appropriate, reasonable" actually means.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/apt-simulation-what-red-teams-find.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>13 min read</span></div>
-        <h3>What a real APT simulation finds in a South African fintech (and why scanners don't)</h3>
-        <p>A scanner finds "this port is open." A red team finds "I am inside your finance director's mailbox forwarding wire-transfer instructions." The gap is what determines whether you survive an actual attack.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/vulnerability-assessment-vs-penetration-testing.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>12 min read</span></div>
-        <h3>Vulnerability assessment vs penetration testing: which one do you actually need?</h3>
-        <p>Both produce a security report. They are very different products. Which one you need depends on whether you're checking a box, hardening a system, or proving control to a regulator.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/disaster-recovery-planning-fintech.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>12 min read</span></div>
-        <h3>Disaster recovery planning for South African fintech: from RTO/RPO to the call at 2 a.m.</h3>
-        <p>Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist. Here's how we write them, what to actually test, and where most SA fintechs are exposed.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/ai-workflow-automation-south-african-smes.html">
-        <div class="bi-meta"><span class="bi-cat">Workflow Automation</span><span>2026-05-28</span><span>12 min read</span></div>
-        <h3>AI workflow automation for South African SMEs: what actually works (and what wastes money)</h3>
-        <p>Make, Zapier, n8n, and LLM-augmented workflows are everywhere. How to pick patterns that actually save time in an SA SME context, what to never automate, and how to keep the system maintainable past month three.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/vibe-coded-app-security.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>14 min read</span></div>
-        <h3>Your vibe-coded app is a security liability. Here's how we fix it.</h3>
-        <p>Apps shipped by a non-engineer with the help of Claude or Cursor are everywhere. Most of them ship secrets in repos, run on root-owned servers, and trust user input the model said was fine. A field guide to whitebox security review for the vibe-coded stack.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/ai-audit-before-platform-purchase.html">
-        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>2026-05-28</span><span>12 min read</span></div>
-        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
-        <p>The "AI platform" you're about to sign for will automate less of your operation than the demo implied and break things the demo did not show. A paid two-week audit, run honestly, will tell you that for less than the first month's licence fee. Here's how we run them.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/penetration-testing-south-african-fintech.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>2026-05-28</span><span>13 min read</span></div>
-        <h3>Penetration testing for South African fintech: what FSCA and FICA actually expect</h3>
-        <p>POPIA fines are real. So are the FSCA/PA Joint Standards that put cyber risk on the board, and the SARB NPS Directive 1 of 2024. What an actual fintech-grade pentest covers, and what the regulator does when you can't produce one.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/document-agents-real-client-data.html">
-        <div class="bi-meta"><span class="bi-cat">Document Agents</span><span>2026-05-28</span><span>13 min read</span></div>
-        <h3>Document agents on real client data: what nobody tells you about RAG in production</h3>
-        <p>Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes, mid-2010s Word docs, contradictory contracts, and a board memo that contradicts the contract. How we ship document agents that survive contact with reality.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
-      <a class="bi-card" href="posts/decision-systems-route-to-humans.html">
-        <div class="bi-meta"><span class="bi-cat">Decision Systems</span><span>2026-05-28</span><span>12 min read</span></div>
-        <h3>Decision systems that route to humans (and when they shouldn't)</h3>
-        <p>The point of an AI decision system is not to remove humans. It's to put humans on the cases where they matter and free them from the cases where they don't. Three patterns we use, when each one breaks, and how we choose.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-
+<!-- LATEST: editorial split -->
+<section class="section bl-feature" aria-labelledby="feat-h">
+  <div class="wrap bl-feat">
+    <a class="bl-feat-fig draft" href="posts/prompt-injection-defenses-production-llm.html" tabindex="-1" aria-hidden="true" data-reveal>
+      <img src="assets/img/spot/03-ai-systems.jpg" alt="" width="1000" height="1000" loading="lazy" decoding="async">
+    </a>
+    <div class="bl-feat-body" data-reveal style="--reveal-delay:80ms;">
+      <p class="bl-feat-meta"><span>Latest</span><span>AI Security</span><span>2026-05-29</span><span>13 min read</span></p>
+      <h2 id="feat-h" class="bl-feat-h"><a href="posts/prompt-injection-defenses-production-llm.html">Prompt injection defenses for production LLM apps: what actually works</a></h2>
+      <p class="bl-feat-p">Prompt injection is the SQL injection of the LLM era, and most "defenses" you read about on Twitter do not survive a serious attempt. What we actually deploy in production: layered input handling, tool sandboxing, output filtering, and the architectural choices that close the most dangerous paths.</p>
+      <a class="case-link" href="posts/prompt-injection-defenses-production-llm.html">Read the post <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
     </div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
-  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
-    <div data-reveal>
-      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); ">
-        Don't wait for the <span style="color: var(--accent);">blog.</span>
-      </h2>
+<!-- INDEX: numbered rows, art follows the row -->
+<section class="section bl-index" id="all-posts" aria-labelledby="idx-h">
+  <div class="wrap">
+    <div class="svc-head">
+      <h2 id="idx-h" class="display svc-title">Every post.</h2>
+      <p class="svc-sub">AI engineering, AI security, compliance, document agents, decision systems, and security testing. Newest first.</p>
     </div>
-    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
-      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
-        We're booking Q3/Q4 2026 engagements. Most start with our productised AI Audit.
-      </p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+    <div class="si" data-svc-index>
+      <ol class="si-list">
+        <li><a class="si-row" href="posts/ai-cost-optimization-south-african-businesses.html" data-art="assets/img/spot/06-engineering-shipping.jpg">
+          <span class="si-n">02</span><span class="si-name">AI cost optimization for South African businesses: what actually moves the bill</span>
+          <span class="si-desc">The rand-dollar exchange rate makes every token expensive. Where the spend actually goes in production AI systems, the model and prompt choices that cut bills by 60 to 80 percent without losing quality, and the cheap optimisations most teams skip.</span>
+          <span class="si-price"><span>AI Engineering</span> <span>2026-05-29 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/threat-modelling-ai-systems.html" data-art="assets/img/spot/03-ai-systems.jpg">
+          <span class="si-n">03</span><span class="si-name">Threat modelling AI systems: STRIDE for LLMs, agents, and RAG</span>
+          <span class="si-desc">Classic STRIDE was written for systems that did what their code said. LLMs do not. How we adapt threat modelling for LLM apps, agent tool use, and RAG pipelines, with the attack surfaces most teams forget to enumerate before they ship.</span>
+          <span class="si-price"><span>AI Security</span> <span>2026-05-29 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/sql-agents-that-do-not-hallucinate.html" data-art="assets/img/spot/06-engineering-shipping.jpg">
+          <span class="si-n">04</span><span class="si-name">SQL agents that don't hallucinate: patterns for production text-to-SQL</span>
+          <span class="si-desc">Most text-to-SQL demos work on a clean schema with five tables. Real warehouses have hundreds of tables, dirty joins, and columns whose names lie. The schema design, retrieval, and validation patterns that make a SQL agent answer real business questions without inventing tables.</span>
+          <span class="si-price"><span>AI Engineering</span> <span>2026-05-29 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/llm-prototypes-to-production.html" data-art="assets/img/spot/06-engineering-shipping.jpg">
+          <span class="si-n">05</span><span class="si-name">From LLM prototype to production: evaluations, observability, and shipping safely</span>
+          <span class="si-desc">The notebook that wowed the demo is not a system. What we put in between to ship safely: evaluation harnesses that catch real regressions, observability that survives a 2 a.m. incident, and the release process that lets you iterate without breaking customers.</span>
+          <span class="si-price"><span>AI Engineering</span> <span>2026-05-29 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/popia-compliance-for-ai-systems.html" data-art="assets/img/spot/07-compliance-fica-kyc.jpg">
+          <span class="si-n">06</span><span class="si-name">POPIA compliance for AI systems: what section 19 actually asks of you</span>
+          <span class="si-desc">Building AI that touches South African customer data? A working POPIA section 19 checklist for AI builders, plus how the Information Regulator's enforcement notices are reshaping what "appropriate, reasonable" actually means.</span>
+          <span class="si-price"><span>Compliance</span> <span>2026-05-28 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/apt-simulation-what-red-teams-find.html" data-art="assets/img/posts/security.jpg">
+          <span class="si-n">07</span><span class="si-name">What a real APT simulation finds in a South African fintech (and why scanners don't)</span>
+          <span class="si-desc">A scanner finds "this port is open." A red team finds "I am inside your finance director's mailbox forwarding wire-transfer instructions." The gap is what determines whether you survive an actual attack.</span>
+          <span class="si-price"><span>Security</span> <span>2026-05-28 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/vulnerability-assessment-vs-penetration-testing.html" data-art="assets/img/posts/security.jpg">
+          <span class="si-n">08</span><span class="si-name">Vulnerability assessment vs penetration testing: which one do you actually need?</span>
+          <span class="si-desc">Both produce a security report. They are very different products. Which one you need depends on whether you're checking a box, hardening a system, or proving control to a regulator.</span>
+          <span class="si-price"><span>Security</span> <span>2026-05-28 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/disaster-recovery-planning-fintech.html" data-art="assets/img/posts/security.jpg">
+          <span class="si-n">09</span><span class="si-name">Disaster recovery planning for South African fintech: from RTO/RPO to the call at 2 a.m.</span>
+          <span class="si-desc">Your DR document is for the auditor. Your runbook is for the engineer at 2 a.m. when the database is gone. Both have to exist. Here's how we write them, what to actually test, and where most SA fintechs are exposed.</span>
+          <span class="si-price"><span>Security</span> <span>2026-05-28 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/ai-workflow-automation-south-african-smes.html" data-art="assets/img/spot/10-process-steps.jpg">
+          <span class="si-n">10</span><span class="si-name">AI workflow automation for South African SMEs: what actually works (and what wastes money)</span>
+          <span class="si-desc">Make, Zapier, n8n, and LLM-augmented workflows are everywhere. How to pick patterns that actually save time in an SA SME context, what to never automate, and how to keep the system maintainable past month three.</span>
+          <span class="si-price"><span>Workflow Automation</span> <span>2026-05-28 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/vibe-coded-app-security.html" data-art="assets/img/posts/security.jpg">
+          <span class="si-n">11</span><span class="si-name">Your vibe-coded app is a security liability. Here's how we fix it.</span>
+          <span class="si-desc">Apps shipped by a non-engineer with the help of Claude or Cursor are everywhere. Most of them ship secrets in repos, run on root-owned servers, and trust user input the model said was fine. A field guide to whitebox security review for the vibe-coded stack.</span>
+          <span class="si-price"><span>Security</span> <span>2026-05-28 · 14 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/ai-audit-before-platform-purchase.html" data-art="assets/img/spot/02-strategy-discovery.jpg">
+          <span class="si-n">12</span><span class="si-name">Why every fintech needs an AI audit before they buy a platform</span>
+          <span class="si-desc">The "AI platform" you're about to sign for will automate less of your operation than the demo implied and break things the demo did not show. A paid two-week audit, run honestly, will tell you that for less than the first month's licence fee. Here's how we run them.</span>
+          <span class="si-price"><span>AI Strategy</span> <span>2026-05-28 · 12 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/penetration-testing-south-african-fintech.html" data-art="assets/img/posts/security.jpg">
+          <span class="si-n">13</span><span class="si-name">Penetration testing for South African fintech: what FSCA and FICA actually expect</span>
+          <span class="si-desc">POPIA fines are real. So are the FSCA/PA Joint Standards that put cyber risk on the board, and the SARB NPS Directive 1 of 2024. What an actual fintech-grade pentest covers, and what the regulator does when you can't produce one.</span>
+          <span class="si-price"><span>Security</span> <span>2026-05-28 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/document-agents-real-client-data.html" data-art="assets/img/spot/05-design-ux.jpg">
+          <span class="si-n">14</span><span class="si-name">Document agents on real client data: what nobody tells you about RAG in production</span>
+          <span class="si-desc">Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes, mid-2010s Word docs, contradictory contracts, and a board memo that contradicts the contract. How we ship document agents that survive contact with reality.</span>
+          <span class="si-price"><span>Document Agents</span> <span>2026-05-28 · 13 min read</span></span></a></li>
+        <li><a class="si-row" href="posts/decision-systems-route-to-humans.html" data-art="assets/img/spot/04-data-pipelines.jpg">
+          <span class="si-n">15</span><span class="si-name">Decision systems that route to humans (and when they shouldn't)</span>
+          <span class="si-desc">The point of an AI decision system is not to remove humans. It's to put humans on the cases where they matter and free them from the cases where they don't. Three patterns we use, when each one breaks, and how we choose.</span>
+          <span class="si-price"><span>Decision Systems</span> <span>2026-05-28 · 12 min read</span></span></a></li>
+      </ol>
+      <figure class="si-frame draft" aria-hidden="true"><img src="assets/img/spot/06-engineering-shipping.jpg" alt="" width="1000" height="1000" loading="lazy" decoding="async" /></figure>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING (INK) -->
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Don't wait for the <span class="accent-c">blog.</span></h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">We're booking Q3/Q4 2026 engagements. Most start with our productised AI Audit.</p>
+      <div class="closing-cta">
         <a class="btn btn-accent" href="contact.html">Book a discovery call</a>
-        <a class="btn btn-ghost" href="services.html" style="border-color: var(--paper); color: var(--paper);">See services</a>
+        <a class="btn btn-ghost" href="services.html">See services</a>
       </div>
     </div>
   </div>
@@ -256,7 +227,70 @@
   </div>
 </footer>
 
+<style>
+/* Inner hero (DESIGN.md inner page recipe): 7/5, display h1, large art */
+h1.page-h1 { font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -0.045em; margin-left: -0.03em; }
+.page-h1[data-intro] { animation-delay: .05s; }
+.page-art--hero { margin: 0; max-width: none; align-self: center; }
+@media (max-width: 1000px) { .page-art--hero { max-width: 520px; } }
+@media (max-width: 640px) {
+  h1.page-h1 { font-size: clamp(44px, 13.4vw, 64px); }
+  .page-art--hero { max-width: none; aspect-ratio: 4 / 3; }
+}
+
+/* Editorial split: heading + art 5/12, body 7/12 */
+.ed-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.ed-h { font-size: clamp(40px, 5.2vw, 84px); letter-spacing: -0.045em; max-width: 12ch; }
+.ed-sub { margin: 20px 0 0; color: var(--ink-2); font-size: 18px; max-width: 32ch; }
+.ed-fig { margin: clamp(28px, 3vw, 44px) 0 0; aspect-ratio: 3 / 2; border-radius: 4px; overflow: hidden; }
+.ed-fig img { width: 100%; height: 100%; object-fit: cover; }
+.ed-split--pin .ed-pin { position: sticky; top: 112px; }
+.ed-main { display: grid; gap: 22px; max-width: 62ch; padding-top: clamp(4px, 1vw, 16px); }
+.ed-lead { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.16; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
+@media (max-width: 1000px) {
+  .ed-split { grid-template-columns: 1fr; }
+  .ed-split--pin .ed-pin { position: static; }
+  .ed-fig { max-width: 640px; }
+}
+@media (max-width: 640px) {
+  .ed-h { font-size: clamp(38px, 11vw, 52px); }
+  .body-lg { font-size: 17px; }
+}
+/* blog.html: latest post as an editorial split, the rest as index rows */
+.bl-feature { background: var(--paper-2); border-top: 0; }
+.bl-index { border-top: 0; }
+.bl-feat { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 88px); align-items: center; }
+.bl-feat-fig { display: block; aspect-ratio: 1; border-radius: 4px; overflow: hidden; }
+.bl-feat-fig img { width: 100%; height: 100%; object-fit: cover; transition: scale .9s var(--ease-out); }
+.bl-feat:hover .bl-feat-fig img { scale: 1.03; }
+.bl-feat-body { display: grid; gap: 20px; align-content: center; }
+.bl-feat-meta { margin: 0; display: flex; flex-wrap: wrap; gap: 6px 18px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.bl-feat-meta span:first-child { color: var(--ink); padding: 2px 8px; background: var(--accent); }
+.bl-feat-h { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(36px, 4.4vw, 68px); line-height: .98; letter-spacing: -0.045em; text-wrap: balance; }
+.bl-feat-h a { background-image: none; text-decoration: underline; text-decoration-color: transparent; text-decoration-thickness: 3px; text-underline-offset: .12em; transition: text-decoration-color var(--t-fast); }
+.bl-feat-h a:hover, .bl-feat-h a:focus-visible { text-decoration-color: var(--accent); }
+.bl-feat-p { margin: 0; color: var(--ink-2); font-size: 18px; max-width: 52ch; }
+.case-link { justify-self: start; display: inline-flex; align-items: center; gap: 8px; min-height: 32px; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.case-link .arrow { transition: translate var(--t-fast) var(--ease-out); }
+.case-link:hover { text-decoration-color: var(--accent); }
+.case-link:hover .arrow { translate: 3px -3px; }
+.bl-index .si-name { font-size: clamp(21px, 2vw, 30px); text-wrap: balance; }
+.bl-index .si-desc { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.bl-index .si-price { line-height: 1.7; }
+.bl-index .si-price > span { display: block; }
+@media (max-width: 1000px) {
+  .bl-feat { grid-template-columns: 1fr; }
+  .bl-feat-fig { max-width: 520px; aspect-ratio: 4 / 3; }
+}
+@media (max-width: 640px) {
+  .bl-feat-fig { aspect-ratio: 4 / 3; }
+  .bl-index .si-desc { -webkit-line-clamp: 3; }
+  .bl-index .si-price > span { display: inline; }
+  .bl-index .si-price { white-space: normal; }
+}
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=202610201410"></script>
 </body>
 </html>

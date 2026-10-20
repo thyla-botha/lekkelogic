@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../styles.css?v=202610201410" />
 <link rel="canonical" href="https://lekkelogic.co.za/posts/ai-audit-before-platform-purchase.html" />
 <meta name="last-modified" content="2026-05-27" />
 <meta http-equiv="last-modified" content="2026-05-27" />
@@ -75,30 +75,43 @@
 <main id="main">
 
 <!-- POST HERO -->
-<section class="section post-hero">
+<section class="hero post-hero2" aria-labelledby="post-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="post-h" class="display post-h1" data-intro>Why every fintech needs an <span class="italic">AI audit</span> before they buy a platform</h1>
+      <p class="kicker hero-kicker post-deck" data-intro>The R3M "AI platform" you're about to sign for would automate 12% of what your team does and break the other 30%. A paid two-week audit, run honestly, will tell you that for less than the first month's licence fee.</p>
+    </div>
+    <figure class="page-art page-art--hero draft"><img src="../assets/img/spot/02-strategy-discovery.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
   <div class="wrap">
-    <div class="post-eyebrows">
-      <span class="eyebrow"><span class="dot"></span>AI Strategy</span>
-      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
-    </div>
-    <h1 class="display" data-reveal>
-      Why every fintech needs an <span class="italic">AI audit</span> before they buy a platform
-    </h1>
-    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
-      The R3M "AI platform" you're about to sign for would automate 12% of what your team does and break the other 30%. A paid two-week audit, run honestly, will tell you that for less than the first month's licence fee.
-    </p>
-    <div class="post-meta">
-      <span><strong>By</strong> Lekke Logic</span>
-      <span><strong>Published</strong> 2026-05-27</span>
-      <span><strong>Read</strong> 12 minutes</span>
-      <span><strong>Tags</strong> AI Strategy · Fintech · South Africa</span>
-    </div>
+    <dl class="rail">
+      <div><dt>Filed under</dt><dd><a href="../blog.html">AI Strategy</a></dd></div>
+      <div><dt>Published</dt><dd>2026-05-27</dd></div>
+      <div><dt>Read</dt><dd>12 minutes</dd></div>
+      <div><dt>By</dt><dd>Lekke Logic</dd></div>
+    </dl>
   </div>
 </section>
 
 <!-- POST BODY -->
-<section class="section" style="padding-top: 24px;">
-  <div class="wrap">
+<section class="section post-main" aria-label="Article">
+  <div class="wrap post-layout">
+    <aside class="post-aside">
+      <nav class="post-toc" aria-label="In this post">
+        <p class="post-aside-h">In this post</p>
+        <ol>
+          <li><a href="#the-platform-trap">The platform trap</a></li>
+          <li><a href="#what-an-audit-actually-buys-you">What an audit actually buys you</a></li>
+          <li><a href="#what-we-look-at-in-a-fintech-audit">What we look at in a fintech audit</a></li>
+          <li><a href="#build-vs-buy-how-the-audit-settles-it">Build vs buy: how the audit settles it</a></li>
+        </ol>
+      </nav>
+      <div class="post-tags">
+        <p class="post-aside-h">Tags</p>
+        <ul><li>AI Strategy</li><li>Fintech</li><li>South Africa</li></ul>
+      </div>
+      <a class="post-back" href="../blog.html">All writing</a>
+    </aside>
     <article class="post-body">
 
       <p>You are in the back half of a sales cycle for an AI platform. The vendor's pitch deck is good. The demo was crisp. The pricing makes sense, more or less. The case studies are from companies that look like yours. Your CFO is asking when you're signing. Your head of ops is asking when she gets her team back. Your CEO read a McKinsey piece on the plane and wants you to "do something with AI" before the next board.</p>
@@ -107,7 +120,7 @@
 
       <p>This piece is for the executive who is about to sign a big software contract, and the team that's going to have to live with the result. It explains why platforms keep failing in South African fintech, what an audit actually looks like, and how to know whether you should buy, build, or do nothing at all.</p>
 
-      <h2>The platform trap</h2>
+      <h2 id="the-platform-trap">The platform trap</h2>
 
       <p>Most "AI platforms" sold to fintech right now fall into one of three buckets. There's the workflow automation suite that adds an LLM to the existing Make/Zapier playbook. There's the document-AI vendor that processes KYC, contracts, and invoices through a black-box pipeline. There's the customer-experience tool that promises a deflection-rate uplift on your support tickets.</p>
 
@@ -123,7 +136,7 @@
 
       <p>This isn't because vendors are dishonest. It's because the platform's job is to be general, and your problem is specific. Without doing the work to figure out <em>which parts</em> of your operation are actually shaped like the platform, you don't have a basis to know whether the platform fits.</p>
 
-      <h2>What an audit actually buys you</h2>
+      <h2 id="what-an-audit-actually-buys-you">What an audit actually buys you</h2>
 
       <p>An AI audit is a paid one-to-two week engagement (we charge for ours; anyone offering it free is selling you something else). At the end of it you have four things you didn't have before:</p>
 
@@ -136,7 +149,7 @@
 
       <p>The audit does not buy you an AI strategy deck. It does not buy you a "transformation roadmap." It does not buy you a workshop where everyone agrees AI is exciting. It buys you a document specific enough that you can read it next to a platform's brochure and immediately see what overlaps and what doesn't.</p>
 
-      <h2>What we look at in a fintech audit</h2>
+      <h2 id="what-we-look-at-in-a-fintech-audit">What we look at in a fintech audit</h2>
 
       <p>Every fintech audit covers roughly the same surface, weighted by the specific business. The pattern:</p>
 
@@ -166,7 +179,7 @@
         <a class="btn btn-primary" href="../services.html#audit">See the AI Audit service</a>
       </div>
 
-      <h2>Build vs buy: how the audit settles it</h2>
+      <h2 id="build-vs-buy-how-the-audit-settles-it">Build vs buy: how the audit settles it</h2>
 
       <p>After the audit you'll be in one of three positions. Most audits land in the first two.</p>
 
@@ -194,42 +207,36 @@
 </section>
 
 <!-- RELATED POSTS -->
-<section class="section" style="background: var(--paper-2);">
+<section class="section post-rel" aria-labelledby="rel-h">
   <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
-    <div class="post-related">
-      <a class="bi-card" href="document-agents-real-client-data.html">
-        <div class="bi-meta"><span class="bi-cat">Document Agents</span><span>13 min read</span></div>
-        <h3>Document agents on real client data: what nobody tells you about RAG in production</h3>
-        <p>Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes and contradictory contracts. How we ship document agents that survive reality.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-      <a class="bi-card" href="decision-systems-route-to-humans.html">
-        <div class="bi-meta"><span class="bi-cat">Decision Systems</span><span>12 min read</span></div>
-        <h3>Decision systems that route to humans (and when they shouldn't)</h3>
-        <p>Three patterns we use for human-in-the-loop AI decisions, when each one breaks, and how we choose.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
+    <div class="svc-head">
+      <h2 id="rel-h" class="display svc-title">Keep reading.</h2>
+      <p class="svc-sub"><a class="ilink" href="../blog.html">All 15 posts</a></p>
+    </div>
+    <div class="si">
+      <ol class="si-list">
+        <li><a class="si-row" href="document-agents-real-client-data.html">
+          <span class="si-n">01</span><span class="si-name">Document agents on real client data: what nobody tells you about RAG in production</span>
+          <span class="si-desc">Tutorials show you RAG against the Wikipedia dump. Real client data has scanned faxes and contradictory contracts. How we ship document agents that survive reality.</span>
+          <span class="si-price"><span>Document Agents</span> <span>13 min read</span></span></a></li>
+        <li><a class="si-row" href="decision-systems-route-to-humans.html">
+          <span class="si-n">02</span><span class="si-name">Decision systems that route to humans (and when they shouldn't)</span>
+          <span class="si-desc">Three patterns we use for human-in-the-loop AI decisions, when each one breaks, and how we choose.</span>
+          <span class="si-price"><span>Decision Systems</span> <span>12 min read</span></span></a></li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- CLOSING CTA -->
-<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
-  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
-    <div data-reveal>
-      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Before you sign the platform</span>
-      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
-        Audit <span style="color: var(--accent);">first</span>.
-      </h2>
-    </div>
-    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
-      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
-        One to two weeks of structured discovery, scoped after a 30-minute call.
-      </p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Audit <span class="accent-c">first</span>.</h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">One to two weeks of structured discovery, scoped after a 30-minute call.</p>
+      <div class="closing-cta">
         <a class="btn btn-accent" href="../contact.html">Book a discovery call</a>
-        <a class="btn btn-ghost" href="../services.html#audit" style="border-color: var(--paper); color: var(--paper);">See the Audit</a>
+        <a class="btn btn-ghost" href="../services.html#audit">See the Audit</a>
       </div>
     </div>
   </div>
@@ -253,7 +260,70 @@
   </div>
 </footer>
 
+<style>
+/* Post template v2 (same block in every posts/*.html): hero 7/5 + rail, contents aside, reading measure */
+h1.post-h1 { font-size: clamp(40px, 4.6vw, 72px); line-height: .98; letter-spacing: -0.045em; margin-left: -0.03em; max-width: 18ch; }
+.post-h1[data-intro] { animation-delay: .05s; }
+.post-hero2 .post-deck { font-size: clamp(18px, 1.5vw, 21px); max-width: 52ch; }
+.page-art--hero { margin: 0; max-width: 460px; justify-self: end; }
+
+.post-main { border-top: 0; padding-top: clamp(48px, 6vw, 88px); }
+.post-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.post-aside { position: sticky; top: 112px; display: grid; gap: 32px; font-size: 14px; }
+.post-aside-h { margin: 0 0 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.post-toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); counter-reset: toc; }
+.post-toc li { counter-increment: toc; border-bottom: 1px solid var(--rule); }
+.post-toc a { display: grid; grid-template-columns: 28px minmax(0, 1fr); padding: 10px 0; line-height: 1.35; color: var(--ink-2); transition: color var(--t-fast), translate var(--t-med) var(--ease-out); }
+.post-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.post-toc a:hover { color: var(--ink); translate: 6px 0; }
+.post-toc a:hover::before { color: var(--accent); }
+.post-tags ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.post-tags li { padding: 4px 10px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 13px; }
+.post-back { justify-self: start; display: inline-flex; min-height: 32px; align-items: center; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.post-back:hover { text-decoration-color: var(--accent); }
+
+.post-body { max-width: 66ch; font-size: 18px; line-height: 1.7; }
+.post-body > p:first-child { font-size: 21px; line-height: 1.55; color: var(--ink); }
+.post-body h2 { scroll-margin-top: 104px; font-weight: 600; font-size: clamp(30px, 3vw, 44px); letter-spacing: -0.04em; padding-top: 24px; border-top: 1px solid var(--ink); }
+.post-body h3 { font-weight: 600; letter-spacing: -0.03em; }
+.post-body pre { border-radius: 4px; }
+/* Callouts are rules, not boxes */
+.post-body .callout { background: none; border: 0; border-left: 3px solid var(--accent); border-radius: 0; padding: 4px 0 4px 20px; font-size: 17px; }
+.post-body .callout strong { color: var(--ink); }
+/* Inline service CTA: rule + accent bar, no box */
+.post-body .post-cta { position: relative; background: none; border-radius: 0; padding: 28px 0 0; border-top: 1px solid var(--ink); gap: 12px; }
+.post-body .post-cta::before { content: ""; position: absolute; left: 0; top: -1px; width: 72px; height: 6px; background: var(--accent); }
+.post-body .post-cta h3 { margin: 0; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -0.04em; line-height: 1.02; }
+.post-body .post-cta p { color: var(--ink-2); }
+/* The page's one boxed panel: key takeaways */
+.post-body .key-takeaways { background: var(--paper-2); color: var(--ink); border-radius: 4px; padding: clamp(24px, 3vw, 40px); }
+.post-body .key-takeaways h3 { color: var(--ink); font-family: var(--display); font-size: clamp(26px, 2.4vw, 34px); font-weight: 600; letter-spacing: -0.04em; text-transform: none; margin-bottom: 20px; }
+.post-body .key-takeaways ul li { color: var(--ink-2); font-size: 16.5px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.post-body .key-takeaways ul li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.post-rel { background: var(--paper-2); border-top: 0; }
+.post-rel .si { grid-template-columns: minmax(0, 1fr); }
+.post-rel .si-price { line-height: 1.7; }
+.post-rel .si-price > span { display: block; }
+
+@media (max-width: 1000px) {
+  .page-art--hero { justify-self: start; max-width: 520px; }
+  .post-layout { grid-template-columns: 1fr; }
+  .post-aside { position: static; order: 2; padding-top: 32px; border-top: 1px solid var(--ink); }
+  .post-toc { display: none; }
+}
+@media (max-width: 640px) {
+  h1.post-h1 { font-size: clamp(36px, 10.6vw, 48px); }
+  .page-art--hero { max-width: none; aspect-ratio: 4 / 3; }
+  .post-body { font-size: 17px; }
+  .post-body > p:first-child { font-size: 19px; }
+  .post-body pre { font-size: 12.5px; padding: 16px; }
+  .post-rel .si-price > span { display: inline; }
+  .post-rel .si-price { white-space: normal; }
+}
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="../app.js"></script>
+<script src="../app.js?v=202610201410"></script>
 </body>
 </html>

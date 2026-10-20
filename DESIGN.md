@@ -74,3 +74,22 @@ agency could have it]; (3) "lekke" slang typographic system [weak for a B2B buye
   under reduced motion and for new-tab, hash and external links.
 - Idle: the orange L drifts half a grid step and back every few seconds while the hero is in view.
 - Reduced motion: no curtain, no drift, no reveals; everything visible.
+
+## Inner page recipe (second pass, Oct 2026)
+
+Every inner page is composed from the shared components in styles.css (`components v2`), not from v1 cards.
+
+1. Hero: `.hero-grid` 7/5. h1 in `.display` at clamp(48px, 7vw, 112px), tracking -0.045em, one accent word max.
+   Lead paragraph max 44ch. Right column: the page's art in `.page-art.draft` (or `.lockup`-style composition).
+   Under the hero, a `.rail` of 3 or 4 real facts from the page (durations, price range, location, reply time).
+2. Vary the layout family per section; never two of the same in a row:
+   index rows (`.si`), pinned image + chapters (`.story`), 4-up rail (`.steps`), editorial split (big number or
+   heading left 5/12, body right 7/12), full-bleed orange statement (`.manifesto`), ink CTA band (`.closing`).
+3. Fewer boxes and lines. Prefer rules (1px) and white space over bordered cards. At most one boxed panel style per
+   page. No three-equal-cards rows. No eyebrow labels above headings; mono meta only where it carries a fact.
+4. Images tell the story: every long page has at least 3 illustrations from assets/img (spot, story, work), large
+   (not 56px icons). Text never sits on an image.
+5. Bands: white / paper / orange / ink, never two of the same adjacent. Accent words on orange bands are handled by
+   the shared rule (ink block, orange type); don't colour text orange on orange.
+6. Closing: every page ends with one `.closing` ink band (or orange `.manifesto` band) with its own sentence and the
+   Book a discovery call button. One closing band per page.

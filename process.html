@@ -8,11 +8,11 @@
 <link rel="apple-touch-icon" href="/logo.png" />
 <meta name="theme-color" content="#0A0A0A" />
 <title>Process | Lekke Logic: How we work</title>
-<meta name="description" content="Four phases. No scope creep. No 'six months in we'll know what to build.' Most projects ship in 4–8 weeks." />
+<meta name="description" content="Four phases. No scope creep. No 'six months in we'll know what to build.' Most projects ship in 4 to 8 weeks." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=202610201410" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
@@ -121,264 +121,195 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="section" style="border-top:none;">
-  <div class="wrap hero-split">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow hero-meta">Four phases · 4–8 weeks total</span>
-    <h1 class="display" data-reveal>
-      No surprises.<br/>No <span class="italic">scope creep.</span>
-    </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
-      Every project follows the same four phases. We don't sell "agile discovery" as a billable line item. We don't promise to "figure it out together over six months." We tell you what we'll build, when, for how much, and then we build it.
-    </p>
+      <h1 id="hero-h" class="display pg-h1">
+        <span class="ln" data-intro>No surprises.</span>
+        <span class="ln" data-intro style="animation-delay:.12s">No <span class="hl">scope creep.</span></span>
+      </h1>
+      <p class="kicker hero-kicker" data-intro style="animation-delay:.3s">
+        Every project follows the same four phases, from a paid discovery sprint to a live system. Most ship in 4 to 8 weeks. Some longer, some shorter, and we tell you which before you sign.
+      </p>
+      <div class="hero-cta" data-intro style="animation-delay:.4s">
+        <a class="btn btn-accent" href="contact.html">
+          Book a discovery call
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#phases">Walk the four phases</a>
+      </div>
     </div>
-    <figure class="page-art draft" data-reveal><img src="assets/img/spot/10-process-steps.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+    <figure class="page-art pg-art draft" data-reveal><img src="assets/img/spot/10-process-steps.jpg" alt="Four blocks stepping up a drafting grid, three black and the last one orange." width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
+
+  <div class="wrap">
+    <dl class="rail">
+      <div><dt>Phases</dt><dd>Discover, Design, Build, Deploy</dd></div>
+      <div><dt>Most projects</dt><dd>4 to 8 weeks</dd></div>
+      <div><dt>Build price</dt><dd>Fixed, quoted after Design</dd></div>
+      <div><dt>After handoff</dt><dd>30 days of support included</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- TIMELINE -->
-<section class="section" style="padding-top: 48px;">
+<!-- MANIFESTO (ORANGE) -->
+<section class="section manifesto" aria-labelledby="mf-h">
   <div class="wrap">
-    <div class="proc-timeline" data-reveal>
-      <div class="ptl-bar"></div>
-      <div class="ptl-step active">
-        <div class="ptl-dot"></div>
-        <div class="ptl-l">01 · Discover</div>
-        <div class="ptl-t">1–2 weeks</div>
-      </div>
-      <div class="ptl-step active">
-        <div class="ptl-dot"></div>
-        <div class="ptl-l">02 · Design</div>
-        <div class="ptl-t">1–2 weeks</div>
-      </div>
-      <div class="ptl-step active">
-        <div class="ptl-dot"></div>
-        <div class="ptl-l">03 · Build</div>
-        <div class="ptl-t">2–6 weeks</div>
-      </div>
-      <div class="ptl-step active">
-        <div class="ptl-dot accent"></div>
-        <div class="ptl-l">04 · Deploy &amp; iterate</div>
-        <div class="ptl-t">Ongoing</div>
-      </div>
+    <h2 id="mf-h" class="display manifesto-h" data-reveal>
+      What, when, how much. <span class="mf-block"><span>Then</span></span> we build it.
+    </h2>
+    <div class="manifesto-grid">
+      <p class="manifesto-p" data-reveal>We don't sell "agile discovery" as a billable line item.</p>
+      <p class="manifesto-p" data-reveal style="--reveal-delay:80ms;">We don't promise to "figure it out together over six months." You see the plan, the date and the number before the build starts.</p>
     </div>
   </div>
 </section>
 
-<!-- PHASES -->
-<section class="section phase" id="discover">
+<!-- PHASES (STORY) -->
+<section class="section story" id="phases" aria-labelledby="phases-h" data-story>
   <div class="wrap">
-    <div class="phase-row">
-      <div class="phase-meta">
-        <div class="phase-num">01</div>
-        <div class="phase-len">1–2 weeks</div>
-        <div class="phase-tag">Paid sprint</div>
+    <h2 id="phases-h" class="display story-title">Four phases, each with a clear handover.</h2>
+    <div class="story-grid">
+      <div class="story-stage" aria-hidden="true">
+        <figure class="story-frame draft">
+          <img class="is-on" data-ch="1" src="assets/img/process/process-discover.jpg" alt="" width="1500" height="1000" loading="lazy" decoding="async" />
+          <img data-ch="2" src="assets/img/process/process-design.jpg" alt="" width="1500" height="1000" loading="lazy" decoding="async" />
+          <img data-ch="3" src="assets/img/process/process-build.jpg" alt="" width="1500" height="1000" loading="lazy" decoding="async" />
+          <img data-ch="4" src="assets/img/process/process-deploy.jpg" alt="" width="1500" height="1000" loading="lazy" decoding="async" />
+        </figure>
+        <ol class="story-ticks"><li class="is-on"></li><li></li><li></li><li></li></ol>
       </div>
-      <div class="phase-main">
-        <h2 class="display phase-h">Discover.</h2>
-        <p class="lead" style="max-width: 36ch;">Before we build anything, we have to understand what we're really building.</p>
-        <div class="phase-cols">
-          <div>
-            <span class="eyebrow">What happens</span>
-            <ul class="phase-list">
-              <li>Workflow audit, we shadow the work, not just the slides</li>
+      <ol class="story-chapters">
+        <li class="chapter" data-ch="1" id="discover">
+          <img class="chapter-img" src="assets/img/process/process-discover.jpg" alt="A figure taking notes beside a colleague at work, a chain of boxes on the wall with one bottleneck circled in orange." width="1500" height="1000" loading="lazy" decoding="async" />
+          <span class="chapter-n">01 · 1 to 2 weeks · Paid sprint</span>
+          <h3>Discover.</h3>
+          <p>Before we build anything, we have to understand what we're really building.</p>
+          <div class="ph-groups">
+            <div class="ph-g"><h4>What happens</h4><ul>
+              <li>Workflow audit: we shadow the work, not just the slides</li>
               <li>Stakeholder interviews with the people who'd actually use it</li>
-              <li>Data review, what's clean, what's not, what's missing</li>
+              <li>Data review: what's clean, what's not, what's missing</li>
               <li>Honest assessment of what AI <em>shouldn't</em> do here</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">What you give us</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>You give us</h4><ul>
               <li>Access to relevant systems (read-only is fine)</li>
-              <li>Time from 2–3 people who own the workflow</li>
-              <li>Sample data, anonymized works for now</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">What you get</span>
-            <ul class="phase-list">
+              <li>Time from 2 or 3 people who own the workflow</li>
+              <li>Sample data; anonymized works for now</li>
+            </ul></div>
+            <div class="ph-g"><h4>You get</h4><ul>
               <li>Scoped problem doc with explicit assumptions</li>
               <li>ROI estimate with the math shown</li>
               <li>Build plan or a "don't build this" recommendation</li>
-            </ul>
+            </ul></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section phase" id="design" style="background: var(--paper-2);">
-  <div class="wrap">
-    <div class="phase-row">
-      <div class="phase-meta">
-        <div class="phase-num">02</div>
-        <div class="phase-len">1–2 weeks</div>
-        <div class="phase-tag">Fixed quote at end</div>
-      </div>
-      <div class="phase-main">
-        <h2 class="display phase-h">Design.</h2>
-        <p class="lead" style="max-width: 36ch;">Architecture, agent design, integration map. A working prototype. Then a fixed quote.</p>
-        <div class="phase-cols">
-          <div>
-            <span class="eyebrow">What happens</span>
-            <ul class="phase-list">
-              <li>Technical spec, components, data flow, failure modes</li>
-              <li>Agent / prompt / tool design and evaluation harness</li>
+        </li>
+        <li class="chapter" data-ch="2" id="design">
+          <img class="chapter-img" src="assets/img/process/process-design.jpg" alt="A figure measuring a plan of connected blocks on a drafting table, a small orange prototype standing beside it." width="1500" height="1000" loading="lazy" decoding="async" />
+          <span class="chapter-n">02 · 1 to 2 weeks · Fixed quote at end</span>
+          <h3>Design.</h3>
+          <p>Architecture, agent design, integration map. A working prototype. Then a fixed quote.</p>
+          <div class="ph-groups">
+            <div class="ph-g"><h4>What happens</h4><ul>
+              <li>Technical spec: components, data flow, failure modes</li>
+              <li>Agent, prompt and tool design, plus an evaluation harness</li>
               <li>Integration map with every system, auth, and webhook</li>
               <li>Live prototype demo on real-ish data</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">What you give us</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>You give us</h4><ul>
               <li>Final scope sign-off from the budget owner</li>
               <li>Sandbox or staging environment</li>
               <li>One person designated to unblock fast</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">What you get</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>You get</h4><ul>
               <li>Technical spec doc (the same one we build from)</li>
               <li>Prototype you can poke at</li>
               <li>Fixed-price quote and timeline for build</li>
-            </ul>
+            </ul></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section phase" id="build">
-  <div class="wrap">
-    <div class="phase-row">
-      <div class="phase-meta">
-        <div class="phase-num">03</div>
-        <div class="phase-len">2–6 weeks</div>
-        <div class="phase-tag">Fixed price</div>
-      </div>
-      <div class="phase-main">
-        <h2 class="display phase-h">Build.</h2>
-        <p class="lead" style="max-width: 36ch;">Heads down, weekly demos. Nothing ships that we wouldn't run ourselves.</p>
-        <div class="phase-cols">
-          <div>
-            <span class="eyebrow">What happens</span>
-            <ul class="phase-list">
+        </li>
+        <li class="chapter" data-ch="3" id="build">
+          <img class="chapter-img" src="assets/img/process/process-build.jpg" alt="A figure placing black blocks around an orange core, a row of weekly calendar squares above." width="1500" height="1000" loading="lazy" decoding="async" />
+          <span class="chapter-n">03 · 2 to 6 weeks · Fixed price</span>
+          <h3>Build.</h3>
+          <p>Heads down, weekly demos. Nothing ships that we wouldn't run ourselves.</p>
+          <div class="ph-groups">
+            <div class="ph-g"><h4>What happens</h4><ul>
               <li>Production-grade development with tests, logs, retries</li>
               <li>Eval suite that runs on every change</li>
               <li>Integration with your real systems</li>
               <li>Security &amp; compliance reviews if needed</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">Cadence</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>Cadence</h4><ul>
               <li>Weekly 30-min demo of working software</li>
-              <li>Shared <a href="https://linear.app/" rel="noopener external" class="ext-cite">Linear</a> / Notion board you can see</li>
-              <li><a href="https://slack.com/" rel="noopener external" class="ext-cite">Slack</a> channel, same timezone, same week, replies same day</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">What you get</span>
-            <ul class="phase-list">
+              <li>Shared <a href="https://linear.app/" rel="noopener external">Linear</a> or Notion board you can see</li>
+              <li><a href="https://slack.com/" rel="noopener external">Slack</a> channel, same timezone, replies same day</li>
+            </ul></div>
+            <div class="ph-g"><h4>You get</h4><ul>
               <li>Working system in staging by week 2</li>
               <li>Production-ready system at end of build</li>
               <li>Runbook, dashboards, source code, the whole thing</li>
-            </ul>
+            </ul></div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section phase" id="deploy" style="background: var(--paper-2);">
-  <div class="wrap">
-    <div class="phase-row">
-      <div class="phase-meta">
-        <div class="phase-num">04</div>
-        <div class="phase-len">Ongoing</div>
-        <div class="phase-tag accent-bg">Optional retainer</div>
-      </div>
-      <div class="phase-main">
-        <h2 class="display phase-h">Deploy &amp; iterate.</h2>
-        <p class="lead" style="max-width: 36ch;">A live system. A real dashboard. Optional retainer for ongoing optimization.</p>
-        <div class="phase-cols">
-          <div>
-            <span class="eyebrow">What happens</span>
-            <ul class="phase-list">
+        </li>
+        <li class="chapter" data-ch="4" id="deploy">
+          <img class="chapter-img" src="assets/img/process/process-deploy.jpg" alt="A finished black and orange machine running on a baseline while two figures at a monitor hand over a folder." width="1500" height="1000" loading="lazy" decoding="async" />
+          <span class="chapter-n">04 · Ongoing · Optional retainer</span>
+          <h3>Deploy &amp; iterate.</h3>
+          <p>A live system. A real dashboard. Optional retainer for ongoing optimization.</p>
+          <div class="ph-groups">
+            <div class="ph-g"><h4>What happens</h4><ul>
               <li>Production rollout, usually phased, never big-bang</li>
               <li>Monitoring, alerting, drift detection</li>
               <li>Refinement based on real usage data</li>
               <li>Handoff or retainer, your call</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">Retainer covers</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>Retainer covers</h4><ul>
               <li>Monitoring &amp; model-update reviews</li>
               <li>Performance tuning &amp; new edge cases</li>
               <li>Pre-allocated build hours for new features</li>
-            </ul>
-          </div>
-          <div>
-            <span class="eyebrow">Or hand off</span>
-            <ul class="phase-list">
+            </ul></div>
+            <div class="ph-g"><h4>Or hand off</h4><ul>
               <li>Full documentation, eval suite, runbook</li>
               <li>Pairing sessions with your team</li>
               <li>30-day post-handoff support included</li>
-            </ul>
+            </ul></div>
           </div>
-        </div>
-      </div>
+        </li>
+      </ol>
     </div>
   </div>
 </section>
 
-<!-- WHAT THIS LOOKS LIKE -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">A typical timeline</span><span class="num" style="color:var(--muted);">Week by week</span></div></div>
-
+<!-- TIMELINE (PAPER, EDITORIAL SPLIT) -->
+<section class="section tl" aria-labelledby="tl-h">
+  <div class="wrap tl-grid">
+    <div class="tl-side">
+      <p class="tl-big display" aria-hidden="true">4<span class="tl-to">to</span>8</p>
+      <h2 id="tl-h" class="tl-h">A typical timeline, week by week.</h2>
+      <p class="tl-note">Discovery and Design are short on purpose. The weeks go where the work is: the build.</p>
+    </div>
     <div class="gantt" data-reveal>
-      <div class="g-row">
-        <div class="g-l">Discovery</div>
-        <div class="g-bar"><span class="g-fill" style="--s:0; --e:2; background: var(--ink);"></span></div>
-      </div>
-      <div class="g-row">
-        <div class="g-l">Design</div>
-        <div class="g-bar"><span class="g-fill" style="--s:2; --e:3.5; background: var(--ink-2);"></span></div>
-      </div>
-      <div class="g-row">
-        <div class="g-l">Build</div>
-        <div class="g-bar"><span class="g-fill" style="--s:3.5; --e:7; background: var(--accent);"></span></div>
-      </div>
-      <div class="g-row">
-        <div class="g-l">Deploy</div>
-        <div class="g-bar"><span class="g-fill" style="--s:7; --e:8; background: var(--green); color: white;"></span></div>
-      </div>
-      <div class="g-axis">
-        <span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span>
-      </div>
+      <ol class="g-rows">
+        <li class="g-row"><span class="g-l">Discover</span><span class="g-bar"><span class="g-fill" style="--s:0; --e:2;"></span></span><span class="g-len">1 to 2 wk</span></li>
+        <li class="g-row"><span class="g-l">Design</span><span class="g-bar"><span class="g-fill" style="--s:2; --e:3.5;"></span></span><span class="g-len">1 to 2 wk</span></li>
+        <li class="g-row"><span class="g-l">Build</span><span class="g-bar"><span class="g-fill g-accent" style="--s:3.5; --e:7;"></span></span><span class="g-len">2 to 6 wk</span></li>
+        <li class="g-row"><span class="g-l">Deploy</span><span class="g-bar"><span class="g-fill g-open" style="--s:7; --e:8;"></span></span><span class="g-len">Ongoing</span></li>
+      </ol>
+      <div class="g-axis" aria-hidden="true"><span></span><span class="g-ticks"><span>W1</span><span>W2</span><span>W3</span><span>W4</span><span>W5</span><span>W6</span><span>W7</span><span>W8</span></span><span></span></div>
     </div>
-    <p class="kicker" style="margin-top: 32px;">Most projects ship in 4–8 weeks. Some longer. Some shorter. We tell you which before you sign.</p>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
-  <div class="wrap" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
-    <div>
-      <h2 class="display" style="font-size: clamp(40px, 6vw, 88px); ">Let's run the <span class="italic">first phase.</span></h2>
-    </div>
-    <div style="display:grid; gap: 16px;">
-      <p class="body-lg" style="max-width: 36ch;">A paid discovery sprint pays for itself, even if we conclude you shouldn't build.</p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="contact.html">Book discovery</a>
-        <a class="btn btn-ghost" href="pricing.html" style="border-color: var(--ink);">See pricing</a>
+<!-- CLOSING (INK) -->
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Let's run the <span class="accent-c">first phase.</span></h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">A paid discovery sprint pays for itself, even if we conclude you shouldn't build.</p>
+      <div class="closing-cta">
+        <a class="btn btn-accent" href="contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="pricing.html">See how we price</a>
       </div>
     </div>
   </div>
@@ -403,83 +334,72 @@
 </footer>
 
 <style>
-.proc-timeline {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 0;
-  padding: 40px 0 24px;
-}
-.ptl-bar { position: absolute; left: 0; right: 0; top: 56px; height: 1px; background: var(--rule); }
-.ptl-step { display: grid; justify-items: start; padding-right: 24px; position: relative; gap: 8px; }
-.ptl-dot {
-  width: 18px; height: 18px; border-radius: 50%;
-  background: var(--ink); border: 4px solid var(--paper);
-  margin-top: 8px; position: relative; z-index: 1;
-}
-.ptl-dot.accent { background: var(--accent); }
-.ptl-l { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 14px; }
-.ptl-t { font-family: var(--display); font-size: 24px; letter-spacing: -0.01em; }
-@media (max-width: 820px) { .proc-timeline { grid-template-columns: repeat(2, 1fr); gap: 32px 0; } .ptl-bar { display:none; } }
+/* Page hero: shared 7/5 grid, inner-page type scale */
+h1.pg-h1 { font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -0.045em; margin-left: -0.04em; }
+.pg-h1 .ln { display: block; }
+@media (min-width: 1001px) { h1.pg-h1 { font-size: clamp(48px, 7vw, 104px); } .pg-h1 .ln { white-space: nowrap; } }
+.pg-h1 .hl { color: var(--accent); }
+.pg-art { max-width: none; justify-self: end; margin: 0; }
+/* The shared no-js rule paints the block text orange first; without this the switch back to ink
+   animates for ~0.75s after load. Only animate once the heading is revealed. */
+.manifesto-h:not(.in) .mf-block::before, .manifesto-h:not(.in) .mf-block > span { transition: none; }
+/* Active chapter: the orange bar marks it; the label stays ink for contrast */
+.chapter.is-on .chapter-n { color: var(--ink); }
 
-.phase-row {
-  display: grid;
-  grid-template-columns: 180px 1fr;
-  gap: 64px;
-}
-@media (max-width: 900px) { .phase-row { grid-template-columns: 1fr; gap: 24px; } }
-.phase-meta { display: grid; gap: 12px; align-content: start; position: sticky; top: 96px; }
-.phase-num {
-  font-family: var(--display);
-  font-size: 120px;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  color: var(--ink);
-}
-.phase-len { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
-.phase-tag {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  padding: 4px 10px;
-  background: rgba(22,20,15,0.06);
-  border-radius: 999px;
-  width: max-content;
-  color: var(--ink-2);
-}
-.phase-tag.accent-bg { background: var(--accent); color: var(--ink); }
-.phase-h {
-  font-size: clamp(48px, 7vw, 96px);
-  border-top: 1px solid var(--ink);
-  padding-top: 24px;
-  margin: 0 0 18px;
-}
-.phase-cols {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 40px;
-  margin-top: 40px;
-  border-top: 1px solid var(--rule);
-  padding-top: 28px;
-}
-@media (max-width: 820px) { .phase-cols { grid-template-columns: 1fr; gap: 24px; } }
-.phase-cols .eyebrow { display: block; margin-bottom: 12px; }
-.phase-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 15px; color: var(--ink-2); line-height: 1.5; }
-.phase-list li { padding-left: 18px; position: relative; }
-.phase-list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 1px; background: var(--accent); }
+/* Phase chapters: three short lists, ruled, no boxes */
+.chapter { min-height: 72vh; }
+.chapter > p { font-size: clamp(19px, 1.5vw, 22px); line-height: 1.45; color: var(--ink); max-width: 34ch; }
+.ph-groups { display: grid; gap: 0; margin-top: 12px; border-top: 1px solid var(--ink); }
+.ph-g { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--rule); }
+.ph-g h4 { margin: 0; font-family: var(--sans); font-size: 14px; font-weight: 600; line-height: 1.5; }
+.ph-g ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; font-size: 15px; line-height: 1.5; color: var(--ink-2); }
+.ph-g a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.ph-g a:hover { text-decoration-color: var(--accent); }
 
-.gantt { display: grid; gap: 6px; padding: 24px; background: var(--card); border-radius: 4px; border: 1px solid var(--rule); }
-.g-row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; align-items: center; }
-.g-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-.g-bar { position: relative; height: 26px; background: rgba(22,20,15,0.05); border-radius: 6px; }
-.g-fill { position: absolute; top: 4px; bottom: 4px; left: calc(var(--s) / 8 * 100%); right: calc((8 - var(--e)) / 8 * 100%); border-radius: 4px; }
-.g-axis { display: grid; grid-template-columns: 100px repeat(8, 1fr); padding-top: 12px; color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; }
-.g-axis span:first-child::before { content: ""; }
-.g-axis > span:not(:first-child) { text-align: left; padding-left: 6px; }
+/* Timeline: big number left 5/12, chart right 7/12 */
+.tl { background: var(--paper-2); }
+.tl-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 88px); align-items: end; }
+.tl-big { font-size: clamp(120px, 17vw, 260px); line-height: .8; letter-spacing: -0.06em; margin: 0 0 0 -0.05em; white-space: nowrap; }
+.tl-to { font-size: .28em; letter-spacing: -0.02em; margin: 0 .18em; vertical-align: .9em; color: var(--muted); }
+.tl-h { margin: 28px 0 0; font-family: var(--display); font-weight: 600; font-size: clamp(26px, 2.4vw, 36px); letter-spacing: -0.035em; line-height: 1.05; max-width: 16ch; }
+.tl-note { margin: 16px 0 0; color: var(--ink-2); max-width: 40ch; }
+.g-rows { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); }
+.g-row { display: grid; grid-template-columns: 96px minmax(0, 1fr) 88px; gap: 16px; align-items: center; padding: 18px 0; border-bottom: 1px solid var(--rule-strong); }
+.g-l { font-family: var(--display); font-weight: 600; font-size: 20px; letter-spacing: -0.02em; }
+.g-len { font-family: var(--mono); font-size: 12px; letter-spacing: .04em; text-transform: uppercase; text-align: right; }
+.g-bar { position: relative; height: 28px; }
+.g-fill { position: absolute; top: 0; bottom: 0; left: calc(var(--s) / 8 * 100%); right: calc((8 - var(--e)) / 8 * 100%); background: var(--ink); transform-origin: left; transform: scaleX(0); transition: transform .9s var(--ease-out); }
+.g-row:nth-child(2) .g-fill { transition-delay: .1s; }
+.g-row:nth-child(3) .g-fill { transition-delay: .2s; }
+.g-row:nth-child(4) .g-fill { transition-delay: .3s; }
+.g-accent { background: var(--accent); }
+.g-open { background: transparent; border: 2px solid var(--ink); border-right-style: dashed; }
+.gantt.in .g-fill, html.no-js .g-fill { transform: scaleX(1); }
+.g-axis { display: grid; grid-template-columns: 96px minmax(0, 1fr) 88px; gap: 16px; padding-top: 10px; font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.g-ticks { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); }
+
+@media (max-width: 1000px) {
+  .pg-art { justify-self: start; max-width: 520px; }
+  .tl-grid { grid-template-columns: 1fr; align-items: start; }
+}
+@media (max-width: 640px) {
+  .pg-h1 .m-ln { display: block; }
+  .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
+  .pg-art { max-width: none; }
+  .ph-g { grid-template-columns: 1fr; gap: 6px; }
+  .tl-big { font-size: clamp(110px, 34vw, 150px); }
+  .g-row { grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "l len" "bar bar"; row-gap: 10px; padding: 14px 0; }
+  .g-l { grid-area: l; font-size: 17px; }
+  .g-len { grid-area: len; }
+  .g-bar { grid-area: bar; height: 20px; }
+  .g-axis { grid-template-columns: minmax(0, 1fr); font-size: 11px; }
+  .g-axis > span:first-child, .g-axis > span:last-child { display: none; }
+  .g-ticks span:nth-child(even) { visibility: hidden; }
+}
+@media (prefers-reduced-motion: reduce) { .g-fill { transform: none; transition: none; } }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=202610201410"></script>
 </body>
 </html>

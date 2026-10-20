@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link rel="stylesheet" href="styles.css?v=202610201410" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
@@ -121,127 +121,113 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="section" style="border-top:none; padding-bottom: 56px;">
-  <div class="wrap hero-split">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow hero-meta">Reply within 24 hours</span>
-    <h1 class="display" data-reveal>
-      Tell us about<br/>your <span class="italic">problem.</span>
-    </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 58ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
-      We'll respond within 24 hours. If we're a fit, we'll book a 30-minute call. If we're not, we'll tell you who is. Either way, you'll have an answer the same day.
-    </p>
+      <h1 id="hero-h" class="display page-h1" data-intro>Tell us about your <span class="accent-c">problem.</span></h1>
+      <p class="kicker hero-kicker" data-intro>We'll respond within 24 hours. If we're a fit, we'll book a 30-minute call. If we're not, we'll tell you who is. Either way, you'll have an answer the same day.</p>
+      <div class="hero-cta" data-intro>
+        <a class="btn btn-accent" href="contact.html">Book a discovery call <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
+        <a class="btn btn-ghost" href="#write">Write to us</a>
+      </div>
     </div>
-    <figure class="page-art draft" data-reveal><img src="assets/img/spot/13-contact-signal.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+    <figure class="page-art page-art--hero draft"><img src="assets/img/spot/13-contact-signal.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
+  <div class="wrap">
+    <dl class="rail">
+      <div><dt>Reply</dt><dd>Within 24 hours</dd></div>
+      <div><dt>Discovery call</dt><dd>30 minutes, no deck</dd></div>
+      <div><dt>Proposal</dt><dd>Within a week</dd></div>
+      <div><dt>Email</dt><dd><a href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a></dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- FORM + SIDEBAR -->
-<section class="section" style="padding-top: 48px;">
-  <div class="wrap">
-    <div class="contact-grid">
+<!-- NEXT STEPS + FORM -->
+<section class="section ct-form" id="write" aria-labelledby="next-h">
+  <div class="wrap ed-split">
+    <div class="ed-side">
+      <h2 id="next-h" class="display ed-h" data-reveal>What happens next.</h2>
+      <ol class="ct-steps">
+        <li data-reveal><span class="ct-n" aria-hidden="true">01</span><div><h3>We reply.</h3><p>Same day if it's a working day, next morning if not.</p></div></li>
+        <li data-reveal style="--reveal-delay:60ms;"><span class="ct-n" aria-hidden="true">02</span><div><h3>30-min discovery call.</h3><p>No deck. We listen, ask hard questions, share a rough range.</p></div></li>
+        <li data-reveal style="--reveal-delay:120ms;"><span class="ct-n" aria-hidden="true">03</span><div><h3>Scoped proposal.</h3><p>If we're a fit, you get a paid Discovery sprint quote within a week.</p></div></li>
+      </ol>
+      <figure class="ed-fig draft" data-reveal>
+        <img src="assets/img/contact/conversation.jpg" alt="Two figures at a small table in conversation, one sliding a single sheet across to the other." width="1500" height="1000" loading="lazy" decoding="async">
+      </figure>
+    </div>
 
-      <form class="contact-form" id="contactForm" data-reveal>
-        <div class="cf-row">
-          <div class="field">
-            <label for="name">Your name</label>
-            <input type="text" id="name" name="name" required placeholder="Your full name" />
-          </div>
-          <div class="field">
-            <label for="company">Company</label>
-            <input type="text" id="company" name="company" required placeholder="Company name" />
-          </div>
-        </div>
-        <div class="cf-row">
-          <div class="field">
-            <label for="email">Work email</label>
-            <input type="email" id="email" name="email" required placeholder="you@company.com" />
-          </div>
-          <div class="field">
-            <label for="role">Your role</label>
-            <input type="text" id="role" name="role" placeholder="Head of Operations" />
-          </div>
-        </div>
-
+    <form class="ct-panel" id="contactForm" aria-labelledby="form-h" data-reveal style="--reveal-delay:80ms;">
+      <h2 id="form-h" class="ct-form-h">Tell us the workflow.</h2>
+      <div class="cf-row">
+        <div class="field"><label for="name">Your name</label><input type="text" id="name" name="name" required autocomplete="name" placeholder="Your full name" /></div>
+        <div class="field"><label for="company">Company</label><input type="text" id="company" name="company" required autocomplete="organization" placeholder="Company name" /></div>
+      </div>
+      <div class="cf-row">
+        <div class="field"><label for="email">Work email</label><input type="email" id="email" name="email" required autocomplete="email" placeholder="you@company.com" /></div>
+        <div class="field"><label for="role">Your role</label><input type="text" id="role" name="role" autocomplete="organization-title" placeholder="Head of Operations" /></div>
+      </div>
+      <div class="field">
+        <label for="problem">What are you trying to solve?</label>
+        <textarea id="problem" name="problem" required placeholder="The workflow that's bleeding hours. Be specific: &quot;our compliance team reviews 200 KYC packets a week by hand&quot; is more useful than &quot;we want AI.&quot;"></textarea>
+      </div>
+      <div class="cf-row">
         <div class="field">
-          <label for="problem">What are you trying to solve?</label>
-          <textarea id="problem" name="problem" required placeholder="The workflow that's bleeding hours. Be specific, &quot;our compliance team reviews 200 KYC packets a week by hand&quot; is more useful than &quot;we want AI.&quot;"></textarea>
+          <label for="budget">Budget range (optional)</label>
+          <select id="budget" name="budget">
+            <option value="">Select a range</option>
+            <option>Under R250k</option>
+            <option>R250k to R500k</option>
+            <option>R500k to R1M</option>
+            <option>R1M to R2.5M</option>
+            <option>R2.5M+</option>
+            <option>Not sure yet</option>
+          </select>
         </div>
-
-        <div class="cf-row">
-          <div class="field">
-            <label for="budget">Budget range (optional)</label>
-            <select id="budget" name="budget">
-              <option value="">Select a range</option>
-              <option>Under R250k</option>
-              <option>R250k to R500k</option>
-              <option>R500k to R1M</option>
-              <option>R1M to R2.5M</option>
-              <option>R2.5M+</option>
-              <option>Not sure yet</option>
-            </select>
-          </div>
-          <div class="field">
-            <label for="timeline">Timeline (optional)</label>
-            <select id="timeline" name="timeline">
-              <option value="">Select a timeline</option>
-              <option>ASAP</option>
-              <option>Next quarter</option>
-              <option>Next 6 months</option>
-              <option>Exploring</option>
-            </select>
-          </div>
+        <div class="field">
+          <label for="timeline">Timeline (optional)</label>
+          <select id="timeline" name="timeline">
+            <option value="">Select a timeline</option>
+            <option>ASAP</option>
+            <option>Next quarter</option>
+            <option>Next 6 months</option>
+            <option>Exploring</option>
+          </select>
         </div>
+      </div>
+      <div class="cf-foot">
+        <p class="cf-fineprint">Sending opens your email app with this message addressed to hello@lekkelogic.co.za. By sending you agree to us emailing you back. That's it. No tracking, no list, no drip campaign.</p>
+        <button class="btn btn-primary" type="submit">Send <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></button>
+      </div>
+    </form>
+  </div>
+</section>
 
-        <div class="cf-foot">
-          <p class="cf-fineprint">By submitting you agree to us emailing you back. That's it. No tracking, no list, no drip campaign.</p>
-          <button class="btn btn-primary" type="submit">
-            Send →
-          </button>
-        </div>
-      </form>
+<!-- HONESTY CLAUSE (ORANGE) -->
+<section class="section manifesto" aria-labelledby="honest-h">
+  <div class="wrap">
+    <h2 id="honest-h" class="display manifesto-h" data-reveal>If AI isn't the answer, we'll <span class="mf-block"><span>say so.</span></span></h2>
+    <div class="manifesto-grid manifesto-grid--one">
+      <p class="manifesto-p" data-reveal>The call is free. Sometimes the fix is a process change, not a model, and we'll tell you that before you spend a Rand. If another team fits the build better, we'll point you to them. We'd rather say no than ship a project we don't believe in.</p>
+    </div>
+  </div>
+</section>
 
-      <aside class="contact-side" data-reveal style="--reveal-delay:120ms;">
-
-        <div class="cs-card">
-          <span class="eyebrow"><span class="dot"></span>What happens next</span>
-          <ol class="cs-steps">
-            <li><b>We reply.</b> Same day if it's a working day, next morning if not.</li>
-            <li><b>30-min discovery call.</b> No deck. We listen, ask hard questions, share a rough range.</li>
-            <li><b>Scoped proposal.</b> If we're a fit, you get a paid Discovery sprint quote within a week.</li>
-          </ol>
-        </div>
-
-        <div class="cs-card">
-          <span class="eyebrow">Or skip the form</span>
-          <ul class="cs-alt">
-            <li>
-              <span class="cs-alt-l">Email</span>
-              <a class="ilink" href="mailto:hello@lekkelogic.co.za" style="border:none; color: var(--ink); font-weight: 500;">hello@lekkelogic.co.za</a>
-            </li>
-            <li>
-              <span class="cs-alt-l">Calendar</span>
-              <a class="ilink nav-cta" href="contact.html" style="border:none; color: var(--ink); font-weight: 500; padding: 0; background: transparent;">Pick a slot on Cal →</a>
-            </li>
-          </ul>
-        </div>
-
-        <div class="cs-card" style="background: var(--accent); border-color: var(--accent); color: var(--ink);">
-          <span class="eyebrow" style="color: var(--ink);">Honesty clause</span>
-          <p style="margin: 12px 0 0; font-size: 15px; line-height: 1.5;">
-            If AI isn't the right answer for your problem, we'll tell you so on the call. We'd rather say no than ship a project we don't believe in.
-          </p>
-        </div>
-
-        <div class="cs-card">
-          <span class="eyebrow">Where</span>
-          <p style="margin: 12px 0 0; font-family: var(--display); font-size: 22px; line-height: 1.2;">
-            <a href="https://www.joburg.org.za/" rel="noopener external" class="ext-cite">Johannesburg</a>, ZA<br/>
-            <span style="font-size: 14px; color: var(--muted); font-family: var(--sans);">Working remote in UTC±5 · Most clients EU / UK / US ET</span>
-          </p>
-        </div>
-
-      </aside>
+<!-- CLOSING (INK) -->
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Rather skip the <span class="accent-c">form?</span></h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">Pick a slot in the calendar, or email us directly.</p>
+      <div class="closing-cta">
+        <a class="btn btn-accent" href="contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a>
+      </div>
+      <dl class="ct-where">
+        <div><dt>Where</dt><dd><a href="https://www.joburg.org.za/" rel="noopener external">Johannesburg</a>, ZA</dd></div>
+        <div><dt>Hours</dt><dd>Working remote in UTC±5 · Most clients EU / UK / US ET</dd></div>
+      </dl>
     </div>
   </div>
 </section>
@@ -265,62 +251,96 @@
 </footer>
 
 <style>
-.contact-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 56px; align-items: start; }
-@media (max-width: 900px) { .contact-grid { grid-template-columns: 1fr; gap: 40px; } }
-
-.contact-form { display: grid; gap: 24px; padding: 32px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; }
-.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-@media (max-width: 600px) { .cf-row { grid-template-columns: 1fr; } }
-.cf-foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 12px; border-top: 1px solid var(--rule); }
-.cf-fineprint { font-size: 12.5px; color: var(--muted); margin: 0; max-width: 38ch; line-height: 1.5; }
-
-.contact-side { display: grid; gap: 16px; position: sticky; top: 96px; }
-.cs-card { padding: 24px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; }
-.cs-card .eyebrow { display: block; }
-.cs-steps { list-style: none; counter-reset: step; padding: 0; margin: 12px 0 0; display: grid; gap: 14px; }
-.cs-steps li {
-  counter-increment: step;
-  padding-left: 36px;
-  position: relative;
-  font-size: 14.5px;
-  color: var(--ink-2);
-  line-height: 1.5;
+/* Inner hero (DESIGN.md inner page recipe): 7/5, display h1, large art */
+h1.page-h1 { font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -0.045em; margin-left: -0.03em; }
+.page-h1[data-intro] { animation-delay: .05s; }
+.page-art--hero { margin: 0; max-width: none; align-self: center; }
+@media (max-width: 1000px) { .page-art--hero { max-width: 520px; } }
+@media (max-width: 640px) {
+  h1.page-h1 { font-size: clamp(44px, 13.4vw, 64px); }
+  .page-art--hero { max-width: none; aspect-ratio: 4 / 3; }
 }
-.cs-steps li::before {
-  content: counter(step);
-  position: absolute;
-  left: 0; top: 0;
-  width: 24px; height: 24px;
-  border-radius: 50%;
-  background: var(--ink);
-  color: var(--paper);
-  font-family: var(--mono);
-  font-size: 11px;
-  display: grid;
-  place-items: center;
-}
-.cs-steps b { color: var(--ink); font-weight: 500; }
 
-.cs-alt { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 12px; }
-.cs-alt li { display: grid; grid-template-columns: 90px 1fr; gap: 12px; align-items: baseline; padding-bottom: 12px; border-bottom: 1px solid var(--rule); }
-.cs-alt li:last-child { border-bottom: none; }
-.cs-alt-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+/* Editorial split: heading + art 5/12, body 7/12 */
+.ed-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.ed-h { font-size: clamp(40px, 5.2vw, 84px); letter-spacing: -0.045em; max-width: 12ch; }
+.ed-sub { margin: 20px 0 0; color: var(--ink-2); font-size: 18px; max-width: 32ch; }
+.ed-fig { margin: clamp(28px, 3vw, 44px) 0 0; aspect-ratio: 3 / 2; border-radius: 4px; overflow: hidden; }
+.ed-fig img { width: 100%; height: 100%; object-fit: cover; }
+.ed-split--pin .ed-pin { position: sticky; top: 112px; }
+.ed-main { display: grid; gap: 22px; max-width: 62ch; padding-top: clamp(4px, 1vw, 16px); }
+.ed-lead { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.16; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
+@media (max-width: 1000px) {
+  .ed-split { grid-template-columns: 1fr; }
+  .ed-split--pin .ed-pin { position: static; }
+  .ed-fig { max-width: 640px; }
+}
+@media (max-width: 640px) {
+  .ed-h { font-size: clamp(38px, 11vw, 52px); }
+  .body-lg { font-size: 17px; }
+}
+/* contact.html: steps + form split on paper, honesty band, ink closing */
+.ct-form { background: var(--paper-2); border-top: 0; }
+.ct-steps { list-style: none; margin: clamp(28px, 3vw, 44px) 0 0; padding: 0; border-top: 1px solid var(--ink); }
+.ct-steps li { display: grid; grid-template-columns: 64px minmax(0, 1fr); gap: 16px; padding: 20px 0 22px; border-bottom: 1px solid var(--rule-strong); }
+.ct-n { font-family: var(--display); font-weight: 600; font-size: 40px; line-height: .9; letter-spacing: -0.05em; color: var(--ink); }
+.ct-steps h3 { margin: 0 0 4px; font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2vw, 28px); letter-spacing: -0.03em; line-height: 1.05; }
+.ct-steps p { margin: 0; color: var(--ink-2); font-size: 16px; max-width: 40ch; }
+
+/* The page's one boxed panel: the form */
+.ct-panel { display: grid; gap: 28px; padding: clamp(24px, 3.4vw, 48px); background: var(--paper); border-radius: 4px; align-self: start; }
+.ct-form-h { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(30px, 3vw, 44px); letter-spacing: -0.04em; line-height: 1; }
+.cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.ct-panel .field label { font-size: 12px; letter-spacing: .06em; color: var(--muted); }
+.ct-panel .field input, .ct-panel .field textarea, .ct-panel .field select {
+  background: transparent; border: 0; border-bottom: 1px solid var(--rule-strong); border-radius: 0; padding: 10px 0 12px; font-size: 18px;
+}
+.ct-panel .field select { appearance: none; -webkit-appearance: none; cursor: pointer;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230A0A0A' stroke-width='1.5' fill='none'/%3E%3C/svg%3E") no-repeat right 4px center; padding-right: 24px; }
+.ct-panel .field textarea { min-height: 150px; }
+.ct-panel .field input:focus, .ct-panel .field textarea:focus, .ct-panel .field select:focus { background-color: transparent; border-bottom: 2px solid var(--accent); margin-bottom: -1px; }
+.ct-panel .field :focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.ct-panel ::placeholder { color: var(--muted); opacity: 1; }
+.cf-foot { display: flex; justify-content: space-between; align-items: center; gap: 20px; flex-wrap: wrap; padding-top: 8px; }
+.cf-fineprint { margin: 0; font-size: 13px; line-height: 1.5; color: var(--muted); max-width: 46ch; }
+.ct-done { display: grid; gap: 16px; padding: 24px 0; }
+.ct-done h2 { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(40px, 4.4vw, 64px); letter-spacing: -0.045em; line-height: 1; }
+.ct-done p { margin: 0; max-width: 44ch; }
+.ct-done a { text-decoration: underline; text-underline-offset: .2em; }
+
+.ct-where { margin: 32px 0 0; display: grid; gap: 14px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,.2); }
+.ct-where dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: rgba(255,255,255,.7); }
+.ct-where dd { margin: 4px 0 0; color: var(--paper); }
+.ct-where a { text-decoration: underline; text-underline-offset: .2em; text-decoration-thickness: 1px; }
+@media (max-width: 640px) {
+  .cf-row { grid-template-columns: 1fr; }
+  .cf-foot .btn { flex: 1 1 100%; justify-content: center; }
+  .ct-steps li { grid-template-columns: 48px minmax(0, 1fr); }
+  .ct-n { font-size: 32px; }
+}
+/* Revealed accent word also carries a real ink fill (not only the ::before wipe), so contrast tools read it */
+.manifesto-h .mf-block > span { transition: color 0s linear .55s, background-color 0s linear .55s; }
+.manifesto-h.in .mf-block > span, html.no-js .mf-block > span { background-color: var(--ink); }
+@media (prefers-reduced-motion: reduce) { .mf-block > span { background-color: var(--ink); } }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=202610201410"></script>
 <script>
-// Simple form feedback
-document.getElementById('contactForm').addEventListener('submit', function(e) {
+// No form backend: compose the message in the visitor's email app, addressed to us.
+document.getElementById('contactForm').addEventListener('submit', function (e) {
   e.preventDefault();
-  this.innerHTML = `
-    <div style="text-align:center; padding: 80px 20px;">
-      <div style="width: 72px; height: 72px; border-radius: 50%; background: var(--accent); margin: 0 auto 24px; display:grid; place-items:center; font-size: 36px; line-height: 1;">✓</div>
-      <h2 class="display" style="font-size: clamp(36px, 4.4vw, 56px); margin: 0 0 16px;">Got it.</h2>
-      <p class="body-lg" style="max-width: 38ch; margin: 0 auto;">We'll reply within 24 hours. If it's urgent, mail <a class="ilink" href="mailto:hello@lekkelogic.co.za" style="border:none; color: var(--accent);">hello@lekkelogic.co.za</a>.</p>
-    </div>
-  `;
-  this.style.background = 'var(--card)';
+  const f = new FormData(this);
+  const v = (k) => (f.get(k) || '').toString().trim();
+  const body = [
+    'Name: ' + v('name'), 'Company: ' + v('company'), 'Email: ' + v('email'), 'Role: ' + v('role'),
+    'Budget: ' + v('budget'), 'Timeline: ' + v('timeline'), '', v('problem')
+  ].join('\n');
+  const subject = 'Discovery request: ' + v('company');
+  location.href = 'mailto:hello@lekkelogic.co.za?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  this.innerHTML = '<div class="ct-done" role="status"><h2>Nearly there.</h2>' +
+    '<p>Your email app should now be open with the message ready. Send it and we will reply within 24 hours.</p>' +
+    '<p>Nothing opened? Mail <a href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a> directly.</p></div>';
 });
 </script>
 </body>

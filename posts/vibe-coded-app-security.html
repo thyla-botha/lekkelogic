@@ -12,7 +12,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="../styles.css" />
+<link rel="stylesheet" href="../styles.css?v=202610201410" />
 <link rel="canonical" href="https://lekkelogic.co.za/posts/vibe-coded-app-security.html" />
 <meta name="last-modified" content="2026-05-27" />
 <meta http-equiv="last-modified" content="2026-05-27" />
@@ -75,30 +75,46 @@
 <main id="main">
 
 <!-- POST HERO -->
-<section class="section post-hero">
+<section class="hero post-hero2" aria-labelledby="post-h">
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <h1 id="post-h" class="display post-h1" data-intro>Your vibe-coded app is a <span class="italic">security liability</span>. Here's how we fix it.</h1>
+      <p class="kicker hero-kicker post-deck" data-intro>A field guide to whitebox security review for AI-generated and rapidly-prototyped apps. The five failure modes we see in every codebase, and how to harden them before launch.</p>
+    </div>
+    <figure class="page-art page-art--hero draft"><img src="../assets/img/posts/security.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
   <div class="wrap">
-    <div class="post-eyebrows">
-      <span class="eyebrow"><span class="dot"></span>Security</span>
-      <a href="../blog.html" class="eyebrow" style="color: var(--muted); text-decoration: none;">← Writing</a>
-    </div>
-    <h1 class="display" data-reveal>
-      Your vibe-coded app is a <span class="italic">security liability</span>. Here's how we fix it.
-    </h1>
-    <p class="post-deck" data-reveal style="--reveal-delay:120ms;">
-      A field guide to whitebox security review for AI-generated and rapidly-prototyped apps. The five failure modes we see in every codebase, and how to harden them before launch.
-    </p>
-    <div class="post-meta">
-      <span><strong>By</strong> Lekke Logic</span>
-      <span><strong>Published</strong> 2026-05-27</span>
-      <span><strong>Read</strong> 14 minutes</span>
-      <span><strong>Tags</strong> Security · Vibe coding · AI</span>
-    </div>
+    <dl class="rail">
+      <div><dt>Filed under</dt><dd><a href="../blog.html">Security</a></dd></div>
+      <div><dt>Published</dt><dd>2026-05-27</dd></div>
+      <div><dt>Read</dt><dd>14 minutes</dd></div>
+      <div><dt>By</dt><dd>Lekke Logic</dd></div>
+    </dl>
   </div>
 </section>
 
 <!-- POST BODY -->
-<section class="section" style="padding-top: 24px;">
-  <div class="wrap">
+<section class="section post-main" aria-label="Article">
+  <div class="wrap post-layout">
+    <aside class="post-aside">
+      <nav class="post-toc" aria-label="In this post">
+        <p class="post-aside-h">In this post</p>
+        <ol>
+          <li><a href="#why-vibe-coded-apps-fail-in-predictable-ways">Why vibe-coded apps fail in predictable ways</a></li>
+          <li><a href="#failure-mode-1-secrets-in-the-repo">Failure mode 1: Secrets in the repo</a></li>
+          <li><a href="#failure-mode-2-auth-that-isn-t-actually-auth">Failure mode 2: Auth that isn't actually auth</a></li>
+          <li><a href="#failure-mode-3-trusting-user-input-the-model-said-was-fine">Failure mode 3: Trusting user input the model said was fine</a></li>
+          <li><a href="#failure-mode-4-prompt-injection-and-unscoped-tool-use">Failure mode 4: Prompt injection and unscoped tool use</a></li>
+          <li><a href="#failure-mode-5-no-monitoring-no-alerts-no-audit-trail">Failure mode 5: No monitoring, no alerts, no audit trail</a></li>
+          <li><a href="#what-a-real-review-looks-like">What a real review looks like</a></li>
+        </ol>
+      </nav>
+      <div class="post-tags">
+        <p class="post-aside-h">Tags</p>
+        <ul><li>Security</li><li>Vibe coding</li><li>AI</li></ul>
+      </div>
+      <a class="post-back" href="../blog.html">All writing</a>
+    </aside>
     <article class="post-body">
 
       <p>You shipped an app this month. You didn't write most of it. Claude, Cursor, GPT-5, Lovable, v0, take your pick. The LLM wrote the routes, the auth, the database schema, the SQL, the UI, the deploy script. You QA'd it by clicking around. It works. Customers are using it. It's beautiful. It's also, almost certainly, dangerous.</p>
@@ -109,13 +125,13 @@
 
       <p>This piece is a field guide. It walks through the five failure modes we see in every vibe-coded codebase, explains why the LLM keeps generating them, and tells you what a proper whitebox security review actually catches. By the end you'll know what to ask for, what to look for, and when to call us.</p>
 
-      <h2>Why vibe-coded apps fail in predictable ways</h2>
+      <h2 id="why-vibe-coded-apps-fail-in-predictable-ways">Why vibe-coded apps fail in predictable ways</h2>
 
       <p>LLMs are trained on public code. Most public code is wrong about security. Public tutorials show you how to make a feature work; very few show you how to make it safe. The model is also optimised to be helpful, which means it will write code that does what you asked, not code that refuses to do what you asked because it's a bad idea. Add the fact that you, the operator, are not pushing back on the model's choices (because how would you know?) and you get a predictable shape of failure.</p>
 
       <p>The five failure modes below show up in every codebase we've reviewed. Not most. Every. Once you've seen them once, you can spot them in twenty minutes. Most of them are also fixable in a day.</p>
 
-      <h2>Failure mode 1: Secrets in the repo</h2>
+      <h2 id="failure-mode-1-secrets-in-the-repo">Failure mode 1: Secrets in the repo</h2>
 
       <p>When you tell the model "set up auth," it will helpfully drop your API keys, database URL, and JWT secret into a <code>.env</code> file and then, two prompts later, instruct you to commit everything. Or it will hardcode the OpenAI key into the route file. Or it will print the connection string in <code>console.log</code> on startup, which then gets shipped to Vercel's log stream, which is searchable.</p>
 
@@ -130,7 +146,7 @@
 
       <p>What to do about it: rotate everything you find, move secrets to a real secret manager (Vercel, Cloudflare, AWS Secrets Manager, Doppler), audit the git history with <code>git log --all -p | grep -i 'api[_-]key'</code>, and rewrite the history if anything sensitive was ever committed. Going forward, install a pre-commit hook (we like <code>gitleaks</code>) that blocks the commit at the source.</p>
 
-      <h2>Failure mode 2: Auth that isn't actually auth</h2>
+      <h2 id="failure-mode-2-auth-that-isn-t-actually-auth">Failure mode 2: Auth that isn't actually auth</h2>
 
       <p>The model loves to write code that <em>looks</em> like it checks who you are. There's a session cookie. There's a <code>getUser()</code> call. There's even a <code>requireAuth</code> middleware. What there often isn't, is anyone checking whether the user is allowed to access the specific resource they just asked for.</p>
 
@@ -140,7 +156,7 @@
 
       <div class="callout"><strong>If you do nothing else after reading this post,</strong> grep your codebase for <code>findUnique</code>, <code>findById</code>, <code>findOne</code>, or any <code>SELECT ... WHERE id =</code>. For each one, ask: is this scoped to the current user? If you can't immediately answer yes, it's IDOR.</div>
 
-      <h2>Failure mode 3: Trusting user input the model said was fine</h2>
+      <h2 id="failure-mode-3-trusting-user-input-the-model-said-was-fine">Failure mode 3: Trusting user input the model said was fine</h2>
 
       <p>When you ask Claude to write a search endpoint, it will give you a function that takes a string from the query parameters and shoves it into a SQL or NoSQL query. Sometimes parameterised, often not. When you ask for a "send notification" feature, it will pass the recipient address straight to your mailer. When you ask for a file upload, it will write the file to disk using the original filename.</p>
 
@@ -155,7 +171,7 @@
         <li>HTML output that interpolates user input without escaping (classic stored XSS)</li>
       </ul>
 
-      <h2>Failure mode 4: Prompt injection and unscoped tool use</h2>
+      <h2 id="failure-mode-4-prompt-injection-and-unscoped-tool-use">Failure mode 4: Prompt injection and unscoped tool use</h2>
 
       <p>This is the new category. If your app uses an LLM (to summarise documents, answer customer questions, generate emails, anything) it has prompt-injection surface. If your LLM has access to tools (the database, the email sender, the file system, a payment API), you have an unscoped agent problem.</p>
 
@@ -170,7 +186,7 @@
         <li><strong>Eval the failure modes.</strong> Write a test suite of malicious inputs (prompt injections, jailbreaks, attempts to exfiltrate the system prompt) and run it on every release.</li>
       </ul>
 
-      <h2>Failure mode 5: No monitoring, no alerts, no audit trail</h2>
+      <h2 id="failure-mode-5-no-monitoring-no-alerts-no-audit-trail">Failure mode 5: No monitoring, no alerts, no audit trail</h2>
 
       <p>The model rarely sets up observability unless you ask for it. We see apps in production with no error tracking, no rate limiting, no alerting on auth failures, no audit log of admin actions, no records of who accessed what. When something goes wrong (and at some point something always goes wrong) the operator has no visibility, no forensic trail, and no way to tell legitimate users from someone draining the database.</p>
 
@@ -182,7 +198,7 @@
         <a class="btn btn-primary" href="../security.html#vibe-code">See the service</a>
       </div>
 
-      <h2>What a real review looks like</h2>
+      <h2 id="what-a-real-review-looks-like">What a real review looks like</h2>
 
       <p>Here's roughly how we run one. We take a read-only copy of the repo, the deployment configuration, the cloud account permissions, and a credentials-scoped staging environment. We walk the code path by path: every route, every database query, every external call, every place user input touches state.</p>
 
@@ -206,42 +222,36 @@
 </section>
 
 <!-- RELATED POSTS -->
-<section class="section" style="background: var(--paper-2);">
+<section class="section post-rel" aria-labelledby="rel-h">
   <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">Related</span><span class="num" style="color:var(--muted);">More writing</span></div></div>
-    <div class="post-related">
-      <a class="bi-card" href="penetration-testing-south-african-fintech.html">
-        <div class="bi-meta"><span class="bi-cat">Security</span><span>13 min read</span></div>
-        <h3>Penetration testing for South African fintech: what FSCA and FICA actually expect</h3>
-        <p>POPIA fines are real. So is the line in your conduct standard that says "appropriate technical security." Here's what a fintech-grade pentest actually covers.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
-      <a class="bi-card" href="ai-audit-before-platform-purchase.html">
-        <div class="bi-meta"><span class="bi-cat">AI Strategy</span><span>12 min read</span></div>
-        <h3>Why every fintech needs an AI audit before they buy a platform</h3>
-        <p>A paid two-week audit, run honestly, will tell you what the R3M platform won't deliver, for less than the first month's licence fee.</p>
-        <span class="bi-read">Read post →</span>
-      </a>
+    <div class="svc-head">
+      <h2 id="rel-h" class="display svc-title">Keep reading.</h2>
+      <p class="svc-sub"><a class="ilink" href="../blog.html">All 15 posts</a></p>
+    </div>
+    <div class="si">
+      <ol class="si-list">
+        <li><a class="si-row" href="penetration-testing-south-african-fintech.html">
+          <span class="si-n">01</span><span class="si-name">Penetration testing for South African fintech: what FSCA and FICA actually expect</span>
+          <span class="si-desc">POPIA fines are real. So is the line in your conduct standard that says "appropriate technical security." Here's what a fintech-grade pentest actually covers.</span>
+          <span class="si-price"><span>Security</span> <span>13 min read</span></span></a></li>
+        <li><a class="si-row" href="ai-audit-before-platform-purchase.html">
+          <span class="si-n">02</span><span class="si-name">Why every fintech needs an AI audit before they buy a platform</span>
+          <span class="si-desc">A paid two-week audit, run honestly, will tell you what the R3M platform won't deliver, for less than the first month's licence fee.</span>
+          <span class="si-price"><span>AI Strategy</span> <span>12 min read</span></span></a></li>
+      </ol>
     </div>
   </div>
 </section>
 
 <!-- CLOSING CTA -->
-<section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
-  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
-    <div data-reveal>
-      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Got a vibe-coded app to harden?</span>
-      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
-        Let us look <span style="color: var(--accent);">first</span>.
-      </h2>
-    </div>
-    <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
-      <p class="body-lg" style="color: rgba(255,255,255,0.82); max-width: 36ch;">
-        We turn around most whitebox reviews in one to two weeks. Review only, or review and remediate.
-      </p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Let us look <span class="accent-c">first</span>.</h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">We turn around most whitebox reviews in one to two weeks. Review only, or review and remediate.</p>
+      <div class="closing-cta">
         <a class="btn btn-accent" href="../contact.html">Book a security call</a>
-        <a class="btn btn-ghost" href="../security.html" style="border-color: var(--paper); color: var(--paper);">All security services</a>
+        <a class="btn btn-ghost" href="../security.html">All security services</a>
       </div>
     </div>
   </div>
@@ -265,7 +275,70 @@
   </div>
 </footer>
 
+<style>
+/* Post template v2 (same block in every posts/*.html): hero 7/5 + rail, contents aside, reading measure */
+h1.post-h1 { font-size: clamp(40px, 4.6vw, 72px); line-height: .98; letter-spacing: -0.045em; margin-left: -0.03em; max-width: 18ch; }
+.post-h1[data-intro] { animation-delay: .05s; }
+.post-hero2 .post-deck { font-size: clamp(18px, 1.5vw, 21px); max-width: 52ch; }
+.page-art--hero { margin: 0; max-width: 460px; justify-self: end; }
+
+.post-main { border-top: 0; padding-top: clamp(48px, 6vw, 88px); }
+.post-layout { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 9fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.post-aside { position: sticky; top: 112px; display: grid; gap: 32px; font-size: 14px; }
+.post-aside-h { margin: 0 0 12px; font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.post-toc ol { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--ink); counter-reset: toc; }
+.post-toc li { counter-increment: toc; border-bottom: 1px solid var(--rule); }
+.post-toc a { display: grid; grid-template-columns: 28px minmax(0, 1fr); padding: 10px 0; line-height: 1.35; color: var(--ink-2); transition: color var(--t-fast), translate var(--t-med) var(--ease-out); }
+.post-toc a::before { content: counter(toc, decimal-leading-zero); font-family: var(--mono); font-size: 12px; color: var(--muted); padding-top: 2px; }
+.post-toc a:hover { color: var(--ink); translate: 6px 0; }
+.post-toc a:hover::before { color: var(--accent); }
+.post-tags ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.post-tags li { padding: 4px 10px; border: 1px solid var(--rule-strong); border-radius: 999px; font-size: 13px; }
+.post-back { justify-self: start; display: inline-flex; min-height: 32px; align-items: center; font-weight: 500; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .25em; }
+.post-back:hover { text-decoration-color: var(--accent); }
+
+.post-body { max-width: 66ch; font-size: 18px; line-height: 1.7; }
+.post-body > p:first-child { font-size: 21px; line-height: 1.55; color: var(--ink); }
+.post-body h2 { scroll-margin-top: 104px; font-weight: 600; font-size: clamp(30px, 3vw, 44px); letter-spacing: -0.04em; padding-top: 24px; border-top: 1px solid var(--ink); }
+.post-body h3 { font-weight: 600; letter-spacing: -0.03em; }
+.post-body pre { border-radius: 4px; }
+/* Callouts are rules, not boxes */
+.post-body .callout { background: none; border: 0; border-left: 3px solid var(--accent); border-radius: 0; padding: 4px 0 4px 20px; font-size: 17px; }
+.post-body .callout strong { color: var(--ink); }
+/* Inline service CTA: rule + accent bar, no box */
+.post-body .post-cta { position: relative; background: none; border-radius: 0; padding: 28px 0 0; border-top: 1px solid var(--ink); gap: 12px; }
+.post-body .post-cta::before { content: ""; position: absolute; left: 0; top: -1px; width: 72px; height: 6px; background: var(--accent); }
+.post-body .post-cta h3 { margin: 0; font-size: clamp(26px, 2.6vw, 36px); letter-spacing: -0.04em; line-height: 1.02; }
+.post-body .post-cta p { color: var(--ink-2); }
+/* The page's one boxed panel: key takeaways */
+.post-body .key-takeaways { background: var(--paper-2); color: var(--ink); border-radius: 4px; padding: clamp(24px, 3vw, 40px); }
+.post-body .key-takeaways h3 { color: var(--ink); font-family: var(--display); font-size: clamp(26px, 2.4vw, 34px); font-weight: 600; letter-spacing: -0.04em; text-transform: none; margin-bottom: 20px; }
+.post-body .key-takeaways ul li { color: var(--ink-2); font-size: 16.5px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+.post-body .key-takeaways ul li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.post-rel { background: var(--paper-2); border-top: 0; }
+.post-rel .si { grid-template-columns: minmax(0, 1fr); }
+.post-rel .si-price { line-height: 1.7; }
+.post-rel .si-price > span { display: block; }
+
+@media (max-width: 1000px) {
+  .page-art--hero { justify-self: start; max-width: 520px; }
+  .post-layout { grid-template-columns: 1fr; }
+  .post-aside { position: static; order: 2; padding-top: 32px; border-top: 1px solid var(--ink); }
+  .post-toc { display: none; }
+}
+@media (max-width: 640px) {
+  h1.post-h1 { font-size: clamp(36px, 10.6vw, 48px); }
+  .page-art--hero { max-width: none; aspect-ratio: 4 / 3; }
+  .post-body { font-size: 17px; }
+  .post-body > p:first-child { font-size: 19px; }
+  .post-body pre { font-size: 12.5px; padding: 16px; }
+  .post-rel .si-price > span { display: inline; }
+  .post-rel .si-price { white-space: normal; }
+}
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="../app.js"></script>
+<script src="../app.js?v=202610201410"></script>
 </body>
 </html>

@@ -13,7 +13,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="/styles.css" />
+<link rel="stylesheet" href="/styles.css?v=202610201410" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
@@ -38,17 +38,38 @@
 </header>
 
 <main id="main">
-<section class="section nf" style="border-top:none;">
-  <div class="wrap hero-split">
+<section class="hero nf-hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <h1 class="display" data-reveal>This page slipped off the grid.</h1>
-      <p class="lead" style="margin-top: 32px; max-width: 36ch;" data-reveal>The link may be old or mistyped. Here is the way back.</p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap; margin-top: 32px;" data-reveal>
-        <a class="btn btn-primary" href="/index.html">Back to home</a>
+      <h1 id="hero-h" class="display page-h1" data-intro>This page slipped off the <span class="accent-c">grid.</span></h1>
+      <p class="kicker hero-kicker" data-intro>The link may be old or mistyped. Here is the way back.</p>
+      <div class="hero-cta" data-intro>
+        <a class="btn btn-primary" href="/index.html">Back to home <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></a>
         <a class="btn btn-ghost" href="/services.html">See services</a>
       </div>
     </div>
-    <figure class="page-art draft" data-reveal><img src="/assets/img/spot/16-404-offgrid.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+    <figure class="page-art page-art--hero draft"><img src="/assets/img/spot/16-404-offgrid.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
+  <div class="wrap">
+    <dl class="rail">
+      <div><dt>What we build</dt><dd><a href="/services.html">Services</a></dd></div>
+      <div><dt>Who for</dt><dd><a href="/work.html">Work</a></dd></div>
+      <div><dt>Field notes</dt><dd><a href="/blog.html">Writing</a></dd></div>
+      <div><dt>Talk to us</dt><dd><a href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a></dd></div>
+    </dl>
+  </div>
+</section>
+
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h">Looking for something <span class="accent-c">specific?</span></h2>
+    <div class="closing-side">
+      <p class="body-lg">Tell us what you were after. We reply within 24 hours.</p>
+      <div class="closing-cta">
+        <a class="btn btn-accent" href="/contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a>
+      </div>
+    </div>
   </div>
 </section>
 </main>
@@ -69,7 +90,43 @@
   </div>
 </footer>
 
+<style>
+/* Inner hero (DESIGN.md inner page recipe): 7/5, display h1, large art */
+h1.page-h1 { font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -0.045em; margin-left: -0.03em; }
+.page-h1[data-intro] { animation-delay: .05s; }
+.page-art--hero { margin: 0; max-width: none; align-self: center; }
+@media (max-width: 1000px) { .page-art--hero { max-width: 520px; } }
+@media (max-width: 640px) {
+  h1.page-h1 { font-size: clamp(44px, 13.4vw, 64px); }
+  .page-art--hero { max-width: none; aspect-ratio: 4 / 3; }
+}
+
+/* Editorial split: heading + art 5/12, body 7/12 */
+.ed-split { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 6vw, 112px); align-items: start; }
+.ed-h { font-size: clamp(40px, 5.2vw, 84px); letter-spacing: -0.045em; max-width: 12ch; }
+.ed-sub { margin: 20px 0 0; color: var(--ink-2); font-size: 18px; max-width: 32ch; }
+.ed-fig { margin: clamp(28px, 3vw, 44px) 0 0; aspect-ratio: 3 / 2; border-radius: 4px; overflow: hidden; }
+.ed-fig img { width: 100%; height: 100%; object-fit: cover; }
+.ed-split--pin .ed-pin { position: sticky; top: 112px; }
+.ed-main { display: grid; gap: 22px; max-width: 62ch; padding-top: clamp(4px, 1vw, 16px); }
+.ed-lead { margin: 0; font-family: var(--display); font-weight: 500; font-size: clamp(26px, 2.6vw, 38px); line-height: 1.16; letter-spacing: -0.03em; color: var(--ink); text-wrap: balance; }
+@media (max-width: 1000px) {
+  .ed-split { grid-template-columns: 1fr; }
+  .ed-split--pin .ed-pin { position: static; }
+  .ed-fig { max-width: 640px; }
+}
+@media (max-width: 640px) {
+  .ed-h { font-size: clamp(38px, 11vw, 52px); }
+  .body-lg { font-size: 17px; }
+}
+/* 404.html */
+.nf-hero { padding-bottom: clamp(56px, 7vw, 104px); }
+.nf-hero .rail dd a { font-family: var(--display); font-weight: 600; font-size: clamp(22px, 2vw, 30px); letter-spacing: -0.03em; }
+.nf-hero .rail div:last-child dd a { font-family: var(--sans); font-weight: 500; font-size: 16px; letter-spacing: 0; }
+.closing-h { font-size: clamp(40px, 5.6vw, 88px); }
+</style>
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="/app.js"></script>
+<script src="/app.js?v=202610201410"></script>
 </body>
 </html>

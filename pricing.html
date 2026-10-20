@@ -11,8 +11,8 @@
 <meta name="description" content="How we engage. Audit, scoped build, retainer. Every quote is shaped by the work, not by a website rate card. South African AI agency in Johannesburg." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css" />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Geist:wght@300;400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=202610201410" />
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 <!-- Canonical & freshness -->
@@ -113,109 +113,115 @@
 <main id="main">
 
 <!-- HERO -->
-<section class="section" style="border-top:none;">
-  <div class="wrap hero-split">
+<section class="hero" aria-labelledby="hero-h">
+  <div class="wrap hero-grid">
     <div class="hero-copy">
-      <span class="eyebrow hero-meta">Three stages, one team</span>
-    <h1 class="display" data-reveal>
-      Quoted to the<br/>work. <span class="italic">Not a rate card.</span>
-    </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 60ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
-      A published price is either too high for the small jobs or too low for the real ones. We quote after a 30-minute discovery call, in writing, with the scope attached. Most engagements move through three stages: Audit, Build, Retainer.
-    </p>
+      <h1 id="hero-h" class="display pg-h1">
+        <span class="ln" data-intro>Quoted <span class="m-ln">to the work.</span></span>
+        <span class="ln" data-intro style="animation-delay:.12s">Not a <span class="hl">rate card.</span></span>
+      </h1>
+      <p class="kicker hero-kicker" data-intro style="animation-delay:.3s">
+        Every quote arrives in writing, with the scope attached, after one short discovery call. Most engagements move through three stages: Audit, Build, Retainer.
+      </p>
+      <div class="hero-cta" data-intro style="animation-delay:.4s">
+        <a class="btn btn-accent" href="contact.html">
+          Book a discovery call
+          <svg class="arrow" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3 11 11 3M11 3H5M11 3v6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+        </a>
+        <a class="btn btn-ghost" href="#faq">Read the FAQ</a>
+      </div>
     </div>
-    <figure class="page-art draft" data-reveal><img src="assets/img/spot/12-pricing-tiers.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+    <figure class="page-art pg-art draft" data-reveal><img src="assets/img/spot/12-pricing-tiers.jpg" alt="A short black bar and a taller orange bar standing on one baseline on a drafting grid." width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
+  </div>
+
+  <div class="wrap">
+    <dl class="rail">
+      <div><dt>Stages</dt><dd>Audit, Build, Retainer</dd></div>
+      <div><dt>Quote</dt><dd>In writing, after a 30-minute call</dd></div>
+      <div><dt>Billing</dt><dd>ZAR, or USD and EUR</dd></div>
+      <div><dt>Booking</dt><dd>Q3 / Q4 2026</dd></div>
+    </dl>
   </div>
 </section>
 
-<!-- THREE-STAGE ENGAGEMENT -->
-<section class="section" style="padding-top: 48px;">
+<!-- STAGES (PAPER, ALTERNATING SPLITS) -->
+<section class="section stg-sec" aria-labelledby="stg-h">
   <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">How we engage</span><span class="num" style="color:var(--muted);">Audit → Build → Retainer</span></div></div>
+    <h2 id="stg-h" class="display stg-title">Three stages. Start at the first, stop at any.</h2>
 
-    <div class="stage-grid">
-
-      <article class="stage-card" data-reveal>
-        <span class="stage-num">01</span>
-        <header>
-          <span class="eyebrow"><span class="dot"></span>Stage one</span>
-          <h2>Audit.</h2>
-        </header>
-        <p class="stage-lead">A paid one to two week discovery. We walk your business, identify five to ten high-impact opportunities, and deliver a prioritised roadmap with effort estimates. Most builds start here.</p>
-        <ul class="stage-list">
+    <article class="stg" aria-labelledby="stg-1">
+      <figure class="stg-art draft" data-reveal><img src="assets/img/pricing/pricing-audit.jpg" alt="A figure with a magnifying glass over a map of small blocks, five of them filled orange." width="1500" height="1000" loading="lazy" decoding="async"></figure>
+      <div class="stg-body">
+        <div class="stg-top"><span class="stg-n" aria-hidden="true">01</span><h3 id="stg-1" class="stg-h">Audit.</h3></div>
+        <dl class="stg-facts"><div><dt>Scope</dt><dd>Fixed</dd></div><div><dt>Length</dt><dd>One to two weeks</dd></div></dl>
+        <p class="stg-lead">A paid one to two week discovery. We walk your business, identify five to ten high-impact opportunities, and deliver a prioritised roadmap with effort estimates. Most builds start here.</p>
+        <ul class="stg-list">
           <li>Stakeholder interviews and process mapping</li>
           <li>Shadow sessions with the people doing the work</li>
           <li>Prioritised opportunity roadmap with ROI estimates</li>
           <li>Effort estimates per opportunity (S, M, L, XL)</li>
           <li>Build-ready scope for the top three opportunities</li>
         </ul>
-        <div class="stage-meta">
-          <span class="eyebrow">Fixed scope</span>
-          <span class="stage-meta-v">One to two weeks</span>
-        </div>
-        <p class="stage-note">About one in five audits ends with "don't build it, here's why." We think that's healthy. You own the roadmap either way.</p>
-      </article>
+        <p class="stg-note">About one in five audits ends with "don't build it, here's why." We think that's healthy. You own the roadmap either way.</p>
+      </div>
+    </article>
 
-      <article class="stage-card stage-mid" data-reveal style="--reveal-delay:120ms;">
-        <span class="stage-num">02</span>
-        <header>
-          <span class="eyebrow"><span class="dot"></span>Stage two</span>
-          <h2>Scoped build.</h2>
-        </header>
-        <p class="stage-lead">Fixed-scope, fixed-price delivery against the roadmap. You pick which opportunities to build. We scope, quote, sign, and ship. No retainer commitment, no hourly billing.</p>
-        <ul class="stage-list">
+    <article class="stg stg-flip" aria-labelledby="stg-2">
+      <figure class="stg-art draft" data-reveal><img src="assets/img/pricing/pricing-build.jpg" alt="A figure sliding black and orange blocks into a drawn outline so they fit exactly inside it." width="1500" height="1000" loading="lazy" decoding="async"></figure>
+      <div class="stg-body">
+        <div class="stg-top"><span class="stg-n" aria-hidden="true">02</span><h3 id="stg-2" class="stg-h">Scoped build.</h3></div>
+        <dl class="stg-facts"><div><dt>Price</dt><dd>Fixed</dd></div><div><dt>Timeline</dt><dd>Two weeks to four months</dd></div></dl>
+        <p class="stg-lead">Fixed-scope, fixed-price delivery against the roadmap. You pick which opportunities to build. We scope, quote, sign, and ship. No retainer commitment, no hourly billing.</p>
+        <ul class="stg-list">
           <li>Written scope: deliverables, milestones, dependencies</li>
           <li>Fixed price in ZAR (or USD/EUR for international)</li>
           <li>50% on signature, 50% on acceptance</li>
           <li>Weekly check-ins and a Notion or Linear board you can see</li>
           <li>Code lives in your repo from day one</li>
         </ul>
-        <div class="stage-meta">
-          <span class="eyebrow">Timeline</span>
-          <span class="stage-meta-v">Two weeks to four months</span>
-        </div>
-        <p class="stage-note">If our estimate is off, that's on us. If new scope appears, we surface it the same day in writing and you decide whether to add it.</p>
-      </article>
+        <p class="stg-note">If our estimate is off, that's on us. If new scope appears, we surface it the same day in writing and you decide whether to add it.</p>
+      </div>
+    </article>
 
-      <article class="stage-card stage-dark" data-reveal style="--reveal-delay:240ms;">
-        <span class="stage-num">03</span>
-        <header>
-          <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Stage three (optional)</span>
-          <h2>Retainer.</h2>
-        </header>
-        <p class="stage-lead">Once a system is live, you can keep us on a monthly retainer for evals, improvements, on-call response, and quarterly roadmap reviews. Retainer is opt-in. No system we ship requires us.</p>
-        <ul class="stage-list">
+    <article class="stg" aria-labelledby="stg-3">
+      <figure class="stg-art draft" data-reveal><img src="assets/img/pricing/pricing-retainer.jpg" alt="A figure with a toolbox tending a running machine, a row of monthly calendar squares behind." width="1500" height="1000" loading="lazy" decoding="async"></figure>
+      <div class="stg-body">
+        <div class="stg-top"><span class="stg-n" aria-hidden="true">03</span><h3 id="stg-3" class="stg-h">Retainer. <span class="stg-opt">Optional</span></h3></div>
+        <dl class="stg-facts"><div><dt>Commitment</dt><dd>Month to month, 30 days notice</dd></div></dl>
+        <p class="stg-lead">Once a system is live, you can keep us on a monthly retainer for evals, improvements, on-call response, and quarterly roadmap reviews. Retainer is opt-in. No system we ship requires us.</p>
+        <ul class="stg-list">
           <li>Eval harness maintenance and drift monitoring</li>
           <li>Same-business-day response on production issues</li>
           <li>Continuous improvements against agreed KPIs</li>
           <li>Quarterly roadmap and ROI review</li>
           <li>Capped monthly hours with rollover</li>
         </ul>
-        <div class="stage-meta">
-          <span class="eyebrow">Commitment</span>
-          <span class="stage-meta-v">Month to month, 30 days notice</span>
-        </div>
-        <p class="stage-note">Roughly half our build clients keep a retainer. The other half take the code, train internally, and tag us in when something breaks. Both are fine.</p>
-      </article>
+        <p class="stg-note">Roughly half our build clients keep a retainer. The other half take the code, train internally, and tag us in when something breaks. Both are fine.</p>
+      </div>
+    </article>
+  </div>
+</section>
 
-    </div>
-
-    <div class="strategic-note" data-reveal>
-      <span class="eyebrow">Why no rate card</span>
-      <p>A two-week internal tool and a six-month compliance system are not the same product. Publishing a single range either scares off the small projects or undersells the real ones. We'd rather skip the theatre and quote you the actual number, in writing, after a 30-minute call.</p>
+<!-- WHY NO RATE CARD (ORANGE) -->
+<section class="section manifesto" aria-labelledby="mf-h">
+  <div class="wrap">
+    <h2 id="mf-h" class="display manifesto-h mf-wide" data-reveal>
+      A two-week internal tool and a six-month compliance system are <span class="mf-block"><span>not the same</span></span> product.
+    </h2>
+    <div class="manifesto-grid manifesto-grid--one">
+      <p class="manifesto-p" data-reveal>Publishing a single range either scares off the small projects or undersells the real ones. We'd rather skip the theatre and quote you the actual number, in writing, after a 30-minute call.</p>
     </div>
   </div>
 </section>
 
-<!-- WHAT'S IN / WHAT'S OUT -->
-<section class="section" style="background: var(--paper-2);">
+<!-- IN / OUT (WHITE LEDGER) -->
+<section class="section io" aria-labelledby="io-h">
   <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">What every engagement includes</span><span class="num" style="color:var(--muted);">And what it never does</span></div></div>
-
-    <div class="incl-grid">
-      <div class="incl-col" data-reveal>
-        <span class="eyebrow"><span class="dot"></span>Always included</span>
-        <ul class="incl-list incl-in">
+    <h2 id="io-h" class="display io-title">What every engagement includes, and what it never does.</h2>
+    <div class="io-grid">
+      <div class="io-col" data-reveal>
+        <h3 class="io-h">Always included</h3>
+        <ul class="io-list io-in">
           <li>Written scope before any work starts</li>
           <li>Fixed price in your preferred currency (ZAR, USD, EUR)</li>
           <li>All code in your repo, your cloud, your accounts</li>
@@ -225,9 +231,9 @@
           <li>Two weeks of post-launch support on every build</li>
         </ul>
       </div>
-      <div class="incl-col" data-reveal style="--reveal-delay:120ms;">
-        <span class="eyebrow"><span class="dot"></span>Never included</span>
-        <ul class="incl-list incl-out">
+      <div class="io-col" data-reveal style="--reveal-delay:120ms;">
+        <h3 class="io-h">Never included</h3>
+        <ul class="io-list io-out">
           <li>Hourly billing or padded timesheets</li>
           <li>Platform lock-in. We don't sell a SaaS pretending to be a service</li>
           <li>"Discovery workshops" we charge for that produce a deck and nothing else</li>
@@ -240,45 +246,47 @@
   </div>
 </section>
 
-<!-- FAQ -->
-<section class="section">
-  <div class="wrap">
-    <div class="section-head"><div class="row"><span class="num">FAQ</span><span class="num" style="color:var(--muted);">Things people actually ask</span></div></div>
-
+<!-- FAQ (PAPER, STICKY HEADING) -->
+<section class="section faq-sec" id="faq" aria-labelledby="faq-h">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <h2 id="faq-h" class="display faq-title">Things people actually ask.</h2>
+      <p class="faq-more">Something missing? <a href="mailto:hello@lekkelogic.co.za">hello@lekkelogic.co.za</a></p>
+    </div>
     <div class="faq">
-      <details data-reveal>
+      <details>
         <summary>Why don't you publish prices?</summary>
         <p>Because every engagement is different and a published number is either too high for the small jobs or too low for the real ones. We quote after a 30-minute discovery call, in writing, with the scope attached. You never get a number without the work it covers, and we never get cornered into pretending two unlike projects cost the same.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>How do you scope a project?</summary>
         <p>Most engagements start with a paid AI Audit. One to two weeks of structured discovery: interviews, process mapping, shadow sessions. We deliver a prioritised roadmap, real effort estimates, and a build-ready scope for the top three opportunities. From there you choose what to build, with us or with anyone else.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>Why not hourly billing?</summary>
         <p>Hourly billing aligns nobody. It punishes us for being fast and punishes you for changing your mind. Fixed scope, fixed price, fixed deadline: that's the only way both sides care about the same outcome.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>How do I know which service I need?</summary>
-        <p>You usually don't, and that's fine. Start with the Audit. About one in five audits ends with "don't build it, here's why." That's healthy. You leave with a roadmap either way.</p>
+        <p>You usually don't, and that's fine. Start with the Audit. Some audits end with "don't build it, here's why." You leave with a roadmap either way.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>Do you work with startups?</summary>
         <p>Yes, if you have real revenue (or real funding), a specific workflow problem, and a budget that matches the scope. We're not a fit for pre-product or equity-only work. We've tried both and it doesn't work for anyone.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>Do you work outside South Africa?</summary>
         <p>Yes. Joburg-based, working remote in UTC±5. We bill in ZAR by default and can invoice in USD or EUR for international clients. If you're east of Singapore the timezone math gets annoying; we'll be upfront about cadence.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>Can we own the code?</summary>
         <p>Yes. All code is yours from day one. No platform fees, no licensing trap. The project repo lives in your organisation. You can fire us next week and the system keeps running.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>What happens if the project goes over scope?</summary>
         <p>If it's our miss, we eat it. If new scope appears, we surface it the same day, scope it in writing, and you decide whether to add it. We'd rather lose margin than lose trust.</p>
       </details>
-      <details data-reveal>
+      <details>
         <summary>How fast can you start?</summary>
         <p>We're currently booking Q3 and Q4 2026 engagements. Discovery calls happen within a week of first contact. Builds typically kick off two to four weeks after a signed scope.</p>
       </details>
@@ -286,21 +294,15 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
-  <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
-    <div>
-      <h2 class="display" style="font-size: clamp(40px, 6.4vw, 96px); ">
-        Book a call. Get a<br/><span style="background: var(--ink); color: var(--accent); padding: 0 0.15em;">written quote</span> within a week.
-      </h2>
-    </div>
-    <div style="display:grid; gap: 16px;">
-      <p class="body-lg" style="max-width: 36ch;">
-        No deck. No charged "discovery workshop." A 30-minute call, then a one-page scope with a fixed price.
-      </p>
-      <div style="display:flex; gap: 12px; flex-wrap:wrap;">
-        <a class="btn btn-primary" href="contact.html">Book a discovery call</a>
-        <a class="btn btn-ghost" href="process.html" style="border-color: var(--ink);">See process</a>
+<!-- CLOSING (INK) -->
+<section class="section closing band-ink" aria-labelledby="closing-h">
+  <div class="wrap closing-grid">
+    <h2 id="closing-h" class="display closing-h" data-reveal>Book a call. Get a <span class="accent-c">written quote</span> within a week.</h2>
+    <div class="closing-side" data-reveal style="--reveal-delay:120ms;">
+      <p class="body-lg">No deck. No charged "discovery workshop." A 30-minute call, then a one-page scope with a fixed price.</p>
+      <div class="closing-cta">
+        <a class="btn btn-accent" href="contact.html">Book a discovery call</a>
+        <a class="btn btn-ghost" href="process.html">See the process</a>
       </div>
     </div>
   </div>
@@ -334,185 +336,89 @@
 </footer>
 
 <style>
-/* THREE-STAGE ENGAGEMENT */
-.stage-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  align-items: stretch;
-}
-@media (max-width: 980px) { .stage-grid { grid-template-columns: 1fr; } }
+/* Page hero: shared 7/5 grid, inner-page type scale */
+h1.pg-h1 { font-size: clamp(48px, 7vw, 112px); line-height: .92; letter-spacing: -0.045em; margin-left: -0.04em; }
+.pg-h1 .ln { display: block; }
+@media (min-width: 1001px) { h1.pg-h1 { font-size: clamp(48px, 6vw, 88px); } .pg-h1 .ln { white-space: nowrap; } }
+.pg-h1 .hl { color: var(--accent); }
+.pg-art { max-width: none; justify-self: end; margin: 0; }
+/* The shared no-js rule paints the block text orange first; without this the switch back to ink
+   animates for ~0.75s after load. Only animate once the heading is revealed. */
+.manifesto-h:not(.in) .mf-block::before, .manifesto-h:not(.in) .mf-block > span { transition: none; }
+/* Active chapter: the orange bar marks it; the label stays ink for contrast */
+.chapter.is-on .chapter-n { color: var(--ink); }
 
-.stage-card {
-  position: relative;
-  padding: 36px 32px 32px;
-  border-radius: 4px;
-  background: var(--paper);
-  border: 1px solid var(--rule);
-  display: grid;
-  gap: 18px;
-  align-content: start;
-}
-.stage-card.stage-dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-.stage-card.stage-dark h2 { color: var(--paper); }
-.stage-card.stage-mid { background: var(--paper-2); border-color: var(--ink); }
+/* Stages: paper band, art and text alternate sides, no cards */
+.stg-sec { background: var(--paper-2); }
+.stg-title { font-size: clamp(36px, 4.8vw, 76px); letter-spacing: -0.04em; max-width: 16ch; margin-bottom: clamp(40px, 5vw, 80px); }
+.stg { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr); gap: clamp(32px, 5vw, 88px); align-items: center; padding: clamp(40px, 5vw, 72px) 0; border-top: 1px solid var(--ink); }
+.stg-flip .stg-art { order: 2; }
+.stg-art { margin: 0; aspect-ratio: 3 / 2; border-radius: 4px; overflow: hidden; box-shadow: 0 0 0 1px var(--rule-strong); }
+.stg-art img { width: 100%; height: 100%; object-fit: cover; }
+.stg-top { display: flex; align-items: baseline; gap: 20px; }
+.stg-n { font-family: var(--display); font-weight: 600; font-size: clamp(56px, 6vw, 96px); line-height: .8; letter-spacing: -0.05em; color: var(--muted); }
+.stg-h { margin: 0; font-family: var(--display); font-weight: 600; font-size: clamp(40px, 4.4vw, 68px); line-height: .95; letter-spacing: -0.045em; }
+.stg-opt { display: inline-block; vertical-align: middle; margin-left: 8px; padding: 4px 10px; border-radius: 999px; background: var(--ink); color: var(--paper); font-family: var(--mono); font-size: 12px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; }
+.stg-facts { display: flex; flex-wrap: wrap; gap: 8px 32px; margin: 20px 0 0; }
+.stg-facts dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); }
+.stg-facts dd { margin: 2px 0 0; font-weight: 500; }
+.stg-lead { margin: 20px 0 0; font-size: clamp(17px, 1.3vw, 19px); line-height: 1.55; color: var(--ink); max-width: 52ch; }
+.stg-list { list-style: none; margin: 24px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; column-gap: 24px; border-top: 1px solid var(--rule-strong); }
+.stg-list li { padding: 10px 0; border-bottom: 1px solid var(--rule); font-size: 15px; line-height: 1.45; color: var(--ink-2); }
+.stg-note { margin: 20px 0 0; padding-left: 16px; border-left: 3px solid var(--accent); color: var(--ink-2); font-size: 15px; max-width: 52ch; }
 
-.stage-num {
-  position: absolute;
-  top: 18px; right: 22px;
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: 0.18em;
-  color: var(--muted);
-  font-weight: 500;
-}
-.stage-card.stage-dark .stage-num { color: rgba(255,255,255,0.5); }
+/* Manifesto: longer sentence, wider measure */
+.mf-wide { max-width: 20ch; font-size: clamp(40px, 5.6vw, 92px); }
 
-.stage-card header { display: grid; gap: 10px; }
-.stage-card h2 {
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: clamp(34px, 3.6vw, 48px);
-  letter-spacing: -0.035em;
-  line-height: 1;
-  margin: 0;
-  color: var(--ink);
-}
-.stage-lead { font-size: 16px; line-height: 1.5; color: var(--ink-2); margin: 0; max-width: 44ch; }
-.stage-card.stage-dark .stage-lead { color: rgba(255,255,255,0.78); }
+/* In / out ledger */
+.io-title { font-size: clamp(32px, 4vw, 60px); letter-spacing: -0.04em; max-width: 22ch; margin-bottom: clamp(32px, 4vw, 56px); }
+.io-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 80px); }
+.io-h { margin: 0; padding-bottom: 14px; border-bottom: 1px solid var(--ink); font-family: var(--display); font-weight: 600; font-size: clamp(24px, 2.2vw, 32px); letter-spacing: -0.03em; }
+.io-list { list-style: none; margin: 0; padding: 0; }
+.io-list li { position: relative; padding: 14px 0 14px 32px; border-bottom: 1px solid var(--rule); font-size: 16px; line-height: 1.5; }
+.io-list li::before { content: ""; position: absolute; left: 0; top: 21px; width: 12px; height: 12px; }
+.io-in li::before { background: var(--accent); }
+.io-out li { color: var(--muted); }
+.io-out li::before { top: 26px; height: 2px; background: var(--ink); }
 
-.stage-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; font-size: 14.5px; }
-.stage-list li { padding-left: 16px; position: relative; line-height: 1.45; color: var(--ink-2); }
-.stage-list li::before { content: ""; position: absolute; left: 0; top: 0.7em; width: 8px; height: 1px; background: var(--accent); }
-.stage-card.stage-dark .stage-list li { color: rgba(255,255,255,0.85); }
-
-.stage-meta {
-  display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  gap: 16px;
-  padding: 14px 0;
-  border-top: 1px solid var(--rule);
-  border-bottom: 1px solid var(--rule);
-}
-.stage-card.stage-dark .stage-meta { border-color: rgba(255,255,255,0.15); }
-.stage-meta-v {
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: 18px;
-  letter-spacing: -0.02em;
-  color: var(--ink);
-}
-.stage-card.stage-dark .stage-meta-v { color: var(--accent); }
-.stage-card.stage-dark .stage-meta .eyebrow { color: rgba(255,255,255,0.55); }
-
-.stage-note {
-  font-size: 13.5px;
-  line-height: 1.5;
-  color: var(--muted);
-  margin: 0;
-  font-style: italic;
-}
-.stage-card.stage-dark .stage-note { color: rgba(255,255,255,0.6); }
-
-/* WHY-NO-RATE-CARD strip */
-.strategic-note {
-  margin-top: 28px;
-  padding: 22px 28px;
-  background: var(--accent);
-  border-radius: 4px;
-  display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 24px;
-  align-items: start;
-}
-.strategic-note .eyebrow { color: var(--ink); }
-.strategic-note p { margin: 0; font-size: 15.5px; line-height: 1.5; color: var(--ink); max-width: 68ch; }
-@media (max-width: 700px) { .strategic-note { grid-template-columns: 1fr; gap: 8px; } }
-
-/* IN / OUT GRID */
-.incl-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-}
-@media (max-width: 900px) { .incl-grid { grid-template-columns: 1fr; gap: 28px; } }
-.incl-col { display: grid; gap: 16px; }
-.incl-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 15.5px; line-height: 1.5; color: var(--ink); }
-.incl-list li { padding-left: 26px; position: relative; }
-.incl-in li::before {
-  content: "+";
-  position: absolute;
-  left: 0; top: 0;
-  width: 18px; height: 18px;
-  display: grid; place-items: center;
-  color: var(--accent);
-  font-family: var(--display);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1;
-}
-.incl-out li {
-  color: var(--muted);
-  text-decoration: line-through;
-  text-decoration-color: rgba(0,0,0,0.2);
-  text-decoration-thickness: 1px;
-}
-.incl-out li::before {
-  content: "\00d7";
-  position: absolute;
-  left: 0; top: 0;
-  width: 18px; height: 18px;
-  display: grid; place-items: center;
-  color: var(--muted);
-  font-family: var(--display);
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 1;
-  text-decoration: none;
-}
-
-/* Closing CTA mobile */
-@media (max-width: 820px) {
-  .closing-cta-grid { grid-template-columns: 1fr !important; gap: 24px !important; }
-}
-
-/* FAQ */
-.faq { display: grid; gap: 4px; max-width: 880px; }
-.faq details {
-  border-top: 1px solid var(--rule);
-  padding: 20px 0;
-}
-.faq summary {
-  list-style: none;
-  cursor: pointer;
-  font-family: var(--display);
-  font-weight: 600;
-  font-size: clamp(22px, 2.4vw, 32px);
-  letter-spacing: -0.025em;
-  color: var(--ink);
-  position: relative;
-  padding-right: 40px;
-  transition: color .2s;
-}
+/* FAQ: sticky heading left 5/12, questions right 7/12 */
+.faq-sec { background: var(--paper-2); }
+.faq-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(32px, 5vw, 88px); }
+.faq-side { position: sticky; top: 112px; align-self: start; }
+.faq-title { font-size: clamp(36px, 4.6vw, 72px); letter-spacing: -0.045em; max-width: 10ch; }
+.faq-more { margin: 24px 0 0; color: var(--ink-2); }
+.faq-more a { text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: .2em; }
+.faq-more a:hover { text-decoration-color: var(--accent); }
+.faq { border-top: 1px solid var(--ink); }
+.faq details { border-bottom: 1px solid var(--rule-strong); }
+.faq summary { list-style: none; cursor: pointer; position: relative; padding: 22px 48px 22px 0; font-family: var(--display); font-weight: 600; font-size: clamp(21px, 2vw, 28px); letter-spacing: -0.025em; line-height: 1.15; transition: translate var(--t-med) var(--ease-out); }
 .faq summary::-webkit-details-marker { display: none; }
-.faq summary::after {
-  content: "+";
-  position: absolute;
-  right: 0;
-  font-family: var(--display);
-  color: var(--accent);
-  font-size: 28px;
-  line-height: 1;
-  transition: transform .25s;
+.faq summary::before, .faq summary::after { content: ""; position: absolute; right: 4px; top: 50%; width: 18px; height: 2px; margin-top: -1px; background: var(--ink); transition: rotate var(--t-med) var(--ease-out), background var(--t-fast); }
+.faq summary::after { rotate: 90deg; }
+.faq details[open] summary::after { rotate: 0deg; }
+.faq summary:hover { translate: 8px 0; }
+.faq summary:hover::before, .faq summary:hover::after { background: var(--accent); }
+.faq summary:focus-visible { outline: 2px solid var(--ink); outline-offset: 3px; }
+.faq details p { margin: 0; padding: 0 0 24px; color: var(--ink-2); max-width: 60ch; }
+
+@media (max-width: 1000px) {
+  .pg-art { justify-self: start; max-width: 520px; }
+  .stg, .faq-grid { grid-template-columns: 1fr; }
+  .stg-flip .stg-art { order: 0; }
+  .faq-side { position: static; }
 }
-.faq details[open] summary::after { content: "−"; }
-.faq summary:hover { color: var(--accent); }
-.faq p { color: var(--ink-2); font-size: 16px; line-height: 1.6; margin: 16px 0 0; max-width: 64ch; }
-.faq details:last-child { border-bottom: 1px solid var(--rule); }
+@media (max-width: 640px) {
+  .pg-h1 .m-ln { display: block; }
+  .hero-cta .btn { flex: 1 1 100%; justify-content: center; }
+  .pg-art { max-width: none; }
+  .stg-list { grid-template-columns: 1fr; }
+  .io-grid { grid-template-columns: 1fr; }
+  .mf-wide { font-size: clamp(34px, 10vw, 44px); }
+}
+@media (prefers-reduced-motion: reduce) { .faq summary:hover { translate: none; } }
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=202610201410"></script>
 </body>
 </html>
