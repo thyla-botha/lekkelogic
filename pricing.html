@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -95,7 +95,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="security.html">Security</a>
       <a href="process.html">Process</a>
@@ -110,24 +110,26 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section" style="border-top:none;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Engagement model</span>
-      <span class="eyebrow" style="margin-left:auto;">Three stages, one team</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">Three stages, one team</span>
+    <h1 class="display" data-reveal>
       Quoted to the<br/>work. <span class="italic">Not a rate card.</span>
     </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 60ch; margin-top: 40px;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="font-size: 20px; max-width: 60ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
       A published price is either too high for the small jobs or too low for the real ones. We quote after a 30-minute discovery call, in writing, with the scope attached. Most engagements move through three stages: Audit, Build, Retainer.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/12-pricing-tiers.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
 <!-- THREE-STAGE ENGAGEMENT -->
-<section class="section" style="padding-top: 0;">
+<section class="section" style="padding-top: 48px;">
   <div class="wrap">
     <div class="section-head"><div class="row"><span class="num">How we engage</span><span class="num" style="color:var(--muted);">Audit → Build → Retainer</span></div></div>
 
@@ -288,8 +290,7 @@
 <section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
   <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div>
-      <span class="eyebrow">Want a real number?</span>
-      <h2 class="display" style="font-size: clamp(40px, 6.4vw, 96px); margin-top: 16px;">
+      <h2 class="display" style="font-size: clamp(40px, 6.4vw, 96px); ">
         Book a call. Get a<br/><span style="background: var(--ink); color: var(--accent); padding: 0 0.15em;">written quote</span> within a week.
       </h2>
     </div>
@@ -304,6 +305,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -343,15 +346,13 @@
 .stage-card {
   position: relative;
   padding: 36px 32px 32px;
-  border-radius: 18px;
+  border-radius: 4px;
   background: var(--paper);
   border: 1px solid var(--rule);
   display: grid;
   gap: 18px;
   align-content: start;
-  transition: transform .2s, border-color .2s;
 }
-.stage-card:hover { transform: translateY(-2px); border-color: var(--ink); }
 .stage-card.stage-dark { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 .stage-card.stage-dark h2 { color: var(--paper); }
 .stage-card.stage-mid { background: var(--paper-2); border-color: var(--ink); }
@@ -419,7 +420,7 @@
   margin-top: 28px;
   padding: 22px 28px;
   background: var(--accent);
-  border-radius: 14px;
+  border-radius: 4px;
   display: grid;
   grid-template-columns: 200px 1fr;
   gap: 24px;
@@ -511,6 +512,7 @@
 .faq details:last-child { border-bottom: 1px solid var(--rule); }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

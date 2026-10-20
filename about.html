@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,7 +103,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="security.html">Security</a>
       <a href="process.html">Process</a>
@@ -118,19 +118,21 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO / POV -->
 <section class="section" style="border-top:none;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>About</span>
-      <span class="eyebrow" style="margin-left:auto;">Est. 2024 · <a href="https://www.joburg.org.za/" rel="noopener external" class="ext-cite">Johannesburg</a></span>
-    </div>
-    <h1 class="display" style="font-size: clamp(48px, 7.4vw, 116px);" data-reveal>
-      Most AI projects fail<br/>because they're built<br/>by people who've never<br/><span class="italic">run operations.</span>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">Est. 2024 · <a href="https://www.joburg.org.za/" rel="noopener external" class="ext-cite">Johannesburg</a></span>
+    <h1 class="display" data-reveal>
+      Most AI projects fail because they're built by people who've never <span class="italic">run operations.</span>
     </h1>
-    <p class="lead" style="margin-top: 56px; max-width: 36ch;" data-reveal style="--reveal-delay:120ms;">
+    <p class="lead" style="margin-top: 56px; max-width: 36ch; --reveal-delay:120ms;" data-reveal>
       We've run the operations. That's why we build different things.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/09-about-team.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
@@ -139,7 +141,7 @@
   <div class="wrap">
     <div class="story-grid">
       <div class="story-side">
-        <span class="eyebrow">The story</span>
+        <h2 class="story-h">The story</h2>
       </div>
       <div class="story-main">
         <p class="body-lg" style="font-size: 22px; line-height: 1.5; color: var(--ink);">
@@ -204,8 +206,7 @@
   <div class="wrap">
     <div class="where-grid">
       <div>
-        <span class="eyebrow"><span class="dot"></span>Where</span>
-        <h2 class="display" style="font-size: clamp(40px, 5.4vw, 80px); margin-top: 16px;">
+        <h2 class="display" style="font-size: clamp(40px, 5.4vw, 80px); ">
           Built in <span class="italic" style="color: var(--accent);">Johannesburg.</span><br/>Working globally.
         </h2>
         <p class="body-lg" style="margin-top: 24px; max-width: 50ch;">
@@ -238,8 +239,7 @@
 <section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
   <div class="wrap" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div>
-      <span class="eyebrow">Let's talk</span>
-      <h2 class="display" style="font-size: clamp(40px, 6.4vw, 96px); margin-top: 16px;">
+      <h2 class="display" style="font-size: clamp(40px, 6.4vw, 96px); ">
         Got a workflow<br/>that needs <span class="italic">a system?</span>
       </h2>
     </div>
@@ -252,6 +252,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -286,10 +288,11 @@
 .where-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; align-items: center; }
 @media (max-width: 900px) { .where-grid { grid-template-columns: 1fr; gap: 32px; } }
 .where-cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
-.where-card { padding: 20px; background: var(--card); border: 1px solid var(--rule); border-radius: 12px; display: grid; gap: 8px; }
+.where-card { padding: 20px; background: var(--card); border: 1px solid var(--rule); border-radius: 4px; display: grid; gap: 8px; }
 .where-v { font-family: var(--display); font-size: 36px; letter-spacing: -0.02em; line-height: 1; color: var(--ink); }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

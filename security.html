@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -69,30 +69,27 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section sec-hero" style="border-top:none; padding-bottom: 32px;">
-  <svg class="shape-ring" width="520" height="520" viewBox="0 0 520 520" aria-hidden="true" focusable="false">
-    <circle cx="260" cy="260" r="259" fill="none" stroke="currentColor" stroke-width="1"/>
-    <circle cx="260" cy="260" r="180" fill="none" stroke="currentColor" stroke-width="1"/>
-    <circle cx="260" cy="260" r="100" fill="none" stroke="currentColor" stroke-width="1"/>
-  </svg>
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Cybersecurity</span>
-      <span class="eyebrow" style="margin-left:auto;">5 services · One team</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(48px, 9vw, 144px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">5 services · One team</span>
+    <h1 class="display" data-reveal>
       Find it before<br/>they <span class="italic">do</span>.
     </h1>
-    <p class="kicker" style="margin-top: 40px; max-width: 60ch;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="margin-top: 40px; max-width: 60ch; --reveal-delay:120ms;" data-reveal>
       Penetration testing, vulnerability assessment, disaster recovery planning, advanced persistent threat simulation, and whitebox security review for the AI-native and vibe-coded stack. SA-based, compliance-aware, no offshore handoffs.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/07-compliance-fica-kyc.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
 <!-- JUMP-TO STRIP -->
 <section style="border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper-2);">
-  <div class="wrap" style="padding: 16px 0; display:flex; gap: 8px; flex-wrap: wrap; align-items:center;">
+  <div class="wrap" style="padding-block: 16px; display:flex; gap: 8px; flex-wrap: wrap; align-items:center;">
     <span class="eyebrow" style="margin-right: 8px;">Jump to</span>
     <a href="#pentest" class="chip">01 Pen Testing</a>
     <a href="#vuln" class="chip">02 Vulnerability Assessment</a>
@@ -108,7 +105,7 @@
     <div class="practice-head" data-reveal>
       <span class="practice-num">01</span>
       <div>
-        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Black-box, grey-box, or white-box</span>
+        <span class="eyebrow"><span class="dot"></span>Black-box, grey-box, or white-box</span>
         <h2 class="display practice-h">Penetration Testing.</h2>
       </div>
       <img class="practice-img" src="assets/img/spot/07-compliance-fica-kyc.jpg" alt="" loading="lazy" decoding="async" />
@@ -180,7 +177,7 @@
     <div class="practice-head" data-reveal>
       <span class="practice-num">03</span>
       <div>
-        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Plan, document, rehearse</span>
+        <span class="eyebrow"><span class="dot"></span>Plan, document, rehearse</span>
         <h2 class="display practice-h">Disaster Recovery Planning.</h2>
       </div>
       <img class="practice-img" src="assets/img/spot/03-ai-systems.jpg" alt="" loading="lazy" decoding="async" />
@@ -251,7 +248,7 @@
     <div class="practice-head" data-reveal>
       <span class="practice-num">05</span>
       <div>
-        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>For AI-generated and prototyped apps</span>
+        <span class="eyebrow"><span class="dot"></span>For AI-generated and prototyped apps</span>
         <h2 class="display practice-h">Vibe-Coded Whitebox Review.</h2>
       </div>
       <img class="practice-img" src="assets/img/spot/06-engineering-shipping.jpg" alt="" loading="lazy" decoding="async" />
@@ -293,8 +290,7 @@
   <div class="wrap">
     <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;" class="caps-row">
       <div>
-        <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Adjacent work</span>
-        <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 5vw, 64px); margin-top: 12px;">Need compliance, KYC, or audit-grade logging built in?</h2>
+        <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 5vw, 64px); ">Need compliance, KYC, or audit-grade logging built in?</h2>
       </div>
       <div>
         <p class="body-lg" style="color: rgba(255,255,255,0.8); max-width: 44ch;">Our AI services practice ships document agents and decision systems for FICA, KYC, and AML workflows. If security and compliance are the same project, we'll scope them together.</p>
@@ -313,8 +309,7 @@
   </svg>
   <div class="wrap closing-cta-grid">
     <div data-reveal>
-      <span class="eyebrow" style="color: var(--ink);">Next step</span>
-      <h2 class="display" style="font-size: clamp(40px, 6vw, 96px); margin-top: 16px; color: var(--ink);">Find it before <span style="background: var(--ink); color: var(--paper); padding: 0 0.12em;">they do.</span></h2>
+      <h2 class="display" style="font-size: clamp(40px, 6vw, 96px); color: var(--ink);">Find it before <span style="background: var(--ink); color: var(--paper); padding: 0 0.12em;">they do.</span></h2>
     </div>
     <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
       <p class="body-lg" style="color: var(--ink); max-width: 36ch;">Most engagements start with a 30-minute scoping call. We'll tell you which of the five services actually applies and which would just be theatre.</p>
@@ -325,6 +320,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -407,7 +404,7 @@
 .practice-img {
   width: 140px;
   height: 140px;
-  border-radius: 12px;
+  border-radius: 4px;
   object-fit: cover;
   border: 1px solid var(--rule);
   background: var(--paper-2);
@@ -416,7 +413,7 @@
 .practice-num {
   font-family: var(--mono);
   font-size: 56px;
-  color: var(--accent);
+  color: var(--ink);
   font-weight: 500;
   letter-spacing: -0.02em;
   line-height: 1;
@@ -440,7 +437,7 @@
 .tier {
   background: var(--paper);
   border: 1px solid var(--rule);
-  border-radius: 14px;
+  border-radius: 4px;
   padding: 32px;
   display: grid;
   gap: 16px;
@@ -503,6 +500,7 @@
 }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

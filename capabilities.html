@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -64,19 +64,21 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section" style="border-top:none; padding-bottom: 32px;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Other capabilities</span>
-      <span class="eyebrow" style="margin-left:auto;">For existing clients · On request</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(48px, 8vw, 120px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">For existing clients · On request</span>
+    <h1 class="display" data-reveal>
       Still delivered.<br/>No longer <span class="italic">headline.</span>
     </h1>
-    <p class="kicker" style="margin-top: 40px; max-width: 60ch;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="margin-top: 40px; max-width: 60ch; --reveal-delay:120ms;" data-reveal>
       Five practices we still run, but no longer lead with. They sit alongside the seven core <a href="services.html" class="ext-cite">services</a> for bundled engagements and existing client work. If you need any of these on their own, just ask on the call.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/15-capabilities-modules.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
@@ -164,8 +166,7 @@
 <section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
   <div class="wrap closing-cta-grid">
     <div data-reveal>
-      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Need one of these on its own?</span>
-      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">Just ask on the call.</h2>
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); ">Just ask on the call.</h2>
     </div>
     <div data-reveal style="--reveal-delay:120ms; display:grid; gap: 16px;">
       <p class="body-lg" style="color: rgba(255,255,255,0.8); max-width: 36ch;">These capabilities are intact, but we no longer lead with them. Walk us through the problem and we'll tell you honestly whether we're the right shop.</p>
@@ -176,6 +177,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -237,11 +240,9 @@
   gap: 32px;
   padding: 32px;
   border: 1px solid var(--rule);
-  border-radius: 14px;
+  border-radius: 4px;
   background: var(--paper);
-  transition: border-color .2s, transform .2s;
 }
-.cap:hover { border-color: var(--ink); transform: translateY(-2px); }
 .cap-num {
   font-family: var(--mono);
   font-size: 40px;
@@ -304,6 +305,7 @@
 }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

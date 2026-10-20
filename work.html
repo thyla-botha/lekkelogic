@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,7 +103,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="security.html">Security</a>
       <a href="process.html">Process</a>
@@ -118,19 +118,21 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section" style="border-top:none; padding-bottom: 32px;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Selected work</span>
-      <span class="eyebrow" style="margin-left:auto;">2024 to 2026</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">2024 to 2026</span>
+    <h1 class="display" data-reveal>
       Real systems.<br/>Real <span class="italic">numbers.</span>
     </h1>
-    <p class="kicker" style="margin-top: 40px; max-width: 56ch;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="margin-top: 40px; max-width: 56ch; --reveal-delay:120ms;" data-reveal>
       Case studies for our shipped work are being written up with our clients. Until they're published, the quickest path to seeing references is a direct contact request.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/11-work-cases.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
@@ -223,8 +225,7 @@
 <section class="section" style="background: var(--ink); color: var(--paper);">
   <div class="wrap" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div>
-      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Similar problem?</span>
-      <h2 class="display" style="color:var(--paper); font-size: clamp(40px, 6vw, 88px); margin-top: 16px;">
+      <h2 class="display" style="color:var(--paper); font-size: clamp(40px, 6vw, 88px); ">
         Yours probably has<br/>a <span class="italic" style="color:var(--accent);">number</span> too.
       </h2>
     </div>
@@ -239,6 +240,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -284,12 +287,14 @@
   display: grid;
   grid-template-rows: auto 1fr;
   border: 1px solid var(--rule);
-  border-radius: 14px;
+  border-radius: 4px;
   background: var(--card);
   overflow: hidden;
-  transition: transform .25s, border-color .25s, box-shadow .25s;
+  transition: border-color var(--t-fast);
 }
-.case-card:hover { transform: translateY(-3px); border-color: var(--ink); box-shadow: 0 12px 32px rgba(22,20,15,0.08); }
+.case-card:hover { border-color: var(--ink); }
+.case-card .cc-h { transition: transform var(--t-med) var(--ease-out); }
+.case-card:hover .cc-h { transform: translateX(6px); }
 .case-card.feature { grid-column: 1 / -1; grid-template-columns: 1.1fr 1fr; grid-template-rows: 1fr; }
 @media (max-width: 820px) { .case-card.feature { grid-template-columns: 1fr; grid-template-rows: auto 1fr; } }
 
@@ -302,9 +307,9 @@
   overflow: hidden;
   padding: 16px;
 }
-.cc-img.cc-fintech { background: linear-gradient(135deg, #16140F 0%, #2a2620 100%); }
+.cc-img.cc-fintech { background: #16140F; }
 .cc-img.cc-saas { background: var(--paper-2); padding: 24px; }
-.cc-img.cc-media { background: linear-gradient(180deg, #fef9f4 0%, #ffe7d4 100%); padding: 24px; }
+.cc-img.cc-media { background: #F4F1EA; padding: 24px; }
 .cc-img.cc-ops { background: #16140F; padding: 0; }
 .cc-img.cc-fintech-2 { background: var(--paper-2); padding: 20px; }
 .cc-img.cc-saas-2 { background: var(--paper-2); padding: 20px; }
@@ -331,6 +336,7 @@
 .cc-metrics b { display: inline-block; color: var(--ink); font-family: var(--display); font-weight: 400; font-size: 22px; letter-spacing: -0.01em; }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 <script>
 // Filter

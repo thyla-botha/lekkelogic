@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -103,7 +103,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="security.html">Security</a>
       <a href="process.html" class="current">Process</a>
@@ -118,24 +118,26 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section" style="border-top:none;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Process</span>
-      <span class="eyebrow" style="margin-left:auto;">Four phases · 4–8 weeks total</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">Four phases · 4–8 weeks total</span>
+    <h1 class="display" data-reveal>
       No surprises.<br/>No <span class="italic">scope creep.</span>
     </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
       Every project follows the same four phases. We don't sell "agile discovery" as a billable line item. We don't promise to "figure it out together over six months." We tell you what we'll build, when, for how much, and then we build it.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/10-process-steps.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
 <!-- TIMELINE -->
-<section class="section" style="padding-top: 0;">
+<section class="section" style="padding-top: 48px;">
   <div class="wrap">
     <div class="proc-timeline" data-reveal>
       <div class="ptl-bar"></div>
@@ -370,8 +372,7 @@
 <section class="section" style="background: var(--accent); color: var(--ink); border-top: 1px solid var(--accent);">
   <div class="wrap" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div>
-      <span class="eyebrow">Ready?</span>
-      <h2 class="display" style="font-size: clamp(40px, 6vw, 88px); margin-top: 16px;">Let's run the <span class="italic">first phase.</span></h2>
+      <h2 class="display" style="font-size: clamp(40px, 6vw, 88px); ">Let's run the <span class="italic">first phase.</span></h2>
     </div>
     <div style="display:grid; gap: 16px;">
       <p class="body-lg" style="max-width: 36ch;">A paid discovery sprint pays for itself, even if we conclude you shouldn't build.</p>
@@ -382,6 +383,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -431,7 +434,7 @@
   font-size: 120px;
   line-height: 0.9;
   letter-spacing: -0.03em;
-  color: var(--accent);
+  color: var(--ink);
 }
 .phase-len { font-family: var(--mono); font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink); }
 .phase-tag {
@@ -466,7 +469,7 @@
 .phase-list li { padding-left: 18px; position: relative; }
 .phase-list li::before { content: ""; position: absolute; left: 0; top: 0.6em; width: 8px; height: 1px; background: var(--accent); }
 
-.gantt { display: grid; gap: 6px; padding: 24px; background: var(--card); border-radius: 14px; border: 1px solid var(--rule); }
+.gantt { display: grid; gap: 6px; padding: 24px; background: var(--card); border-radius: 4px; border: 1px solid var(--rule); }
 .g-row { display: grid; grid-template-columns: 100px 1fr; gap: 12px; align-items: center; }
 .g-l { font-family: var(--mono); font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
 .g-bar { position: relative; height: 26px; background: rgba(22,20,15,0.05); border-radius: 6px; }
@@ -476,6 +479,7 @@
 .g-axis > span:not(:first-child) { text-align: left; padding-left: 6px; }
 </style>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

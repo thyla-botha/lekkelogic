@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -69,7 +69,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="index.html"><span class="brand-mark">L</span><span><span class="brand-word">lekke</span>&nbsp;logic</span></a>
-    <nav class="nav-links">
+    <nav class="nav-links" aria-label="Primary">
       <a href="services.html">Services</a>
       <a href="security.html">Security</a>
       <a href="process.html">Process</a>
@@ -84,19 +84,21 @@
   </div>
 </header>
 
+<main id="main">
+
 <!-- HERO -->
 <section class="section" style="border-top:none;">
-  <div class="wrap">
-    <div style="display:flex; align-items:baseline; gap: 24px; padding-bottom: 28px;">
-      <span class="eyebrow"><span class="dot"></span>Writing</span>
-      <span class="eyebrow" style="margin-left:auto;">15 posts · Updated 2026-05-29</span>
-    </div>
-    <h1 class="display" style="font-size: clamp(56px, 9vw, 144px);" data-reveal>
+  <div class="wrap hero-split">
+    <div class="hero-copy">
+      <span class="eyebrow hero-meta">15 posts · Updated 2026-05-29</span>
+    <h1 class="display" data-reveal>
       Field notes<br/>from <span class="italic">production.</span>
     </h1>
-    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px;" data-reveal style="--reveal-delay:120ms;">
+    <p class="kicker" style="font-size: 20px; max-width: 56ch; margin-top: 40px; --reveal-delay:120ms;" data-reveal>
       Teardowns of AI and security systems we've built. Opinions on where the consulting space is wrong. No fluff, no listicles, no AI-generated mush.
     </p>
+    </div>
+    <figure class="page-art draft" data-reveal><img src="assets/img/spot/14-writing-pages.jpg" alt="" width="1000" height="1000" decoding="async" fetchpriority="high"></figure>
   </div>
 </section>
 
@@ -220,8 +222,7 @@
 <section class="section" style="background: var(--ink); color: var(--paper); border-top: 1px solid var(--ink);">
   <div class="wrap closing-cta-grid" style="display:grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end;">
     <div data-reveal>
-      <span class="eyebrow" style="color: var(--accent);"><span class="dot"></span>Got a problem to solve?</span>
-      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); margin-top: 12px;">
+      <h2 class="display" style="color: var(--paper); font-size: clamp(36px, 6vw, 80px); ">
         Don't wait for the <span style="color: var(--accent);">blog.</span>
       </h2>
     </div>
@@ -236,6 +237,8 @@
     </div>
   </div>
 </section>
+
+</main>
 
 <!-- FOOTER -->
 <footer class="foot">
@@ -253,6 +256,7 @@
   </div>
 </footer>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
